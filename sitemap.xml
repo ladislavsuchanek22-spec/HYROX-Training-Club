@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://hyroxtrainingclub.cz/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://hyroxtrainingclub.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hyroxtrainingclub.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hyroxtrainingclub.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://hyroxtrainingclub.cz/pl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hyroxtrainingclub.cz/"/>
+  </url>
+  <url>
+    <loc>https://hyroxtrainingclub.cz/en/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://hyroxtrainingclub.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hyroxtrainingclub.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hyroxtrainingclub.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://hyroxtrainingclub.cz/pl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hyroxtrainingclub.cz/"/>
+  </url>
+  <url>
+    <loc>https://hyroxtrainingclub.cz/de/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://hyroxtrainingclub.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hyroxtrainingclub.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hyroxtrainingclub.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://hyroxtrainingclub.cz/pl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hyroxtrainingclub.cz/"/>
+  </url>
+  <url>
+    <loc>https://hyroxtrainingclub.cz/pl/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://hyroxtrainingclub.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hyroxtrainingclub.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hyroxtrainingclub.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://hyroxtrainingclub.cz/pl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hyroxtrainingclub.cz/"/>
+  </url>
+</urlset>
