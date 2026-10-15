@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HYROX Training Club</title>
+<meta name="description" content="Offizieller HYROX Training Club bei Form Factory. Training nach dem HYROX365-Programm in Prag, Brünn und Ostrava.">
+<meta property="og:title" content="HYROX Training Club · Form Factory">
+<meta property="og:description" content="Training nach dem offiziellen HYROX365-Programm. Prag, Brünn, Ostrava.">
+<meta property="og:image" content="https://hyroxtrainingclub.cz/img/hero.jpg">
+<link rel="canonical" href="https://hyroxtrainingclub.cz/de/">
+<link rel="alternate" hreflang="cs" href="https://hyroxtrainingclub.cz/">
+<link rel="alternate" hreflang="en" href="https://hyroxtrainingclub.cz/en/">
+<link rel="alternate" hreflang="de" href="https://hyroxtrainingclub.cz/de/">
+<link rel="alternate" hreflang="pl" href="https://hyroxtrainingclub.cz/pl/">
+<link rel="alternate" hreflang="x-default" href="https://hyroxtrainingclub.cz/">
+<link rel="icon" href="/img/ff-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: noční tréninková hala Form Factory — černá s modrým nádechem, bílé čáry běžeckých drah jako dělítka, červená FF jako jediný akcent */
+:root{
+  --bg:#090B13;
+  --surface:#11152A;
+  --surface-2:#181D38;
+  --line:#262C4D;
+  --fg:#F2F4FA;
+  --muted:#9AA3C2;
+  --red:#A50F2D;
+  --red-hi:#E5304F;
+  --blue:#4A63FF;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.01em}
+h2{font-size:clamp(40px,6vw,72px);font-weight:800}
+h3{font-size:28px;font-weight:700}
+p{margin:0}
+.eyebrow{font:600 13px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--red-hi);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--red-hi)}
+.lead{color:var(--muted);font-size:19px;max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 17px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:16px 26px;border:2px solid transparent;transition:background .2s,border-color .2s,transform .2s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hi);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--fg);color:var(--fg)}
+.btn-ghost:hover{background:var(--fg);color:var(--bg)}
+section{padding-block:clamp(72px,10vw,128px)}
+/* lane divider — bílé čáry drah z podlahy klubu */
+.lanes{height:34px;background:
+  repeating-linear-gradient(90deg,transparent 0 calc(25% - 2px),rgba(242,244,250,.55) calc(25% - 2px) 25%),
+  linear-gradient(var(--bg),var(--bg));
+  border-block:2px solid rgba(242,244,250,.55);opacity:.35}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(9,11,19,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:40px;height:40px}
+.brand b{font:800 20px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase}
+.brand small{display:block;font:500 11px/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font:600 15px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nav ul a:hover{color:var(--fg)}
+.nav .btn{padding:11px 18px;font-size:15px}
+@media (max-width:900px){.nav ul{display:none}}
+@media (max-width:420px){.brand small{display:none}.nav .btn{padding:10px 12px;font-size:13px}}
+
+/* HERO */
+.hero{position:relative;padding-block:0;overflow:hidden;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.96) 0%,rgba(9,11,19,.78) 45%,rgba(9,11,19,.25) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 35%)}
+.hero .wrap{padding-block:clamp(90px,14vw,170px) clamp(56px,8vw,96px);display:grid;gap:28px}
+.hero h1{font-size:clamp(58px,11vw,148px);font-weight:800;line-height:.86}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--fg)}
+.hero h1 em{font-style:normal;color:var(--red-hi)}
+.hero .lead{color:#C9CFE4;max-width:52ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+.cities{font:500 14px/1 var(--f-mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.cities b{color:var(--fg);font-weight:500}
+
+/* STATS — formát závodu */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 20px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat strong{display:block;font:800 clamp(40px,5vw,58px)/1 var(--f-display);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:15px}
+@media (max-width:700px){.stats .wrap{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* ABOUT */
+.about .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,80px);align-items:center}
+.about-text{display:grid;gap:22px;min-width:0}
+.about-text p{color:var(--muted);max-width:60ch}
+.about-text p strong{color:var(--fg);font-weight:600}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.pillars div{background:var(--bg);padding:18px 20px}
+.pillars b{display:block;font:700 20px/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.pillars span{color:var(--muted);font-size:15px;line-height:1.45}
+.about-img{position:relative;min-width:0}
+.about-img img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.about-img figcaption{position:absolute;left:0;bottom:0;background:var(--red);color:#fff;font:600 13px/1.3 var(--f-mono);letter-spacing:.06em;padding:10px 14px;text-transform:uppercase}
+@media (max-width:860px){.about .wrap{grid-template-columns:1fr}.about-img img{aspect-ratio:4/3}}
+
+/* PROGRAMS */
+.programs{background:var(--surface)}
+.sec-head{display:grid;gap:18px;margin-bottom:48px}
+.prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prog{background:var(--bg);border:1px solid var(--line);padding:28px 24px 26px;display:flex;flex-direction:column;gap:14px;min-width:0;position:relative;transition:border-color .2s,transform .2s}
+.prog:hover{border-color:var(--blue);transform:translateY(-3px)}
+.prog .tag{font:500 12px/1 var(--f-mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.prog h3{font-size:clamp(34px,3.4vw,44px)}
+.prog .claim{font-weight:600;color:var(--fg)}
+.prog ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:var(--muted);font-size:15px}
+.prog li{display:flex;gap:10px;line-height:1.4}
+.prog li::before{content:"";flex:0 0 8px;height:8px;margin-top:6px;background:var(--red-hi)}
+.prog .who{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-size:15px;color:var(--muted)}
+.prog .who b{color:var(--fg);font-weight:600}
+.meter{display:flex;gap:4px}
+.meter i{flex:1;height:5px;background:var(--line)}
+.meter i.on{background:var(--blue)}
+.prog-note{margin-top:28px;display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);padding:20px 22px;background:var(--bg);color:var(--muted)}
+.prog-note b{color:var(--fg)}
+.prog-note .ic{flex:0 0 auto;font:800 28px/1 var(--f-display);color:var(--blue)}
+@media (max-width:1000px){.prog-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.prog-grid{grid-template-columns:1fr}}
+
+/* RACE */
+.race .wrap{display:grid;gap:48px}
+.race-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:end}
+@media (max-width:860px){.race-top{grid-template-columns:1fr}}
+.race-top img{width:100%;aspect-ratio:12/6.5;object-fit:cover}
+.track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+.leg{padding:20px 18px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:6px;min-width:0}
+.leg:nth-child(4n){border-right:0}
+.leg:nth-last-child(-n+4){border-bottom:0}
+.leg .run{font:500 12px/1 var(--f-mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.leg .no{font:500 12px/1 var(--f-mono);color:var(--red-hi)}
+.leg b{font:700 24px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em}
+.leg span{font:500 15px/1.2 var(--f-mono);font-variant-numeric:tabular-nums;color:var(--fg)}
+@media (max-width:760px){.track{grid-template-columns:1fr 1fr}.leg:nth-child(4n){border-right:1px solid var(--line)}.leg:nth-child(2n){border-right:0}.leg:nth-last-child(-n+4){border-bottom:1px solid var(--line)}.leg:nth-last-child(-n+2){border-bottom:0}}
+.truths{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.truths div{display:grid;gap:8px;align-content:start}
+.truths b{font:700 22px/1.1 var(--f-display);text-transform:uppercase}
+.truths p{color:var(--muted);font-size:16px}
+@media (max-width:760px){.truths{grid-template-columns:1fr}}
+
+/* HOW / WHO */
+.how{background:var(--surface)}
+.how .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:860px){.how .wrap{grid-template-columns:1fr}}
+.how-img img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.how-body{display:grid;gap:40px;min-width:0}
+.steps{display:grid;gap:0;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.step .n{font:800 40px/1 var(--f-display);color:var(--red-hi)}
+.step b{display:block;font:700 22px/1.1 var(--f-display);text-transform:uppercase;margin-bottom:4px}
+.step p{color:var(--muted);font-size:16px}
+.forwho{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.forwho div{border:1px solid var(--line);padding:16px 18px;background:var(--bg);font-size:16px;color:var(--muted)}
+.forwho div b{color:var(--fg);display:block;font-weight:600}
+@media (max-width:480px){.forwho{grid-template-columns:1fr}}
+
+/* COACHES */
+.coaches{padding-bottom:0}
+.coach-banner{margin-top:48px;position:relative}
+.coach-banner img{width:100%;aspect-ratio:1800/720;object-fit:cover}
+.coach-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.coach{background:var(--surface);border:1px solid var(--line);padding:28px;display:grid;gap:12px;min-width:0}
+.coach h3{font-size:36px}
+.coach .role{font:500 13px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--red-hi)}
+.coach p{color:var(--muted);font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font:500 12px/1 var(--f-mono);letter-spacing:.04em;padding:7px 9px;border:1px solid var(--line);color:var(--fg)}
+@media (max-width:760px){.coach-grid{grid-template-columns:1fr}.coach-banner img{aspect-ratio:16/9}}
+
+/* CLUBS */
+.club-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1000px){.club-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.club-grid{grid-template-columns:1fr}}
+.club{border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.club-top{padding:22px 22px 18px;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.club .city{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red-hi)}
+.club h3{font-size:34px}
+.club dl{margin:0;padding:18px 22px;display:grid;gap:12px;font-size:15px;flex:1}
+.club dt{font:500 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.club dd{margin:0;line-height:1.45;font-variant-numeric:tabular-nums}
+.club dd a.ct{text-decoration:none;border-bottom:1px solid var(--line)}
+.club dd a.ct:hover{color:var(--red-hi);border-color:var(--red-hi)}
+.club-links{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.club-links a{padding:14px 10px;text-align:center;text-decoration:none;font:700 14px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase}
+.club-links a:first-child{background:var(--red);color:#fff}
+.club-links a:first-child:hover{background:var(--red-hi)}
+.club-links a:last-child:hover{background:var(--surface-2)}
+
+/* GALLERY */
+.gallery{padding-top:0}
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:8px}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal .a{grid-row:span 2}
+.gal .d{grid-column:span 2}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gal img{aspect-ratio:1}.gal .a{grid-column:span 2;grid-row:auto}.gal .a img{aspect-ratio:16/10}.gal .d{grid-column:span 2}.gal .d img{aspect-ratio:16/9}}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;isolation:isolate;text-align:left}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:url("/img/sled.jpg") center 60%/cover}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.95),rgba(9,11,19,.7))}
+.cta .wrap{display:grid;gap:24px}
+.cta h2{font-size:clamp(46px,8vw,104px)}
+.cta .lead{color:#C9CFE4}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+
+footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer a{color:var(--fg)}
+</style>
+<style>
+.langs{display:flex;gap:2px;border:1px solid var(--line)}
+.langs a{font:600 13px/1 var(--f-mono);letter-spacing:.06em;text-decoration:none;color:var(--muted);padding:8px 8px}
+.langs a:hover{color:var(--fg)}
+.langs a[aria-current]{background:var(--fg);color:var(--bg)}
+.nav-right{display:flex;align-items:center;gap:12px}
+@media (max-width:520px){.nav .btn{display:none}.langs a{padding:7px 6px;font-size:12px}}
+</style>
+<style>body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/de/">
+      <img src="/img/ff-logo.jpg" alt="Form Factory">
+      <span><b>HYROX Training Club</b><small>Form Factory · Prag · Brünn · Ostrava</small></span>
+    </a>
+    <ul>
+      <li><a href="#programy">Programme</a></li>
+      <li><a href="#zavod">Das Rennen</a></li>
+      <li><a href="#treneri">Coaches</a></li>
+      <li><a href="#kluby">Clubs</a></li>
+    </ul>
+    <div class="nav-right">
+      <nav class="langs" aria-label="Language"><a href="/" hreflang="cs" lang="cs">CZ</a><a href="/en/" hreflang="en" lang="en">EN</a><a href="/de/" hreflang="de" lang="de" aria-current="page">DE</a><a href="/pl/" hreflang="pl" lang="pl">PL</a></nav>
+      <a class="btn btn-red" href="https://www.formfactory.cz/en/hyrox/#timetables" target="_blank" rel="noopener">Buchen</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-img"><img src="/img/hero.jpg" alt="Coach beim Briefing vor einer HYROX-Simulation bei Form Factory"></div>
+    <div class="wrap">
+      <p class="eyebrow">Offizieller HYROX Training Club</p>
+      <h1>HYROX<span>Training</span><em>Club</em></h1>
+      <p class="lead">Training nach dem offiziellen HYROX365-Programm. Laufen, Kraft, Stationen und Arbeit unter Ermüdung. Gecoacht von Leuten, die selbst Rennen laufen. Kein zufälliges Workout, sondern ein Plan mit Richtung.</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="https://www.formfactory.cz/en/hyrox/#timetables" target="_blank" rel="noopener">Kurs buchen →</a>
+        <a class="btn btn-ghost" href="#kluby">Club finden</a>
+      </div>
+      <p class="cities"><b>Prag</b> Na Knížecí · Vinohradská &nbsp;/&nbsp; <b>Brünn</b> Campus &nbsp;/&nbsp; <b>Ostrava</b> Hrabová</p>
+    </div>
+  </section>
+
+  <div class="stats" aria-label="HYROX in Zahlen">
+    <div class="wrap">
+      <div class="stat"><strong>8 km</strong><span>Laufen im Rennen</span></div>
+      <div class="stat"><strong>8</strong><span>funktionelle Stationen</span></div>
+      <div class="stat"><strong>4</strong><span>HYROX365-Trainingsschwerpunkte</span></div>
+      <div class="stat"><strong>4</strong><span>Form Factory Clubs</span></div>
+    </div>
+  </div>
+
+  <section class="about" id="klub">
+    <div class="wrap">
+      <div class="about-text">
+        <p class="eyebrow">Was ist ein HYROX Training Club</p>
+        <h2>Training mit Struktur. Nicht nur hart.</h2>
+        <p><strong>Ein HYROX Training Club ist ein akkreditiertes Studio, das nach dem offiziellen HYROX-Programm trainiert.</strong> Wir denken uns die Einheiten nicht spontan aus. Sie basieren auf der HYROX365-Methodik, die HYROX selbst entwickelt hat, und auf Coaches, die selbst Rennen laufen.</p>
+        <p>HYROX überträgt die Prinzipien des Rennens in ein Training für alle. Du musst keinen Start planen. Es reicht, stärker werden zu wollen, länger durchzuhalten und Fortschritt zu sehen. Und wenn du ein Rennen planst, bist du bereit.</p>
+        <div class="pillars">
+          <div><b>Laufen</b><span>Ein Tempo, das du auch nach dem Schlitten hältst.</span></div>
+          <div><b>Kraft</b><span>Die auch unter Ermüdung funktioniert.</span></div>
+          <div><b>Stationen</b><span>Technik, die Sekunden und Energie spart.</span></div>
+          <div><b>Kopf</b><span>Anziehen, durchhalten, nicht loslassen.</span></div>
+        </div>
+      </div>
+      <figure class="about-img" style="margin:0">
+        <img src="/img/test.jpg" alt="Athleten nach einem Benchmark-Test auf den Laufbahnen des Clubs">
+        <figcaption>Benchmark-Test · Form Factory Na Knížecí</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="lanes" aria-hidden="true"></div>
+
+  <section class="programs" id="programy">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">HYROX365 Group Training</p>
+        <h2>Vier Schwerpunkte. Eine Leistung.</h2>
+        <p class="lead">Menschen sind verschieden, also passt nicht ein Kurs für alle. Deshalb arbeitet HYROX365 mit vier Formaten. Jedes entwickelt einen anderen Teil der Leistung. Zusammen bereiten sie dich auf das Rennen und auf das Leben außerhalb des Gyms vor.</p>
+      </div>
+      <div class="prog-grid">
+        <article class="prog">
+          <span class="tag">Basis</span>
+          <h3>Foundational</h3>
+          <div class="meter" aria-label="Intensität 2/5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <p class="claim">Zirkeltraining mit Sinn.</p>
+          <ul><li>Kraft und Ausdauer in einem</li><li>aerobe Kapazität</li><li>Technik, Beweglichkeit, Mobilität</li></ul>
+          <p class="who"><b>Für wen:</b> ideal für Einsteiger, auch für Fortgeschrittene ehrliche Arbeit. Skalierbar für jedes Level.</p>
+        </article>
+        <article class="prog">
+          <span class="tag">Kondition</span>
+          <h3>Engine</h3>
+          <div class="meter" aria-label="Intensität 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p class="claim">Größerer Motor. Längere Leistung.</p>
+          <ul><li>aerobe Leistung und Pacing</li><li>Laktatschwelle und -toleranz</li><li>Effizienz auf den Ergometern</li></ul>
+          <p class="who"><b>Für wen:</b> für Starke, denen Ausdauer, Laufen oder Sicherheit auf SkiErg und Rudergerät fehlen.</p>
+        </article>
+        <article class="prog">
+          <span class="tag">Kraft</span>
+          <h3>Power</h3>
+          <div class="meter" aria-label="Intensität 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p class="claim">Kraft, die auch bei Kilometer 7 hält.</p>
+          <ul><li>Maximal- und Wiederholungskraft</li><li>Kraftausdauer und Explosivität</li><li>Arbeit mit Last über Zeit</li></ul>
+          <p class="who"><b>Für wen:</b> für Läufer und Ausdauersportler, denen beim Schlitten, bei Lunges und Farmers Carry die Kraft ausgeht.</p>
+        </article>
+        <article class="prog">
+          <span class="tag">Race-specific</span>
+          <h3>Complete</h3>
+          <div class="meter" aria-label="Intensität 5/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p class="claim">HYROX in Trainingsform.</p>
+          <ul><li>Laufen, Stationen und Übergänge</li><li>Kondition und Kraft zugleich</li><li>Rennrhythmus und Kopf</li></ul>
+          <p class="who"><b>Für wen:</b> für alle, die ein Renndatum im Kalender haben und wissen wollen, was sie erwartet.</p>
+        </article>
+      </div>
+      <div class="prog-note"><span class="ic">↻</span><p><b>Den Schwerpunkt wählst du nicht, das Programm wechselt ihn für dich.</b> Du kommst zum Kurs und der Coach weiß, woran heute gearbeitet wird. Über die Wochen durchläufst du Basis, Kondition, Kraft und rennspezifische Arbeit. Genau so entsteht eine Leistung, die alle 8 Kilometer hält.</p></div>
+    </div>
+  </section>
+
+  <section class="race" id="zavod">
+    <div class="wrap">
+      <div class="race-top">
+        <div class="sec-head" style="margin:0">
+          <p class="eyebrow">Rennformat</p>
+          <h2>8× 1 km Laufen. 8× Station.</h2>
+          <p class="lead">Die Reihenfolge ist bei jedem Rennen weltweit gleich. Deshalb kann man sich gezielt darauf vorbereiten. Und deshalb hat bei uns jede Einheit einen Ausgangspunkt und ein Ziel.</p>
+        </div>
+        <img src="/img/stations.jpg" alt="Athletinnen an den Stationen Sled Pull, Sandbag Lunges und Wall Balls">
+      </div>
+      <div class="track" role="list" aria-label="Reihenfolge der Stationen im HYROX-Rennen"><div class="leg" role="listitem"><span class="run">1 km run →</span><span class="no">01</span><b>SkiErg</b><span>1 000 m</span></div><div class="leg" role="listitem"><span class="run">1 km run →</span><span class="no">02</span><b>Sled Push</b><span>50 m</span></div><div class="leg" role="listitem"><span class="run">1 km run →</span><span class="no">03</span><b>Sled Pull</b><span>50 m</span></div><div class="leg" role="listitem"><span class="run">1 km run →</span><span class="no">04</span><b>Burpee Broad Jump</b><span>80 m</span></div><div class="leg" role="listitem"><span class="run">1 km run →</span><span class="no">05</span><b>Rowing</b><span>1 000 m</span></div><div class="leg" role="listitem"><span class="run">1 km run →</span><span class="no">06</span><b>Farmers Carry</b><span>200 m</span></div><div class="leg" role="listitem"><span class="run">1 km run →</span><span class="no">07</span><b>Sandbag Lunges</b><span>100 m</span></div><div class="leg" role="listitem"><span class="run">1 km run →</span><span class="no">08</span><b>Wall Balls</b><span>100 Wdh.</span></div></div>
+      <div class="truths">
+        <div><b>Laufen entscheidet</b><p>Die Hälfte der Rennzeit ist Laufen. Wer nach einer Station nicht laufen kann, verliert auf jedem Kilometer.</p></div>
+        <div><b>Übergänge und Tempo</b><p>Roxzone, Einstieg in die Station, die ersten Schritte nach dem Schlitten. Hier gehen Minuten verloren, die niemand sieht.</p></div>
+        <div><b>Der Kopf am Ende</b><p>Wall Balls nach 7 km Laufen sind eine andere Übung als frisch. Wir trainieren Arbeit unter Ermüdung, nicht nur Kraft.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <div class="how-img"><img src="/img/ria-mic.jpg" alt="Head Coach Ria feuert die Gruppe bei einer HYROX-Simulation an" style="aspect-ratio:4/5"></div>
+      <div class="how-body">
+        <div class="sec-head" style="margin:0">
+          <p class="eyebrow">So funktioniert's</p>
+          <h2>Kommen. Anpacken. Besser werden.</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><span class="n">1</span><div><b>Kurs buchen</b><p>In der App Moje Form Factory oder online. Die Kurse sind in der Mitgliedschaft enthalten.</p></div></div>
+          <div class="step"><span class="n">2</span><div><b>Der Coach führt, du arbeitest</b><p>Aufwärmen, Technik, Hauptteil. Gewichte und Tempo werden an dein Level angepasst.</p></div></div>
+          <div class="step"><span class="n">3</span><div><b>Fortschritt messen</b><p>Benchmark-Tests und Simulationen zeigen, wo du stehst und was sich nach ein paar Wochen verändert hat.</p></div></div>
+        </div>
+        <div class="forwho">
+          <div><b>Einsteiger</b>Du brauchst keine Erfahrung und keine Form. Du musst nur kommen.</div>
+          <div><b>Kraftsportler</b>Wir ergänzen Ausdauer und Laufen, damit dir die Kraft nicht auf halber Strecke ausgeht.</div>
+          <div><b>Läufer</b>Wir ergänzen Kraft, damit dich der Schlitten nicht stoppt.</div>
+          <div><b>Rennvorbereitung</b>Du bekommst Struktur, Pacing und einen Plan für den Renntag.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coaches" id="treneri">
+    <div class="wrap">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Coaches</p>
+        <h2>Gecoacht von Leuten, die es selbst laufen.</h2>
+        <p class="lead">Hinter dem HYROX Training Club steht das Team STR2G (Stronger Together). Wir trainieren, wir starten bei Rennen und wissen, wie sich Kilometer sieben anfühlt.</p>
+      </div>
+    </div>
+    <figure class="coach-banner" style="margin-inline:0;margin-bottom:0;margin-top:48px">
+      <img src="/img/coaches.jpg" alt="Ria Suchánek Hrušovská und Ladislav Suchánek bei einem HYROX-Rennen">
+    </figure>
+    <div class="wrap">
+      <div class="coach-grid">
+        <article class="coach">
+          <span class="role">Head Coach · HYROX Performance Coach</span>
+          <h3>Ria Suchánek Hrušovská, MSc.</h3>
+          <p>Head Coach des HYROX Training Clubs, Trainerin und Athletin. Sie steht hinter der Trainingsmethodik der Clubs. Technik, Stabilität und Kopf. Sie holt Energie aus der Gruppe und das Maximum aus jedem Einzelnen heraus, ohne ihn zu verheizen.</p>
+          <div class="chips"><span>HYROX Performance Coach</span><span>CrossFit L2</span><span>Mental Coach</span><span>Aarmy Coach</span><span>Les Mills</span><span>Ernährungsspezialistin</span><span>DNS</span></div>
+        </article>
+        <article class="coach">
+          <span class="role">Coach · HYROX Performance Coach</span>
+          <h3>Ladislav Suchánek</h3>
+          <p>Trainer und aktiver HYROX-Athlet. Er verbindet Kraft, Kondition, Laufen und mentale Vorbereitung zu einem Training, das Sinn ergibt. Coacht Athleten in den Clubs und online weltweit.</p>
+          <div class="chips"><span>HYROX Performance Coach L1</span><span>CrossFit L1</span><span>OPEX CCP</span><span>Precision Nutrition L1</span><span>Lauftrainer</span><span>Sportmasseur</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="clubs" id="kluby">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Wo wir trainieren</p>
+        <h2>Vier Clubs. Drei Städte.</h2>
+        <p class="lead">Alle Clubs haben eine HYROX-Zone mit Schlitten, SkiErgs, Rudergeräten und Laufbahnen. Nach dem Training Sauna, in der Mitgliedschaft enthalten.</p>
+      </div>
+      <div class="club-grid"><article class="club">
+          <div class="club-top"><span class="city">Prag 5 · Nový Smíchov</span><h3>Na Knížecí</h3></div>
+          <dl>
+            <div><dt>Adresse</dt><dd>Ostrovského 464/6<br>150 00 Praha 5</dd></div>
+            <div><dt>Öffnungszeiten</dt><dd>Mo–Fr 6:30–22:00<br>Sa–So 8:00–21:00</dd></div>
+            <div><dt>Kontakt</dt><dd><a class="ct" href="tel:+420722077070">+420 773 798 400</a><br><a class="ct" href="mailto:info@hyrox-czech.cz">naknizeci@formfactory.cz</a></dd></div>
+          </dl>
+          <div class="club-links"><a href="https://naknizeci.formfactory.cz/calendar" target="_blank" rel="noopener">Kursplan</a><a href="https://maps.app.goo.gl/doW5HCVQpwKnfNVX9" target="_blank" rel="noopener">Karte</a></div>
+        </article><article class="club">
+          <div class="club-top"><span class="city">Prag 3 · Vinohrady</span><h3>Vinohradská</h3></div>
+          <dl>
+            <div><dt>Adresse</dt><dd>Vinohradská 190<br>130 00 Praha 3</dd></div>
+            <div><dt>Öffnungszeiten</dt><dd>Mo–Fr 6:00–23:00<br>Sa–So 8:00–21:00</dd></div>
+            <div><dt>Kontakt</dt><dd><a class="ct" href="tel:+420722077070">+420 770 399 902</a><br><a class="ct" href="mailto:info@hyrox-czech.cz">vinohradska@formfactory.cz</a></dd></div>
+          </dl>
+          <div class="club-links"><a href="https://vinohradska.formfactory.cz/calendar" target="_blank" rel="noopener">Kursplan</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Form+Factory+Vinohradsk%C3%A1+190+Praha" target="_blank" rel="noopener">Karte</a></div>
+        </article><article class="club">
+          <div class="club-top"><span class="city">Brünn · Starý Lískovec</span><h3>Campus</h3></div>
+          <dl>
+            <div><dt>Adresse</dt><dd>Palachovo náměstí 726/2<br>625 00 Brno</dd></div>
+            <div><dt>Öffnungszeiten</dt><dd>Mo–Fr 6:00–22:00<br>Sa–So 8:00–21:00</dd></div>
+            <div><dt>Kontakt</dt><dd><a class="ct" href="tel:+420722077070">+420 778 732 586</a><br><a class="ct" href="mailto:info@hyrox-czech.cz">campus@formfactory.cz</a></dd></div>
+          </dl>
+          <div class="club-links"><a href="https://campusbrno.formfactory.cz/calendar" target="_blank" rel="noopener">Kursplan</a><a href="https://maps.app.goo.gl/tgAFsQ54cxxRUjnD7" target="_blank" rel="noopener">Karte</a></div>
+        </article><article class="club">
+          <div class="club-top"><span class="city">Ostrava · Hrabová</span><h3>Hrabová</h3></div>
+          <dl>
+            <div><dt>Adresse</dt><dd>Krmelínská 646/22<br>720 00 Ostrava 20</dd></div>
+            <div><dt>Öffnungszeiten</dt><dd>Mo–Fr 6:00–21:00<br>Sa–So 8:00–20:00</dd></div>
+            <div><dt>Kontakt</dt><dd><a class="ct" href="tel:+420722077070">+420 776 361 057</a><br><a class="ct" href="mailto:info@hyrox-czech.cz">hrabova@formfactory.cz</a></dd></div>
+          </dl>
+          <div class="club-links"><a href="https://hrabova.formfactory.cz/calendar" target="_blank" rel="noopener">Kursplan</a><a href="https://maps.app.goo.gl/NYk2WWFvBfmfdWLE7" target="_blank" rel="noopener">Karte</a></div>
+        </article></div>
+    </div>
+  </section>
+
+  <section class="gallery" aria-label="Fotos aus dem Club">
+    <div class="wrap">
+      <div class="gal">
+        <img class="a" src="/img/group-v.jpg" alt="Gruppenfoto der Mitglieder des HYROX Training Clubs">
+        <img src="/img/sled.jpg" alt="Sled Push in der HYROX-Zone von Form Factory">
+        <img src="/img/test.jpg" alt="Nach dem Benchmark-Test" style="object-position:center 60%">
+        <img class="d" src="/img/group.jpg" alt="Mitglieder des HYROX Training Clubs nach dem Training">
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <p class="eyebrow">Erster Kurs</p>
+      <h2>Stronger<br>together.</h2>
+      <p class="lead">Bring Schuhe, Handtuch und etwas zu trinken mit. Komm ein paar Minuten früher. Den Rest machen wir zusammen.</p>
+      <div class="cta-row">
+        <a class="btn btn-red" href="https://www.formfactory.cz/en/hyrox/#timetables" target="_blank" rel="noopener">Kurs buchen →</a>
+        <a class="btn btn-ghost" href="https://www.formfactory.cz/en/" target="_blank" rel="noopener">Erster Besuch bei Form Factory</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>HYROX Training Club · Form Factory × STR2G</span>
+    <span><a href="https://www.formfactory.cz/en/hyrox/" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a></span>
+  </div>
+</footer>
+</body>
+</html>
