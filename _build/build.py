@@ -110,7 +110,7 @@ T["cs"] = dict(
   cta_eyebrow="První lekce",
   cta_lead="Vezmi si tenisky, ručník a pití. Přijď pár minut dřív. Zbytek uděláme spolu.",
   cta_b1="Rezervovat lekci →", cta_b2="První vstup do Form Factory",
-  lada_link='Osobní trénink a online coaching · hyrox-prague.eu →', co_more='Online programy STR2G →', ffg_b='Factory Games · 5. 12. 2026', ffg_t='Vyzkoušej si závodní den naostro. Individuální závod ve Form Factory Vinohradská: tři workouty, čtyři kategorie, 100 atletů.', ffg_link='Více o závodě →',
+  lada_link='Osobní trénink a online coaching · hyrox-prague.eu →', co_more='Online programy STR2G →', ffg_b='Form Factory Games · 5. 12. 2026', ffg_t='Vyzkoušej si závodní den naostro. Individuální závod ve Form Factory Vinohradská: tři workouty, čtyři kategorie, 100 atletů.', ffg_link='Více o závodě →',
 )
 
 T["en"] = dict(
@@ -185,7 +185,7 @@ T["en"] = dict(
   cta_eyebrow="First class",
   cta_lead="Bring trainers, a towel and a drink. Come a few minutes early. We'll do the rest together.",
   cta_b1="Book a class →", cta_b2="First visit to Form Factory",
-  lada_link='Personal training and online coaching · hyrox-prague.eu →', co_more='STR2G online programs →', ffg_b='Factory Games · 5 Dec 2026', ffg_t='Try race day for real. An individual competition at Form Factory Vinohradská: three workouts, four divisions, 100 athletes.', ffg_link='About the race →',
+  lada_link='Personal training and online coaching · hyrox-prague.eu →', co_more='STR2G online programs →', ffg_b='Form Factory Games · 5 Dec 2026', ffg_t='Try race day for real. An individual competition at Form Factory Vinohradská: three workouts, four divisions, 100 athletes.', ffg_link='About the race →',
 )
 
 T["de"] = dict(
@@ -260,7 +260,7 @@ T["de"] = dict(
   cta_eyebrow="Erster Kurs",
   cta_lead="Bring Schuhe, Handtuch und etwas zu trinken mit. Komm ein paar Minuten früher. Den Rest machen wir zusammen.",
   cta_b1="Kurs buchen →", cta_b2="Erster Besuch bei Form Factory",
-  lada_link='Personal Training und Online-Coaching · hyrox-prague.eu →', co_more='STR2G Online-Programme →', ffg_b='Factory Games · 5.12.2026', ffg_t='Erlebe den Wettkampftag live. Einzelwettkampf bei Form Factory Vinohradská: drei Workouts, vier Kategorien, 100 Athleten.', ffg_link='Mehr zum Wettkampf →',
+  lada_link='Personal Training und Online-Coaching · hyrox-prague.eu →', co_more='STR2G Online-Programme →', ffg_b='Form Factory Games · 5.12.2026', ffg_t='Erlebe den Wettkampftag live. Einzelwettkampf bei Form Factory Vinohradská: drei Workouts, vier Kategorien, 100 Athleten.', ffg_link='Mehr zum Wettkampf →',
 )
 
 T["pl"] = dict(
@@ -335,7 +335,7 @@ T["pl"] = dict(
   cta_eyebrow="Pierwsze zajęcia",
   cta_lead="Weź buty, ręcznik i coś do picia. Przyjdź kilka minut wcześniej. Resztę zrobimy razem.",
   cta_b1="Zapisz się na zajęcia →", cta_b2="Pierwsza wizyta w Form Factory",
-  lada_link='Trening personalny i coaching online · hyrox-prague.eu →', co_more='Programy online STR2G →', ffg_b='Factory Games · 5.12.2026', ffg_t='Sprawdź dzień zawodów na serio. Zawody indywidualne w Form Factory Vinohradská: trzy workouty, cztery kategorie, 100 zawodników.', ffg_link='Więcej o zawodach →',
+  lada_link='Trening personalny i coaching online · hyrox-prague.eu →', co_more='Programy online STR2G →', ffg_b='Form Factory Games · 5.12.2026', ffg_t='Sprawdź dzień zawodów na serio. Zawody indywidualne w Form Factory Vinohradská: trzy workouty, cztery kategorie, 100 zawodników.', ffg_link='Więcej o zawodach →',
 )
 
 FF_HYROX = {"cs": "https://www.formfactory.cz/hyrox/", "en": "https://www.formfactory.cz/en/hyrox/",
