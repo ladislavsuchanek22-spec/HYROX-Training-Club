@@ -5,3 +5,16 @@
   for = "/img/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# www a Netlify adresa -> hlavní doména, aby Google indexoval jen hyroxtrainingclub.cz
+[[redirects]]
+  from = "https://www.hyroxtrainingclub.cz/*"
+  to = "https://hyroxtrainingclub.cz/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://hyrox-training-club.netlify.app/*"
+  to = "https://hyroxtrainingclub.cz/:splat"
+  status = 301
+  force = true

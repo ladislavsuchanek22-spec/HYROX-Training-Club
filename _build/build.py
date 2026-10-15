@@ -2,7 +2,9 @@
 """Generate the HYROX Training Club site in CZ, EN, DE, PL.
 Usage: python3 build.py <style.css> <out_dir>
 """
-import sys, os, html
+import sys, os, html, json, re
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import net
 
 STYLE = open(sys.argv[1]).read().replace('url("img/sled.jpg")', 'url("/img/sled.jpg")')
 OUT = sys.argv[2]
@@ -15,6 +17,18 @@ EXTRA_CSS = """<style>
 .nav-right{display:flex;align-items:center;gap:12px}
 @media (max-width:1100px){.brand small{display:none}}
 @media (max-width:520px){.nav .btn{display:none}.langs a{padding:7px 6px;font-size:12px}}
+.lead a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
+.coach .site{font:500 13px/1.3 var(--f-mono);color:var(--red-hi);text-decoration:none}
+.coach .site:hover{text-decoration:underline}
+.prog-note a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
+.net{flex-basis:100%;padding-bottom:24px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+.net-h{margin:0 0 14px;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.net ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 24px}
+.net a{display:grid;gap:3px;text-decoration:none;color:var(--fg)}
+.net b{font:700 20px/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.net span{font-size:14px;line-height:1.35;color:var(--muted)}
+.net i{font:500 12px/1.2 var(--f-mono);font-style:normal;color:var(--muted)}
+.net a:hover b{color:var(--red-hi)}
 </style>"""
 
 LANGS = ["cs", "en", "de", "pl"]
@@ -96,6 +110,7 @@ T["cs"] = dict(
   cta_eyebrow="První lekce",
   cta_lead="Vezmi si tenisky, ručník a pití. Přijď pár minut dřív. Zbytek uděláme spolu.",
   cta_b1="Rezervovat lekci →", cta_b2="První vstup do Form Factory",
+  lada_link='Osobní trénink a online coaching · hyrox-prague.eu →', co_more='Online programy STR2G →', ffg_b='Factory Games · 5. 12. 2026', ffg_t='Vyzkoušej si závodní den naostro. Individuální závod ve Form Factory Vinohradská: tři workouty, čtyři kategorie, 100 atletů.', ffg_link='Více o závodě →',
 )
 
 T["en"] = dict(
@@ -170,6 +185,7 @@ T["en"] = dict(
   cta_eyebrow="First class",
   cta_lead="Bring trainers, a towel and a drink. Come a few minutes early. We'll do the rest together.",
   cta_b1="Book a class →", cta_b2="First visit to Form Factory",
+  lada_link='Personal training and online coaching · hyrox-prague.eu →', co_more='STR2G online programs →', ffg_b='Factory Games · 5 Dec 2026', ffg_t='Try race day for real. An individual competition at Form Factory Vinohradská: three workouts, four divisions, 100 athletes.', ffg_link='About the race →',
 )
 
 T["de"] = dict(
@@ -244,6 +260,7 @@ T["de"] = dict(
   cta_eyebrow="Erster Kurs",
   cta_lead="Bring Schuhe, Handtuch und etwas zu trinken mit. Komm ein paar Minuten früher. Den Rest machen wir zusammen.",
   cta_b1="Kurs buchen →", cta_b2="Erster Besuch bei Form Factory",
+  lada_link='Personal Training und Online-Coaching · hyrox-prague.eu →', co_more='STR2G Online-Programme →', ffg_b='Factory Games · 5.12.2026', ffg_t='Erlebe den Wettkampftag live. Einzelwettkampf bei Form Factory Vinohradská: drei Workouts, vier Kategorien, 100 Athleten.', ffg_link='Mehr zum Wettkampf →',
 )
 
 T["pl"] = dict(
@@ -318,6 +335,7 @@ T["pl"] = dict(
   cta_eyebrow="Pierwsze zajęcia",
   cta_lead="Weź buty, ręcznik i coś do picia. Przyjdź kilka minut wcześniej. Resztę zrobimy razem.",
   cta_b1="Zapisz się na zajęcia →", cta_b2="Pierwsza wizyta w Form Factory",
+  lada_link='Trening personalny i coaching online · hyrox-prague.eu →', co_more='Programy online STR2G →', ffg_b='Factory Games · 5.12.2026', ffg_t='Sprawdź dzień zawodów na serio. Zawody indywidualne w Form Factory Vinohradská: trzy workouty, cztery kategorie, 100 zawodników.', ffg_link='Więcej o zawodach →',
 )
 
 FF_HYROX = {"cs": "https://www.formfactory.cz/hyrox/", "en": "https://www.formfactory.cz/en/hyrox/",
@@ -351,6 +369,33 @@ def prog(key, name, n, t):
         </article>'''
 
 
+def jsonld(lang):
+    t = T[lang]
+    places = []
+    for key, name, adr, wk, we, ph, em, cal, mp in CLUBS:
+        street, rest = adr.split("<br>")
+        postal, city = re.match(r"(\d{3} \d{2}) (.+)", rest).groups()
+        places.append({"@type": "SportsActivityLocation", "name": "Form Factory " + name,
+                       "address": {"@type": "PostalAddress", "streetAddress": street, "postalCode": postal,
+                                   "addressLocality": city, "addressCountry": "CZ"},
+                       "telephone": ph.replace(" ", ""), "hasMap": mp.replace("&amp;", "&")})
+    data = {"@context": "https://schema.org", "@graph": [
+        {"@type": "SportsOrganization", "@id": SITE + "/#club", "name": "HYROX Training Club",
+         "url": SITE + PATH[lang], "logo": SITE + "/img/ff-logo.jpg", "description": t["meta_desc"], "sport": "HYROX",
+         "parentOrganization": {"@type": "Organization", "name": "Form Factory", "url": "https://www.formfactory.cz/"},
+         "brand": {"@type": "Brand", "name": "STR2G", "url": "https://str2g.com/"},
+         "sameAs": ["https://www.instagram.com/hyroxprague/"],
+         "location": places,
+         "member": [{"@id": "https://hyrox-prague.eu/#ria"}, {"@id": "https://hyrox-prague.eu/#lada"}]},
+        {"@type": "Person", "@id": "https://hyrox-prague.eu/#ria", "name": "Ria Suchánek Hrušovská",
+         "url": "https://hyrox-prague.eu/", "sameAs": ["https://www.instagram.com/riahrusovskaofficial/"]},
+        {"@type": "Person", "@id": "https://hyrox-prague.eu/#lada", "name": "Ladislav Suchánek",
+         "url": "https://hyrox-prague.eu/",
+         "sameAs": ["https://www.ladislavsuchanek.cz/", "https://www.instagram.com/22segge_coach/"]},
+    ]}
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
+
+
 def page(lang):
     t = T[lang]
     book = FF_HYROX[lang] + "#timetables"
@@ -381,6 +426,7 @@ def page(lang):
 <meta property="og:image" content="{SITE}/img/hero.jpg">
 <link rel="canonical" href="{SITE}{PATH[lang]}">
 {alternates}
+{jsonld(lang)}
 <link rel="icon" href="/img/ff-logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -489,6 +535,7 @@ def page(lang):
         <div><b>{t["t2h"]}</b><p>{t["t2t"]}</p></div>
         <div><b>{t["t3h"]}</b><p>{t["t3t"]}</p></div>
       </div>
+      <div class="prog-note"><span class="ic">→</span><p><b>{t["ffg_b"]}.</b> {t["ffg_t"]} <a href="{net.url("ffg", lang)}" target="_blank" rel="noopener">{t["ffg_link"]}</a></p></div>
     </div>
   </section>
 
@@ -520,7 +567,7 @@ def page(lang):
       <div class="sec-head" style="margin:0">
         <p class="eyebrow">{t["co_eyebrow"]}</p>
         <h2>{t["co_h"]}</h2>
-        <p class="lead">{t["co_lead"]}</p>
+        <p class="lead">{t["co_lead"]} <a href="{net.url("s2", lang)}" target="_blank" rel="noopener">{t["co_more"]}</a></p>
       </div>
     </div>
     <figure class="coach-banner" style="margin-inline:0;margin-bottom:0;margin-top:48px">
@@ -539,6 +586,7 @@ def page(lang):
           <h3>Ladislav Suchánek</h3>
           <p>{t["lada_txt"]}</p>
           <div class="chips"><span>HYROX Performance Coach L1</span><span>CrossFit L1</span><span>OPEX CCP</span><span>Precision Nutrition L1</span><span>{t["chip_run"]}</span><span>{t["chip_mass"]}</span></div>
+          <a class="site" href="{net.url("hp", lang)}" target="_blank" rel="noopener">{t["lada_link"]}</a>
         </article>
       </div>
     </div>
@@ -581,6 +629,7 @@ def page(lang):
 
 <footer>
   <div class="wrap">
+    {net.block("htc", lang)}
     <span>HYROX Training Club · Form Factory × STR2G</span>
     <span><a href="{FF_HYROX[lang]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a></span>
   </div>

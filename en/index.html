@@ -15,6 +15,7 @@
 <link rel="alternate" hreflang="de" href="https://hyroxtrainingclub.cz/de/">
 <link rel="alternate" hreflang="pl" href="https://hyroxtrainingclub.cz/pl/">
 <link rel="alternate" hreflang="x-default" href="https://hyroxtrainingclub.cz/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SportsOrganization", "@id": "https://hyroxtrainingclub.cz/#club", "name": "HYROX Training Club", "url": "https://hyroxtrainingclub.cz/en/", "logo": "https://hyroxtrainingclub.cz/img/ff-logo.jpg", "description": "Official HYROX Training Club at Form Factory. Training on the HYROX365 programme in Prague, Brno and Ostrava.", "sport": "HYROX", "parentOrganization": {"@type": "Organization", "name": "Form Factory", "url": "https://www.formfactory.cz/"}, "brand": {"@type": "Brand", "name": "STR2G", "url": "https://str2g.com/"}, "sameAs": ["https://www.instagram.com/hyroxprague/"], "location": [{"@type": "SportsActivityLocation", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}, "telephone": "+420773798400", "hasMap": "https://maps.app.goo.gl/doW5HCVQpwKnfNVX9"}, {"@type": "SportsActivityLocation", "name": "Form Factory Vinohradská", "address": {"@type": "PostalAddress", "streetAddress": "Vinohradská 190", "postalCode": "130 00", "addressLocality": "Praha 3", "addressCountry": "CZ"}, "telephone": "+420770399902", "hasMap": "https://www.google.com/maps/search/?api=1&query=Form+Factory+Vinohradsk%C3%A1+190+Praha"}, {"@type": "SportsActivityLocation", "name": "Form Factory Campus", "address": {"@type": "PostalAddress", "streetAddress": "Palachovo náměstí 726/2", "postalCode": "625 00", "addressLocality": "Brno", "addressCountry": "CZ"}, "telephone": "+420778732586", "hasMap": "https://maps.app.goo.gl/tgAFsQ54cxxRUjnD7"}, {"@type": "SportsActivityLocation", "name": "Form Factory Hrabová", "address": {"@type": "PostalAddress", "streetAddress": "Krmelínská 646/22", "postalCode": "720 00", "addressLocality": "Ostrava 20", "addressCountry": "CZ"}, "telephone": "+420776361057", "hasMap": "https://maps.app.goo.gl/NYk2WWFvBfmfdWLE7"}], "member": [{"@id": "https://hyrox-prague.eu/#ria"}, {"@id": "https://hyrox-prague.eu/#lada"}]}, {"@type": "Person", "@id": "https://hyrox-prague.eu/#ria", "name": "Ria Suchánek Hrušovská", "url": "https://hyrox-prague.eu/", "sameAs": ["https://www.instagram.com/riahrusovskaofficial/"]}, {"@type": "Person", "@id": "https://hyrox-prague.eu/#lada", "name": "Ladislav Suchánek", "url": "https://hyrox-prague.eu/", "sameAs": ["https://www.ladislavsuchanek.cz/", "https://www.instagram.com/22segge_coach/"]}]}</script>
 <link rel="icon" href="/img/ff-logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -235,6 +236,18 @@ footer a{color:var(--fg)}
 .nav-right{display:flex;align-items:center;gap:12px}
 @media (max-width:1100px){.brand small{display:none}}
 @media (max-width:520px){.nav .btn{display:none}.langs a{padding:7px 6px;font-size:12px}}
+.lead a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
+.coach .site{font:500 13px/1.3 var(--f-mono);color:var(--red-hi);text-decoration:none}
+.coach .site:hover{text-decoration:underline}
+.prog-note a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
+.net{flex-basis:100%;padding-bottom:24px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+.net-h{margin:0 0 14px;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.net ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 24px}
+.net a{display:grid;gap:3px;text-decoration:none;color:var(--fg)}
+.net b{font:700 20px/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.net span{font-size:14px;line-height:1.35;color:var(--muted)}
+.net i{font:500 12px/1.2 var(--f-mono);font-style:normal;color:var(--muted)}
+.net a:hover b{color:var(--red-hi)}
 </style>
 <style>body{margin:0}[hidden]{display:none!important}</style>
 </head>
@@ -366,6 +379,7 @@ footer a{color:var(--fg)}
         <div><b>Transitions and pacing</b><p>The Roxzone, getting into a station, the first steps after the sled. That's where the minutes nobody sees go.</p></div>
         <div><b>The head at the end</b><p>Wall balls after 7 km of running are a different exercise than fresh. We train work under fatigue, not just strength.</p></div>
       </div>
+      <div class="prog-note"><span class="ic">→</span><p><b>Factory Games · 5 Dec 2026.</b> Try race day for real. An individual competition at Form Factory Vinohradská: three workouts, four divisions, 100 athletes. <a href="https://formfactorygames.cz/en/" target="_blank" rel="noopener">About the race →</a></p></div>
     </div>
   </section>
 
@@ -397,7 +411,7 @@ footer a{color:var(--fg)}
       <div class="sec-head" style="margin:0">
         <p class="eyebrow">Coaches</p>
         <h2>Coached by people who race it.</h2>
-        <p class="lead">The HYROX Training Club is run by team STR2G (Stronger Together). We train, we race, and we know how kilometre seven feels.</p>
+        <p class="lead">The HYROX Training Club is run by team STR2G (Stronger Together). We train, we race, and we know how kilometre seven feels. <a href="https://str2g.com/" target="_blank" rel="noopener">STR2G online programs →</a></p>
       </div>
     </div>
     <figure class="coach-banner" style="margin-inline:0;margin-bottom:0;margin-top:48px">
@@ -416,6 +430,7 @@ footer a{color:var(--fg)}
           <h3>Ladislav Suchánek</h3>
           <p>Coach and active HYROX racer. He combines strength, conditioning, running and mental preparation into training that makes sense. Coaches athletes in the clubs and online worldwide.</p>
           <div class="chips"><span>HYROX Performance Coach L1</span><span>CrossFit L1</span><span>OPEX CCP</span><span>Precision Nutrition L1</span><span>Running Coach</span><span>Sports massage therapist</span></div>
+          <a class="site" href="https://hyrox-prague.eu/en/" target="_blank" rel="noopener">Personal training and online coaching · hyrox-prague.eu →</a>
         </article>
       </div>
     </div>
@@ -490,6 +505,7 @@ footer a{color:var(--fg)}
 
 <footer>
   <div class="wrap">
+    <nav class="net" aria-label="STR2G websites"><p class="net-h">STR2G websites</p><ul><li><a href="https://hyrox-prague.eu/en/" target="_blank" rel="noopener"><b>HYROX Prague</b><span>HYROX training and race prep</span><i>hyrox-prague.eu</i></a></li><li><a href="https://str2g.com/" target="_blank" rel="noopener"><b>STR2G Online</b><span>Online HYROX programs</span><i>str2g.com</i></a></li><li><a href="https://formfactorygames.cz/en/" target="_blank" rel="noopener"><b>Factory Games</b><span>Factory Games race · 5 Dec 2026</span><i>formfactorygames.cz</i></a></li><li><a href="https://www.ladislavsuchanek.cz/" target="_blank" rel="noopener"><b>Ladislav Suchánek</b><span>Personal training, nutrition &amp; massage</span><i>ladislavsuchanek.cz</i></a></li></ul></nav>
     <span>HYROX Training Club · Form Factory × STR2G</span>
     <span><a href="https://www.formfactory.cz/en/hyrox/" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a></span>
   </div>
