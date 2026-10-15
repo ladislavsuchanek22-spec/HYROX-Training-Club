@@ -375,6 +375,7 @@ def page(lang):
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>HYROX Training Club</title>
 <meta name="description" content="{t["meta_desc"]}">
+<meta name="google-site-verification" content="Kzs4h_GLxSKewaL5_z4ibvPSfkfjBjpCLB9cq3RR-Ts" />
 <meta property="og:title" content="HYROX Training Club · Form Factory">
 <meta property="og:description" content="{t["og_desc"]}">
 <meta property="og:image" content="{SITE}/img/hero.jpg">
