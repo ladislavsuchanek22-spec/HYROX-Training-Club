@@ -6,7 +6,7 @@ import sys, os, html, json, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import net
 
-STYLE = open(sys.argv[1]).read().replace('url("img/sled.jpg")', 'url("/img/sled.jpg")')
+STYLE = open(sys.argv[1]).read().replace('url("img/sled.webp")', 'url("/img/sled.webp")')
 OUT = sys.argv[2]
 
 EXTRA_CSS = """<style>
@@ -39,7 +39,9 @@ SITE = "https://hyroxtrainingclub.cz"
 T = {}
 
 T["cs"] = dict(
-  meta_desc="Oficiální HYROX Training Club ve Form Factory. Trénink podle programu HYROX365 v Praze, Brně a Ostravě.",
+  title="HYROX Training Club Praha, Brno, Ostrava | Form Factory",
+  meta_desc="Oficiální HYROX Training Club ve Form Factory. HYROX trénink v Praze, Brně a Ostravě podle programu HYROX365. Skupinové lekce s HYROX trenéry, pro začátečníky i závodníky.",
+  og_locale="cs_CZ",
   og_desc="Trénink podle oficiálního programu HYROX365. Praha, Brno, Ostrava.",
   brand_sub="Form Factory · Praha · Brno · Ostrava",
   nav_prog="Programy", nav_race="Závod", nav_coach="Trenéři", nav_clubs="Kluby", nav_book="Rezervovat",
@@ -114,7 +116,9 @@ T["cs"] = dict(
 )
 
 T["en"] = dict(
-  meta_desc="Official HYROX Training Club at Form Factory. Training on the HYROX365 programme in Prague, Brno and Ostrava.",
+  title="HYROX Training Club Prague, Brno, Ostrava | Form Factory",
+  meta_desc="Official HYROX Training Club at Form Factory. HYROX training in Prague, Brno and Ostrava on the HYROX365 programme. Group classes with HYROX coaches, for beginners and racers.",
+  og_locale="en_GB",
   og_desc="Training on the official HYROX365 programme. Prague, Brno, Ostrava.",
   brand_sub="Form Factory · Prague · Brno · Ostrava",
   nav_prog="Programmes", nav_race="The race", nav_coach="Coaches", nav_clubs="Clubs", nav_book="Book",
@@ -189,7 +193,9 @@ T["en"] = dict(
 )
 
 T["de"] = dict(
-  meta_desc="Offizieller HYROX Training Club bei Form Factory. Training nach dem HYROX365-Programm in Prag, Brünn und Ostrava.",
+  title="HYROX Training Club Prag, Brünn, Ostrava | Form Factory",
+  meta_desc="Offizieller HYROX Training Club bei Form Factory. HYROX-Training in Prag, Brünn und Ostrava nach dem HYROX365-Programm. Gruppentraining mit HYROX-Coaches, für Einsteiger und Athleten.",
+  og_locale="de_DE",
   og_desc="Training nach dem offiziellen HYROX365-Programm. Prag, Brünn, Ostrava.",
   brand_sub="Form Factory · Prag · Brünn · Ostrava",
   nav_prog="Programme", nav_race="Das Rennen", nav_coach="Coaches", nav_clubs="Clubs", nav_book="Buchen",
@@ -264,7 +270,9 @@ T["de"] = dict(
 )
 
 T["pl"] = dict(
-  meta_desc="Oficjalny HYROX Training Club w Form Factory. Trening według programu HYROX365 w Pradze, Brnie i Ostrawie.",
+  title="HYROX Training Club Praga, Brno, Ostrawa | Form Factory",
+  meta_desc="Oficjalny HYROX Training Club w Form Factory. Trening HYROX w Pradze, Brnie i Ostrawie według programu HYROX365. Zajęcia grupowe z trenerami HYROX, dla początkujących i zawodników.",
+  og_locale="pl_PL",
   og_desc="Trening według oficjalnego programu HYROX365. Praga, Brno, Ostrawa.",
   brand_sub="Form Factory · Praga · Brno · Ostrawa",
   nav_prog="Programy", nav_race="Zawody", nav_coach="Trenerzy", nav_clubs="Kluby", nav_book="Zapisz się",
@@ -418,16 +426,26 @@ def page(lang):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>HYROX Training Club</title>
+<title>{t["title"]}</title>
 <meta name="description" content="{t["meta_desc"]}">
 <meta name="google-site-verification" content="Kzs4h_GLxSKewaL5_z4ibvPSfkfjBjpCLB9cq3RR-Ts" />
-<meta property="og:title" content="HYROX Training Club · Form Factory">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HYROX Training Club">
+<meta property="og:locale" content="{t["og_locale"]}">
+<meta property="og:url" content="{SITE}{PATH[lang]}">
+<meta property="og:title" content="{t["title"]}">
 <meta property="og:description" content="{t["og_desc"]}">
 <meta property="og:image" content="{SITE}/img/hero.jpg">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1200">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{SITE}{PATH[lang]}">
 {alternates}
 {jsonld(lang)}
-<link rel="icon" href="/img/ff-logo.jpg">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="160x160">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preload" as="image" href="/img/hero.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
@@ -457,7 +475,7 @@ def page(lang):
 
 <main id="top">
   <section class="hero">
-    <div class="hero-img"><img src="/img/hero.jpg" alt="{t["hero_alt"]}"></div>
+    <div class="hero-img"><img src="/img/hero.webp" alt="{t["hero_alt"]}"></div>
     <div class="wrap">
       <p class="eyebrow">{t["hero_eyebrow"]}</p>
       <h1>HYROX<span>Training</span><em>Club</em></h1>
@@ -494,7 +512,7 @@ def page(lang):
         </div>
       </div>
       <figure class="about-img" style="margin:0">
-        <img src="/img/test.jpg" alt="{t["ab_alt"]}">
+        <img loading="lazy" decoding="async" src="/img/test.webp" alt="{t["ab_alt"]}">
         <figcaption>{t["ab_cap"]}</figcaption>
       </figure>
     </div>
@@ -527,7 +545,7 @@ def page(lang):
           <h2>{t["rc_h"]}</h2>
           <p class="lead">{t["rc_lead"]}</p>
         </div>
-        <img src="/img/stations.jpg" alt="{t["rc_alt"]}">
+        <img loading="lazy" decoding="async" src="/img/stations.webp" alt="{t["rc_alt"]}">
       </div>
       <div class="track" role="list" aria-label="{t["track_label"]}">{legs}</div>
       <div class="truths">
@@ -541,7 +559,7 @@ def page(lang):
 
   <section class="how">
     <div class="wrap">
-      <div class="how-img"><img src="/img/ria-mic.jpg" alt="{t["hw_alt"]}" style="aspect-ratio:4/5"></div>
+      <div class="how-img"><img loading="lazy" decoding="async" src="/img/ria-mic.webp" alt="{t["hw_alt"]}" style="aspect-ratio:4/5"></div>
       <div class="how-body">
         <div class="sec-head" style="margin:0">
           <p class="eyebrow">{t["hw_eyebrow"]}</p>
@@ -571,7 +589,7 @@ def page(lang):
       </div>
     </div>
     <figure class="coach-banner" style="margin-inline:0;margin-bottom:0;margin-top:48px">
-      <img src="/img/coaches.jpg" alt="{t["co_alt"]}">
+      <img loading="lazy" decoding="async" src="/img/coaches.webp" alt="{t["co_alt"]}">
     </figure>
     <div class="wrap">
       <div class="coach-grid">
@@ -606,10 +624,10 @@ def page(lang):
   <section class="gallery" aria-label="{t["gal_label"]}">
     <div class="wrap">
       <div class="gal">
-        <img class="a" src="/img/group-v.jpg" alt="{t["g1"]}">
-        <img src="/img/sled.jpg" alt="{t["g2"]}">
-        <img src="/img/test.jpg" alt="{t["g3"]}" style="object-position:center 60%">
-        <img class="d" src="/img/group.jpg" alt="{t["g4"]}">
+        <img loading="lazy" decoding="async" class="a" src="/img/group-v.webp" alt="{t["g1"]}">
+        <img loading="lazy" decoding="async" src="/img/sled.webp" alt="{t["g2"]}">
+        <img loading="lazy" decoding="async" src="/img/test.webp" alt="{t["g3"]}" style="object-position:center 60%">
+        <img loading="lazy" decoding="async" class="d" src="/img/group.webp" alt="{t["g4"]}">
       </div>
     </div>
   </section>

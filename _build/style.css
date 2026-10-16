@@ -195,7 +195,7 @@ section{padding-block:clamp(72px,10vw,128px)}
 
 /* CTA */
 .cta{position:relative;overflow:hidden;isolation:isolate;text-align:left}
-.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:url("img/sled.jpg") center 60%/cover}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:url("img/sled.webp") center 60%/cover}
 .cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.95),rgba(9,11,19,.7))}
 .cta .wrap{display:grid;gap:24px}
 .cta h2{font-size:clamp(46px,8vw,104px)}
