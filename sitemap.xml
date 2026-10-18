@@ -36,4 +36,16 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://hyroxtrainingclub.cz/pl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hyroxtrainingclub.cz/"/>
   </url>
+  <url>
+    <loc>https://hyroxtrainingclub.cz/praha/</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://hyroxtrainingclub.cz/brno/</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://hyroxtrainingclub.cz/ostrava/</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
 </urlset>

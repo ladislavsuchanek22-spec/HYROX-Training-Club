@@ -29,6 +29,15 @@ EXTRA_CSS = """<style>
 .net span{font-size:14px;line-height:1.35;color:var(--muted)}
 .net i{font:500 12px/1.2 var(--f-mono);font-style:normal;color:var(--muted)}
 .net a:hover b{color:var(--red-hi)}
+.hero h1 .h1-sub{display:block;margin-top:22px;font:600 15px/1.35 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--fg);-webkit-text-stroke:0}
+.club-more{display:inline-block;margin-top:14px;font:500 13px/1.3 var(--f-mono);color:var(--red-hi);text-decoration:none}
+.club-more:hover{text-decoration:underline}
+.city-faq details{border-top:1px solid var(--line);padding:16px 0}
+.city-faq summary{cursor:pointer;font:700 20px/1.2 var(--f-display);text-transform:uppercase}
+.city-faq p{color:var(--muted);max-width:720px}
+.crumbs{font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+.crumbs a{color:var(--muted)}
+.city-other{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 </style>"""
 
 LANGS = ["cs", "en", "de", "pl"]
@@ -39,6 +48,7 @@ SITE = "https://hyroxtrainingclub.cz"
 T = {}
 
 T["cs"] = dict(
+  h1_sub="Skupinové HYROX tréninky v Praze, Brně a Ostravě",
   title="HYROX Training Club Praha, Brno, Ostrava | Form Factory",
   meta_desc="Oficiální HYROX Training Club ve Form Factory. HYROX trénink v Praze, Brně a Ostravě podle programu HYROX365. Skupinové lekce s HYROX trenéry, pro začátečníky i závodníky.",
   og_locale="cs_CZ",
@@ -116,6 +126,7 @@ T["cs"] = dict(
 )
 
 T["en"] = dict(
+  h1_sub="HYROX group classes in Prague, Brno and Ostrava",
   title="HYROX Training Club Prague, Brno, Ostrava | Form Factory",
   meta_desc="Official HYROX Training Club at Form Factory. HYROX training in Prague, Brno and Ostrava on the HYROX365 programme. Group classes with HYROX coaches, for beginners and racers.",
   og_locale="en_GB",
@@ -193,6 +204,7 @@ T["en"] = dict(
 )
 
 T["de"] = dict(
+  h1_sub="HYROX-Gruppentraining in Prag, Brünn und Ostrava",
   title="HYROX Training Club Prag, Brünn, Ostrava | Form Factory",
   meta_desc="Offizieller HYROX Training Club bei Form Factory. HYROX-Training in Prag, Brünn und Ostrava nach dem HYROX365-Programm. Gruppentraining mit HYROX-Coaches, für Einsteiger und Athleten.",
   og_locale="de_DE",
@@ -270,6 +282,7 @@ T["de"] = dict(
 )
 
 T["pl"] = dict(
+  h1_sub="Grupowe treningi HYROX w Pradze, Brnie i Ostrawie",
   title="HYROX Training Club Praga, Brno, Ostrawa | Form Factory",
   meta_desc="Oficjalny HYROX Training Club w Form Factory. Trening HYROX w Pradze, Brnie i Ostrawie według programu HYROX365. Zajęcia grupowe z trenerami HYROX, dla początkujących i zawodników.",
   og_locale="pl_PL",
@@ -420,6 +433,7 @@ def page(lang):
             <div><dt>{t["contact"]}</dt><dd><a class="ct" href="tel:+420722077070">{ph}</a><br><a class="ct" href="mailto:info@hyrox-czech.cz">{em}</a></dd></div>
           </dl>
           <div class="club-links"><a href="{cal}" target="_blank" rel="noopener">{t["sched"]}</a><a href="{mp}" target="_blank" rel="noopener">{t["map"]}</a></div>
+          {CITY_LINK[key] if lang == "cs" else ""}
         </article>'''
     return f'''<!doctype html>
 <html lang="{lang}">
@@ -478,7 +492,7 @@ def page(lang):
     <div class="hero-img"><img src="/img/hero.webp" alt="{t["hero_alt"]}"></div>
     <div class="wrap">
       <p class="eyebrow">{t["hero_eyebrow"]}</p>
-      <h1>HYROX<span>Training</span><em>Club</em></h1>
+      <h1>HYROX <span>Training</span> <em>Club</em><small class="h1-sub">{t["h1_sub"]}</small></h1>
       <p class="lead">{t["hero_lead"]}</p>
       <div class="hero-cta">
         <a class="btn btn-red" href="{book}" target="_blank" rel="noopener">{t["hero_cta1"]}</a>
@@ -663,6 +677,240 @@ base = set(T["cs"])
 for l in LANGS:
     missing = base ^ set(T[l])
     assert not missing, (l, missing)
+
+
+
+# ---------------------------------------------------------------------------
+# Městské stránky (jen CZ): /praha/, /brno/, /ostrava/
+# Cílí na dotazy typu „hyrox praha“, „hyrox brno“, „hyrox ostrava“.
+# ---------------------------------------------------------------------------
+CITY_LINK = {
+    "prague5": '<a class="club-more" href="/praha/">HYROX v Praze →</a>',
+    "prague3": '<a class="club-more" href="/praha/">HYROX v Praze →</a>',
+    "brno": '<a class="club-more" href="/brno/">HYROX v Brně →</a>',
+    "ostrava": '<a class="club-more" href="/ostrava/">HYROX v Ostravě →</a>',
+}
+
+CITIES = {
+  "praha": dict(
+    clubs=["prague5", "prague3"], name="Praha", loc="v Praze",
+    title="HYROX trénink Praha · Smíchov a Vinohrady | Form Factory",
+    desc="HYROX tréninky v Praze ve dvou klubech Form Factory: Na Knížecí (Praha 5) a Vinohradská (Praha 3). Lekce podle programu HYROX365, rozvrh a rezervace online.",
+    h1="HYROX trénink Praha", sub="Na Knížecí · Vinohradská",
+    lead="V Praze trénujeme ve dvou klubech Form Factory: Na Knížecí na Smíchově a na Vinohradské. Lekce jedou podle oficiálního programu HYROX365. Běh, síla, stanice a práce pod únavou. Přijď jako začátečník i jako závodník.",
+    img="/img/group.webp",
+    faq_extra=("Který pražský klub si vybrat?", "Ten, který máš blíž. Program HYROX365 je v obou klubech stejný, liší se jen rozvrh a otevírací doba."),
+  ),
+  "brno": dict(
+    clubs=["brno"], name="Brno", loc="v Brně",
+    title="HYROX trénink Brno · Form Factory Campus",
+    desc="HYROX tréninky v Brně ve Form Factory Campus na Palachově náměstí. Skupinové lekce podle programu HYROX365 pro začátečníky i závodníky. Rozvrh a rezervace online.",
+    h1="HYROX trénink Brno", sub="Form Factory Campus",
+    lead="V Brně trénujeme ve Form Factory Campus ve Starém Lískovci. Stejný program HYROX365 jako v Praze a Ostravě: běh, síla, stanice a práce pod únavou. Lekci si rezervuješ online.",
+    img="/img/sled.webp",
+    faq_extra=("Je program v Brně stejný jako v Praze?", "Ano. Všechny kluby jedou podle stejné metodiky HYROX365, takže můžeš trénovat v Brně a přijet na lekci do Prahy nebo Ostravy."),
+  ),
+  "ostrava": dict(
+    clubs=["ostrava"], name="Ostrava", loc="v Ostravě",
+    title="HYROX trénink Ostrava · Form Factory Hrabová",
+    desc="HYROX tréninky v Ostravě ve Form Factory Hrabová. Skupinové lekce podle programu HYROX365 pro začátečníky i závodníky. Rozvrh a rezervace online.",
+    h1="HYROX trénink Ostrava", sub="Form Factory Hrabová",
+    lead="V Ostravě trénujeme ve Form Factory Hrabová. Stejný program HYROX365 jako v Praze a Brně: běh, síla, stanice a práce pod únavou. Lekci si rezervuješ online.",
+    img="/img/group-v.webp",
+    faq_extra=("Je program v Ostravě stejný jako v Praze?", "Ano. Všechny kluby jedou podle stejné metodiky HYROX365, takže můžeš trénovat v Ostravě a přijet na lekci do Prahy nebo Brna."),
+  ),
+}
+
+
+def club_card(key, t):
+    for k, name, adr, wk, we, ph, em, cal, mp in CLUBS:
+        if k == key:
+            return f'''<article class="club">
+          <div class="club-top"><span class="city">{t[k]}</span><h3>Form Factory {name}</h3></div>
+          <dl>
+            <div><dt>{t["addr"]}</dt><dd>{adr}</dd></div>
+            <div><dt>{t["open"]}</dt><dd>{t["wk"]} {wk}<br>{t["we"]} {we}</dd></div>
+            <div><dt>{t["contact"]}</dt><dd><a class="ct" href="tel:+420722077070">{ph}</a><br><a class="ct" href="mailto:info@hyrox-czech.cz">{em}</a></dd></div>
+          </dl>
+          <div class="club-links"><a href="{cal}" target="_blank" rel="noopener">{t["sched"]}</a><a href="{mp}" target="_blank" rel="noopener">{t["map"]}</a></div>
+        </article>'''
+
+
+def city_jsonld(slug, c, faqs):
+    url = f"{SITE}/{slug}/"
+    places = []
+    for k, name, adr, wk, we, ph, em, cal, mp in CLUBS:
+        if k not in c["clubs"]:
+            continue
+        street, rest = adr.split("<br>")
+        postal, city = re.match(r"(\d{3} \d{2}) (.+)", rest).groups()
+        places.append({"@type": "SportsActivityLocation", "@id": f"{url}#{k}", "name": f"Form Factory {name} – HYROX Training Club",
+                       "url": url, "sport": "HYROX", "image": SITE + c["img"].replace(".webp", ".webp"),
+                       "address": {"@type": "PostalAddress", "streetAddress": street, "postalCode": postal,
+                                   "addressLocality": city, "addressCountry": "CZ"},
+                       "telephone": ph.replace(" ", ""), "hasMap": mp.replace("&amp;", "&"),
+                       "parentOrganization": {"@id": SITE + "/#club"}})
+    data = {"@context": "https://schema.org", "@graph": places + [
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "HYROX Training Club", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": c["h1"], "item": url}]},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in faqs]},
+    ]}
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
+
+
+def city_page(slug):
+    t = T["cs"]
+    c = CITIES[slug]
+    url = f"{SITE}/{slug}/"
+    cal = next(x[7] for x in CLUBS if x[0] == c["clubs"][0]) if len(c["clubs"]) == 1 else FF_HYROX["cs"] + "#timetables"
+    cards = "".join(club_card(k, t) for k in c["clubs"])
+    faqs = [
+        ("Musím mít s HYROXem zkušenosti?", "Ne. " + t["w1t"] + " Váhy i tempo se upraví podle tvé úrovně."),
+        ("Jak si lekci zarezervuju?", t["s1t"]),
+        ("Kolik stojí první vstup?", f'Podmínky prvního vstupu najdeš na <a href="{FF_FIRST["cs"]}" target="_blank" rel="noopener">webu Form Factory</a>.'),
+        ("Co si mám vzít s sebou?", t["cta_lead"]),
+        c["faq_extra"],
+    ]
+    faq_html = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in faqs)
+    others = "".join(f'<a class="btn btn-ghost" href="/{s}/">HYROX {CITIES[s]["name"]}</a>' for s in CITIES if s != slug)
+    return f'''<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{c["title"]}</title>
+<meta name="description" content="{c["desc"]}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HYROX Training Club">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:url" content="{url}">
+<meta property="og:title" content="{c["title"]}">
+<meta property="og:description" content="{c["desc"]}">
+<meta property="og:image" content="{SITE}/img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{url}">
+{city_jsonld(slug, c, faqs)}
+<link rel="icon" href="/favicon.png" type="image/png" sizes="160x160">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+{STYLE}
+{EXTRA_CSS}
+<style>body{{margin:0}}[hidden]{{display:none!important}}.hero h1{{font-size:clamp(48px,9vw,120px)}}</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <img src="/img/ff-logo.jpg" alt="Form Factory">
+      <span><b>HYROX Training Club</b><small>{t["brand_sub"]}</small></span>
+    </a>
+    <ul>
+      <li><a href="/praha/">Praha</a></li>
+      <li><a href="/brno/">Brno</a></li>
+      <li><a href="/ostrava/">Ostrava</a></li>
+      <li><a href="/#programy">{t["nav_prog"]}</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn btn-red" href="{cal}" target="_blank" rel="noopener">{t["nav_book"]}</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-img"><img src="{c["img"]}" alt="HYROX trénink ve Form Factory {c["name"]}"></div>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">HYROX Training Club</a> / {c["name"]}</p>
+      <p class="eyebrow">{t["hero_eyebrow"]}</p>
+      <h1>{c["h1"]}<small class="h1-sub">{c["sub"]}</small></h1>
+      <p class="lead">{c["lead"]}</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="{cal}" target="_blank" rel="noopener">Rozvrh a rezervace →</a>
+        <a class="btn btn-ghost" href="#kluby">Adresa a otevírací doba</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="clubs" id="kluby">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">{t["cl_eyebrow"]}</p>
+        <h2>HYROX {c["loc"]}</h2>
+        <p class="lead">{t["cl_lead"]}</p>
+      </div>
+      <div class="club-grid">{cards}</div>
+    </div>
+  </section>
+
+  <section class="programs" id="programy">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">{t["pr_eyebrow"]}</p>
+        <h2>{t["pr_h"]}</h2>
+        <p class="lead">{t["pr_lead"]}</p>
+      </div>
+      <div class="prog-grid">
+        {prog("f", "Foundational", 2, t)}
+        {prog("e", "Engine", 4, t)}
+        {prog("p", "Power", 4, t)}
+        {prog("c", "Complete", 5, t)}
+      </div>
+      <div class="prog-note"><span class="ic">↻</span><p>{t["pr_note"]}</p></div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <div class="how-img"><img loading="lazy" decoding="async" src="/img/ria-mic.webp" alt="{t["hw_alt"]}" style="aspect-ratio:4/5"></div>
+      <div class="how-body">
+        <div class="sec-head" style="margin:0">
+          <p class="eyebrow">{t["hw_eyebrow"]}</p>
+          <h2>{t["hw_h"]}</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><span class="n">1</span><div><b>{t["s1h"]}</b><p>{t["s1t"]}</p></div></div>
+          <div class="step"><span class="n">2</span><div><b>{t["s2h"]}</b><p>{t["s2t"]}</p></div></div>
+          <div class="step"><span class="n">3</span><div><b>{t["s3h"]}</b><p>{t["s3t"]}</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coaches">
+    <div class="wrap">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Časté otázky</p>
+        <h2>HYROX {c["loc"]}: co potřebuješ vědět</h2>
+      </div>
+      <div class="city-faq">{faq_html}</div>
+      <p class="lead" style="margin-top:28px">Chceš individuální přípravu na závod? <a href="https://www.ladislavsuchanek.cz/hyrox-coaching/">HYROX trenér Praha – osobní coaching 1:1</a>. Trénuješ sám? <a href="{net.url("s2", "cs")}" target="_blank" rel="noopener">Online HYROX programy STR2G</a>.</p>
+      <div class="city-other"><a class="btn btn-ghost" href="/">Všechny kluby</a>{others}</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    {net.block("htc", "cs")}
+    <span>HYROX Training Club · Form Factory × STR2G</span>
+    <span><a href="{FF_HYROX["cs"]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a></span>
+  </div>
+</footer>
+</body>
+</html>
+'''
+
+
+for slug in CITIES:
+    d = os.path.join(OUT, slug)
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "index.html"), "w").write(city_page(slug))
+    print("wrote", os.path.join(d, "index.html"))
+
 
 for l in LANGS:
     d = os.path.join(OUT, PATH[l].strip("/"))
