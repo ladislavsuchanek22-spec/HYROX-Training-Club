@@ -1,7 +1,7 @@
 """Weby STR2G: jeden zdroj pro blok odkazů v patičce.
 
 Stejný seznam je ve všech čtyřech webech (hyrox-prague.eu, str2g.com,
-hyroxtrainingclub.cz, formfactorygames.cz). Když tu něco změníš,
+hyroxtrainingclub.cz, formfactorygames.cz). Od 10/2026 v něm je i riahrusovska.cz. Když tu něco změníš,
 změň to i v ostatních repozitářích.
 """
 
@@ -35,8 +35,13 @@ SITES = {
            {l: "https://www.ladislavsuchanek.cz/" for l in LANGS},
            {"cs": "Osobní trénink, výživa a masáže", "en": "Personal training, nutrition &amp; massage",
             "pl": "Trening personalny, dieta i masaże", "de": "Personal Training, Ernährung &amp; Massage"}),
+    "ria": ("Ria Suchánek Hrušovská", "riahrusovska.cz",
+            {"cs": "https://riahrusovska.cz/", "en": "https://riahrusovska.cz/en/",
+             "pl": "https://riahrusovska.cz/en/", "de": "https://riahrusovska.cz/en/"},
+            {"cs": "Mentální koučink pro sportovce", "en": "Mental coaching for athletes",
+             "pl": "Coaching mentalny dla sportowców", "de": "Mentalcoaching für Sportler"}),
 }
-ORDER = ["hp", "s2", "htc", "ffg", "ls"]
+ORDER = ["hp", "s2", "htc", "ffg", "ls", "ria"]
 
 
 def url(key, lang):
