@@ -457,6 +457,7 @@ def page(lang):
 <link rel="canonical" href="{SITE}{PATH[lang]}">
 {alternates}
 {jsonld(lang)}
+<script src="/js/tracking.js"></script>
 <link rel="icon" href="/favicon.png" type="image/png" sizes="160x160">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preload" as="image" href="/img/hero.webp" fetchpriority="high">
@@ -664,7 +665,7 @@ def page(lang):
   <div class="wrap">
     {net.block("htc", lang)}
     <span>HYROX Training Club · Form Factory × STR2G</span>
-    <span><a href="{FF_HYROX[lang]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a></span>
+    <span><a href="{FF_HYROX[lang]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
   </div>
 </footer>
 </body>
@@ -792,6 +793,7 @@ def city_page(slug):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{url}">
 {city_jsonld(slug, c, faqs)}
+<script src="/js/tracking.js"></script>
 <link rel="icon" href="/favicon.png" type="image/png" sizes="160x160">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -897,7 +899,7 @@ def city_page(slug):
   <div class="wrap">
     {net.block("htc", "cs")}
     <span>HYROX Training Club · Form Factory × STR2G</span>
-    <span><a href="{FF_HYROX["cs"]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a></span>
+    <span><a href="{FF_HYROX["cs"]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
   </div>
 </footer>
 </body>
