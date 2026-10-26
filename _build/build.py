@@ -950,6 +950,41 @@ ARTICLES = {
       ("Musím být ve formě?", "Nemusíš. Důležité je chtít začít. Forma přijde s pravidelným tréninkem."),
     ],
   ),
+  "hyrox-simulace": dict(
+    draft=True,
+    title="HYROX simulace: jak ji udělat a co ti řekne | HYROX Training Club",
+    desc="Jak udělat HYROX simulaci v tréninku: plná, poloviční a zkrácená verze, kdy ji zařadit před závodem a co si z ní vzít. Praha, Brno, Ostrava.",
+    h1="HYROX simulace", sub="Jak ji udělat a co ti řekne",
+    img="/img/test.webp",
+    lead="Simulace je nejbližší věc závodu, kterou můžeš udělat v tréninku. Ukáže ti tempo, slabá místa a jak hlava zvládá únavu. Jen ji nesmíš dělat moc často.",
+    body="""
+<h2>Proč simulovat</h2>
+<p>V tréninku děláš běh, sílu a stanice zvlášť. Na závodě se to všechno sejde v jednom kuse. Simulace ti ukáže, jestli tempo, které si plánuješ, opravdu udržíš, a na které stanici se ti závod láme.</p>
+<h2>Tři verze simulace</h2>
+<ul>
+<li><strong>Plná simulace:</strong> 8 × 1 km a všech 8 stanic se závodními vahami. Náročná, potřebuješ po ní pár dní na regeneraci. Jednou za přípravu, nejpozději 3–4 týdny před závodem.</li>
+<li><strong>Poloviční simulace:</strong> 4 × 1 km a 4 stanice, třeba první nebo druhá polovina závodu. Dá se dělat častěji, jednou za 2–3 týdny.</li>
+<li><strong>Zkrácená simulace:</strong> 8 × 500 m běhu a stanice na poloviční objem. Dobrá pro začátečníky a pro dny, kdy nechceš tělo vyždímat.</li>
+</ul>
+<h2>Na co se soustředit</h2>
+<ul>
+<li><strong>Tempo běhu:</strong> drž plánované tempo od prvního kilometru. Simulace není závod, je to test plánu.</li>
+<li><strong>Mezičasy:</strong> zapisuj si čas každého běhu a každé stanice. Uvidíš, kde ztrácíš.</li>
+<li><strong>Přechody:</strong> mezi během a stanicí nestůj. Přesně jako v Roxzone.</li>
+<li><strong>Výbava a jídlo:</strong> vyzkoušej boty, oblečení a co sníš před startem.</li>
+</ul>
+<h2>Co si z ní vzít</h2>
+<p>Nejcennější není celkový čas, ale rozdíly. Pokud ti běhy po saních padají o minutu, potřebuješ trénovat běh pod únavou. Pokud stojíš u wall balls, potřebuješ plán sérií. Simulace ti řekne, na čem pracovat dalších pár týdnů.</p>
+<h2>Simulace v HYROX Training Clubu</h2>
+<p>Benchmark testy a simulace jsou součástí programu HYROX365, podle kterého jedeme lekce ve Form Factory. Uvidíš, kde jsi teď a co se za pár týdnů změnilo. Kluby a rozvrh: <a href="/praha/">Praha</a>, <a href="/brno/">Brno</a>, <a href="/ostrava/">Ostrava</a>.</p>
+<p>Jdeš na lekci poprvé? Přečti si <a href="/prvni-hyrox-lekce/">První HYROX lekce</a>. Kompletní přehled stanic a vah je v článku <a href="https://www.ladislavsuchanek.cz/l/hyrox-vahy-a-stanice/">HYROX váhy a stanice</a>.</p>
+""",
+    faqs=[
+      ("Jak často dělat HYROX simulaci?", "Plnou simulaci jednou za přípravu, nejpozději 3–4 týdny před závodem. Poloviční nebo zkrácenou jednou za 2–3 týdny."),
+      ("Mám dělat plnou simulaci v týdnu před závodem?", "Ne. Regenerace po plné simulaci trvá několik dní. Před závodem stačí krátké úseky v závodním tempu."),
+      ("Co mi HYROX simulace ukáže?", "Jestli udržíš plánované tempo, na které stanici ztrácíš nejvíc času a jak zvládáš běh po stanicích."),
+    ],
+  ),
 }
 
 
