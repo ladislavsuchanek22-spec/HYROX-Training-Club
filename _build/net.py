@@ -1,7 +1,7 @@
 """Weby STR2G: jeden zdroj pro blok odkazů v patičce.
 
 Stejný seznam je ve všech čtyřech webech (hyrox-prague.eu, str2g.com,
-hyroxtrainingclub.cz, formfactorygames.cz). Od 10/2026 v něm je i riahrusovska.cz. Když tu něco změníš,
+hyroxtrainingclub.cz, formfactorygames.cz). Od 10/2026 v něm je i riahrusovska.cz a strongertogether.cz (rozcestník Lády a Rii). Když tu něco změníš,
 změň to i v ostatních repozitářích.
 """
 
@@ -41,8 +41,13 @@ SITES = {
              "pl": "https://riahrusovska.cz/en/", "de": "https://riahrusovska.cz/en/"},
             {"cs": "Mentální koučink pro sportovce", "en": "Mental coaching for athletes",
              "pl": "Coaching mentalny dla sportowców", "de": "Mentalcoaching für Sportler"}),
+    "st": ("Stronger Together", "strongertogether.cz",
+           {"cs": "https://strongertogether.cz/", "en": "https://strongertogether.cz/en/",
+            "pl": "https://strongertogether.cz/en/", "de": "https://strongertogether.cz/en/"},
+           {"cs": "Láďa a Ria – všechny naše projekty", "en": "Láďa &amp; Ria – all our projects",
+            "pl": "Láďa i Ria – wszystkie nasze projekty", "de": "Láďa &amp; Ria – alle unsere Projekte"}),
 }
-ORDER = ["hp", "s2", "htc", "ffg", "ls", "ria"]
+ORDER = ["hp", "s2", "htc", "ffg", "ls", "ria", "st"]
 
 
 def url(key, lang):

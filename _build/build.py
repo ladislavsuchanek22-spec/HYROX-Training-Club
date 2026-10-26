@@ -405,6 +405,7 @@ def jsonld(lang):
          "url": SITE + PATH[lang], "logo": SITE + "/img/ff-logo.jpg", "description": t["meta_desc"], "sport": "HYROX",
          "parentOrganization": {"@type": "Organization", "name": "Form Factory", "url": "https://www.formfactory.cz/"},
          "brand": {"@type": "Brand", "name": "STR2G", "url": "https://str2g.com/"},
+         "memberOf": {"@type": "Organization", "@id": "https://strongertogether.cz/#org", "name": "Stronger Together", "url": "https://strongertogether.cz/"},
          "sameAs": ["https://www.instagram.com/hyroxprague/"],
          "location": places,
          "member": [{"@id": "https://hyrox-prague.eu/#ria"}, {"@id": "https://hyrox-prague.eu/#lada"}]},
