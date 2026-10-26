@@ -908,6 +908,163 @@ def city_page(slug):
 '''
 
 
+# ---------- ČLÁNKY (jednoduché stránky s FAQ). draft=True = zatím nezveřejňovat.
+ARTICLES = {
+  "prvni-hyrox-lekce": dict(
+    draft=True,
+    title="První HYROX lekce: co tě čeká a jak se připravit | HYROX Training Club",
+    desc="Jdeš na první HYROX lekci ve Form Factory? Jak lekce probíhá, jak se přihlásit, co si vzít a jak se nebát, když jsi začátečník. Praha, Brno, Ostrava.",
+    h1="První HYROX lekce", sub="Co tě čeká a jak se připravit",
+    img="/img/group.webp",
+    lead="Na první HYROX lekci nepotřebuješ zkušenost ani formu. Potřebuješ přijít. Tady je, jak lekce v HYROX Training Clubu probíhá a co si vzít s sebou.",
+    body="""
+<h2>Jak HYROX lekce probíhá</h2>
+<p>Lekce trvá 45 minut a pracuje se na 4 nebo 8 stanovištích. Kombinuje kardio a sílu, vede ji trenér a jede se v týmové energii s hudbou. Na začátku je rozcvička a technika, pak hlavní blok. Váhy i tempo se upraví podle tvé úrovně.</p>
+<p>Lekce jedou podle oficiálního programu HYROX365 ve čtyřech formátech: Foundational, Engine, Power a Complete. Formát si nevybíráš, program ho během týdnů střídá za tebe. Přehled formátů je na <a href="/#programy">hlavní stránce</a>.</p>
+<h2>Jak se přihlásit</h2>
+<p>Lekci si rezervuješ v aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství. Podmínky prvního vstupu najdeš na <a href="https://www.formfactory.cz/prvni-vstup/" target="_blank" rel="noopener">webu Form Factory</a>.</p>
+<h2>Co si vzít s sebou</h2>
+<ul>
+<li>Sportovní oblečení, ve kterém se dobře hýbeš</li>
+<li>Čisté sálové tenisky</li>
+<li>Ručník a pití</li>
+</ul>
+<p>Přijď pár minut dřív, ať stihneš převléknout a pozdravit trenéra. Řekni mu, že jsi tu poprvé.</p>
+<h2>Tipy na první lekci</h2>
+<ul>
+<li><strong>Nezačínej naplno.</strong> První lekce je na to, abys poznal stanice a tempo. Výkon přijde.</li>
+<li><strong>Ptej se.</strong> Saně, SkiErg nebo wall balls jsou pro hodně lidí nové. Trenér ti ukáže techniku.</li>
+<li><strong>Přijď znovu do týdne.</strong> Rozdíl ucítíš po třech, čtyřech lekcích, ne po první.</li>
+</ul>
+<h2>Kde trénujeme</h2>
+<p>V Praze ve Form Factory Na Knížecí a Vinohradská, v Brně ve Form Factory Campus a v Ostravě ve Form Factory Hrabová. Adresy a otevírací doby: <a href="/praha/">Praha</a>, <a href="/brno/">Brno</a>, <a href="/ostrava/">Ostrava</a>.</p>
+<p>Chystáš se rovnou na závod? Co tě na HYROX čeká a jaké jsou váhy, najdeš v článku <a href="https://www.ladislavsuchanek.cz/l/hyrox-vahy-a-stanice/">HYROX váhy a stanice</a>.</p>
+""",
+    faqs=[
+      ("Můžu na HYROX lekci jako úplný začátečník?", "Ano. Předchozí zkušenost není potřeba. Lekce jsou vedené tak, aby se v nich zorientovali i úplní začátečníci, a váhy i tempo se upraví podle tvé úrovně."),
+      ("Jak dlouho trvá HYROX lekce?", "45 minut. Pracuje se na 4 nebo 8 stanovištích a kombinuje se kardio a síla."),
+      ("Jak si HYROX lekci zarezervuju?", "V aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství."),
+      ("Co si vzít na HYROX lekci?", "Sportovní oblečení, čisté sálové tenisky, ručník a pití."),
+      ("Musím být ve formě?", "Nemusíš. Důležité je chtít začít. Forma přijde s pravidelným tréninkem."),
+    ],
+  ),
+}
+
+
+def article_page(slug):
+    t = T["cs"]
+    a = ARTICLES[slug]
+    url = f"{SITE}/{slug}/"
+    faq_html = "".join(f"<details><summary>{q}</summary><p>{x}</p></details>" for q, x in a["faqs"])
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "HYROX Training Club", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": a["h1"], "item": url}]},
+        {"@type": "Article", "headline": a["h1"], "description": a["desc"], "inLanguage": "cs", "mainEntityOfPage": url,
+         "image": SITE + a["img"], "publisher": {"@id": SITE + "/#club"}},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", x)}} for q, x in a["faqs"]]},
+    ]}
+    cal = FF_HYROX["cs"] + "#timetables"
+    return f'''<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{a["title"]}</title>
+<meta name="description" content="{a["desc"]}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="HYROX Training Club">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:url" content="{url}">
+<meta property="og:title" content="{a["title"]}">
+<meta property="og:description" content="{a["desc"]}">
+<meta property="og:image" content="{SITE}/img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{url}">
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<script src="/js/tracking.js"></script>
+<link rel="icon" href="/favicon.png" type="image/png" sizes="160x160">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+{STYLE}
+{EXTRA_CSS}
+<style>body{{margin:0}}[hidden]{{display:none!important}}.hero h1{{font-size:clamp(48px,9vw,120px)}}.art{{max-width:760px}}.art h2{{margin:44px 0 14px}}.art p,.art li{{font-size:18px;line-height:1.6}}.art ul{{padding-left:22px}}.art a{{color:inherit;text-decoration:underline}}</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <img src="/img/ff-logo.jpg" alt="Form Factory">
+      <span><b>HYROX Training Club</b><small>{t["brand_sub"]}</small></span>
+    </a>
+    <ul>
+      <li><a href="/praha/">Praha</a></li>
+      <li><a href="/brno/">Brno</a></li>
+      <li><a href="/ostrava/">Ostrava</a></li>
+      <li><a href="/#programy">{t["nav_prog"]}</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn btn-red" href="{cal}" target="_blank" rel="noopener">{t["nav_book"]}</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-img"><img src="{a["img"]}" alt="{a["h1"]} ve Form Factory"></div>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">HYROX Training Club</a> / {a["h1"]}</p>
+      <p class="eyebrow">{t["hero_eyebrow"]}</p>
+      <h1>{a["h1"]}<small class="h1-sub">{a["sub"]}</small></h1>
+      <p class="lead">{a["lead"]}</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="{cal}" target="_blank" rel="noopener">Rozvrh a rezervace →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="coaches">
+    <div class="wrap">
+      <div class="art">{a["body"]}</div>
+    </div>
+  </section>
+
+  <section class="coaches">
+    <div class="wrap">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Časté otázky</p>
+        <h2>{a["h1"]}: co potřebuješ vědět</h2>
+      </div>
+      <div class="city-faq">{faq_html}</div>
+      <div class="city-other"><a class="btn btn-ghost" href="/">Všechny kluby</a><a class="btn btn-ghost" href="/praha/">HYROX Praha</a><a class="btn btn-ghost" href="/brno/">HYROX Brno</a><a class="btn btn-ghost" href="/ostrava/">HYROX Ostrava</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    {net.block("htc", "cs")}
+    <span>HYROX Training Club · Form Factory × STR2G</span>
+    <span><a href="{FF_HYROX["cs"]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
+  </div>
+</footer>
+</body>
+</html>
+'''
+
+
+for slug, a in ARTICLES.items():
+    if a.get("draft"):
+        continue
+    d = os.path.join(OUT, slug)
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "index.html"), "w").write(article_page(slug))
+    print("wrote", os.path.join(d, "index.html"))
+
+
 for slug in CITIES:
     d = os.path.join(OUT, slug)
     os.makedirs(d, exist_ok=True)
