@@ -12,7 +12,7 @@ HEADING = {"cs": "Weby STR2G", "en": "STR2G websites", "pl": "Strony STR2G", "de
 # klíč: (název, doména, URL podle jazyka, popis podle jazyka)
 SITES = {
     "hp": ("HYROX Prague", "hyrox-prague.eu",
-           {"cs": "https://hyrox-prague.eu/", "en": "https://hyrox-prague.eu/en/",
+           {"cs": "https://hyrox-prague.eu/cs/", "en": "https://hyrox-prague.eu/",
             "pl": "https://hyrox-prague.eu/pl/", "de": "https://hyrox-prague.eu/de/"},
            {"cs": "HYROX trénink a příprava na závod", "en": "HYROX training and race prep",
             "pl": "Trening HYROX i przygotowanie do zawodów", "de": "HYROX-Training und Wettkampfvorbereitung"}),
