@@ -582,7 +582,7 @@ def page(lang):
           <h2>{t["hw_h"]}</h2>
         </div>
         <div class="steps">
-          <div class="step"><span class="n">1</span><div><b>{t["s1h"]}</b><p>{t["s1t"]}</p></div></div>
+          <div class="step"><span class="n">1</span><div><b>{t["s1h"]}</b><p>{t["s1t"]}{FIRST_LINK if lang == "cs" else ""}</p></div></div>
           <div class="step"><span class="n">2</span><div><b>{t["s2h"]}</b><p>{t["s2t"]}</p></div></div>
           <div class="step"><span class="n">3</span><div><b>{t["s3h"]}</b><p>{t["s3t"]}</p></div></div>
         </div>
@@ -875,7 +875,7 @@ def city_page(slug):
           <h2>{t["hw_h"]}</h2>
         </div>
         <div class="steps">
-          <div class="step"><span class="n">1</span><div><b>{t["s1h"]}</b><p>{t["s1t"]}</p></div></div>
+          <div class="step"><span class="n">1</span><div><b>{t["s1h"]}</b><p>{t["s1t"]}{FIRST_LINK}</p></div></div>
           <div class="step"><span class="n">2</span><div><b>{t["s2h"]}</b><p>{t["s2t"]}</p></div></div>
           <div class="step"><span class="n">3</span><div><b>{t["s3h"]}</b><p>{t["s3t"]}</p></div></div>
         </div>
@@ -908,10 +908,12 @@ def city_page(slug):
 '''
 
 
+FIRST_LINK = ' <a href="/prvni-hyrox-lekce/">Jdeš poprvé? Co tě čeká →</a>'
+
 # ---------- ČLÁNKY (jednoduché stránky s FAQ). draft=True = zatím nezveřejňovat.
 ARTICLES = {
   "prvni-hyrox-lekce": dict(
-    draft=True,
+    draft=False,
     title="První HYROX lekce: co tě čeká a jak se připravit | HYROX Training Club",
     desc="Jdeš na první HYROX lekci ve Form Factory? Jak lekce probíhá, jak se přihlásit, co si vzít a jak se nebát, když jsi začátečník. Praha, Brno, Ostrava.",
     h1="První HYROX lekce", sub="Co tě čeká a jak se připravit",
