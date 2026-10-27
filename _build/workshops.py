@@ -9,7 +9,7 @@ import json
 EVENTS = [
     dict(
         id="hyrox-level-1",
-        date="2026-11-28", start="10:00", end="18:00",
+        date="2026-11-28", start="09:00", end="17:00",
         price=4990, capacity=20, img="/img/group.webp",
         place="Form Factory Na Knížecí", address="Ostrovského 464/6, 150 00 Praha 5",
         buy="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180",
@@ -64,17 +64,17 @@ SEC = {
     "en": dict(eyebrow="FF Academy workshops", h="Workshops with Ria Suchánek Hrušovská.",
                lead="November workshops at Form Factory Na Knížecí, Prague, with the head coach of the HYROX Training Club. Tickets are sold through FF Academy.",
                date="Date", time="Time", place="Venue", cap="Capacity", price="Price", lector="Led by", seats="places",
-               buy="Buy online →", info="More on FF Academy", lang_note="Held in Czech.",
+               buy="Buy online →", info="More on FF Academy", lang_note="In Czech, English possible on request.",
                days=["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], cur="CZK", thou=","),
     "de": dict(eyebrow="Workshops der FF Academy", h="Workshops mit Ria Suchánek Hrušovská.",
                lead="November-Workshops bei Form Factory Na Knížecí in Prag mit der Head Coach des HYROX Training Clubs. Tickets gibt es über die FF Academy.",
                date="Datum", time="Zeit", place="Ort", cap="Kapazität", price="Preis", lector="Leitung", seats="Plätze",
-               buy="Online kaufen →", info="Mehr bei FF Academy", lang_note="Auf Tschechisch.",
+               buy="Online kaufen →", info="Mehr bei FF Academy", lang_note="Auf Tschechisch, Englisch nach Absprache möglich.",
                days=["Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So."], cur="CZK", thou="."),
     "pl": dict(eyebrow="Warsztaty FF Academy", h="Warsztaty z Rią Suchánek Hrušovską.",
                lead="Listopadowe warsztaty w Form Factory Na Knížecí w Pradze z head coach HYROX Training Club. Sprzedaż odbywa się przez FF Academy.",
                date="Data", time="Godzina", place="Miejsce", cap="Liczba miejsc", price="Cena", lector="Prowadzi", seats="miejsc",
-               buy="Kup online →", info="Więcej w FF Academy", lang_note="Warsztat po czesku.",
+               buy="Kup online →", info="Więcej w FF Academy", lang_note="Po czesku, na życzenie także po angielsku.",
                days=["pon.", "wt.", "śr.", "czw.", "pt.", "sob.", "niedz."], cur="CZK", thou=" "),
 }
 
