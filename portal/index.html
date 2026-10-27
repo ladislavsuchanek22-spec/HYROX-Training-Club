@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Portál účastníků | HYROX 12 Weeks Race Prep</title>
+<meta name="description" content="Portál účastníků programu HYROX 12 Weeks Race Prep: PDF materiály ke stažení, komunita a workshopy.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HYROX Training Club">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:url" content="https://hyroxtrainingclub.cz/portal/">
+<meta property="og:title" content="Portál účastníků | HYROX 12 Weeks Race Prep">
+<meta property="og:description" content="Portál účastníků programu HYROX 12 Weeks Race Prep: PDF materiály ke stažení, komunita a workshopy.">
+<meta property="og:image" content="https://hyroxtrainingclub.cz/img/coaches.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hyroxtrainingclub.cz/portal/">
+<script src="/js/tracking.js"></script>
+<link rel="icon" href="/favicon.png" type="image/png" sizes="160x160">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: noční tréninková hala Form Factory — černá s modrým nádechem, bílé čáry běžeckých drah jako dělítka, červená FF jako jediný akcent */
+:root{
+  --bg:#090B13;
+  --surface:#11152A;
+  --surface-2:#181D38;
+  --line:#262C4D;
+  --fg:#F2F4FA;
+  --muted:#9AA3C2;
+  --red:#A50F2D;
+  --red-hi:#E5304F;
+  --blue:#4A63FF;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.01em}
+h2{font-size:clamp(40px,6vw,72px);font-weight:800}
+h3{font-size:28px;font-weight:700}
+p{margin:0}
+.eyebrow{font:600 13px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--red-hi);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--red-hi)}
+.lead{color:var(--muted);font-size:19px;max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 17px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:16px 26px;border:2px solid transparent;transition:background .2s,border-color .2s,transform .2s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hi);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--fg);color:var(--fg)}
+.btn-ghost:hover{background:var(--fg);color:var(--bg)}
+section{padding-block:clamp(72px,10vw,128px)}
+/* lane divider — bílé čáry drah z podlahy klubu */
+.lanes{height:34px;background:
+  repeating-linear-gradient(90deg,transparent 0 calc(25% - 2px),rgba(242,244,250,.55) calc(25% - 2px) 25%),
+  linear-gradient(var(--bg),var(--bg));
+  border-block:2px solid rgba(242,244,250,.55);opacity:.35}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(9,11,19,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:40px;height:40px}
+.brand b{font:800 20px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase}
+.brand small{display:block;font:500 11px/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font:600 15px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nav ul a:hover{color:var(--fg)}
+.nav .btn{padding:11px 18px;font-size:15px}
+@media (max-width:900px){.nav ul{display:none}}
+@media (max-width:420px){.brand small{display:none}.nav .btn{padding:10px 12px;font-size:13px}}
+
+/* HERO */
+.hero{position:relative;padding-block:0;overflow:hidden;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.96) 0%,rgba(9,11,19,.78) 45%,rgba(9,11,19,.25) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 35%)}
+.hero .wrap{padding-block:clamp(90px,14vw,170px) clamp(56px,8vw,96px);display:grid;gap:28px}
+.hero h1{font-size:clamp(58px,11vw,148px);font-weight:800;line-height:.86}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--fg)}
+.hero h1 em{font-style:normal;color:var(--red-hi)}
+.hero .lead{color:#C9CFE4;max-width:52ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+.cities{font:500 14px/1 var(--f-mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.cities b{color:var(--fg);font-weight:500}
+
+/* STATS — formát závodu */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 20px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat strong{display:block;font:800 clamp(40px,5vw,58px)/1 var(--f-display);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:15px}
+@media (max-width:700px){.stats .wrap{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* ABOUT */
+.about .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,80px);align-items:center}
+.about-text{display:grid;gap:22px;min-width:0}
+.about-text p{color:var(--muted);max-width:60ch}
+.about-text p strong{color:var(--fg);font-weight:600}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.pillars div{background:var(--bg);padding:18px 20px}
+.pillars b{display:block;font:700 20px/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.pillars span{color:var(--muted);font-size:15px;line-height:1.45}
+.about-img{position:relative;min-width:0}
+.about-img img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.about-img figcaption{position:absolute;left:0;bottom:0;background:var(--red);color:#fff;font:600 13px/1.3 var(--f-mono);letter-spacing:.06em;padding:10px 14px;text-transform:uppercase}
+@media (max-width:860px){.about .wrap{grid-template-columns:1fr}.about-img img{aspect-ratio:4/3}}
+
+/* PROGRAMS */
+.programs{background:var(--surface)}
+.sec-head{display:grid;gap:18px;margin-bottom:48px}
+.prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prog{background:var(--bg);border:1px solid var(--line);padding:28px 24px 26px;display:flex;flex-direction:column;gap:14px;min-width:0;position:relative;transition:border-color .2s,transform .2s}
+.prog:hover{border-color:var(--blue);transform:translateY(-3px)}
+.prog .tag{font:500 12px/1 var(--f-mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.prog h3{font-size:clamp(34px,3.4vw,44px)}
+.prog .claim{font-weight:600;color:var(--fg)}
+.prog ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:var(--muted);font-size:15px}
+.prog li{display:flex;gap:10px;line-height:1.4}
+.prog li::before{content:"";flex:0 0 8px;height:8px;margin-top:6px;background:var(--red-hi)}
+.prog .who{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-size:15px;color:var(--muted)}
+.prog .who b{color:var(--fg);font-weight:600}
+.meter{display:flex;gap:4px}
+.meter i{flex:1;height:5px;background:var(--line)}
+.meter i.on{background:var(--blue)}
+.prog-note{margin-top:28px;display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);padding:20px 22px;background:var(--bg);color:var(--muted)}
+.prog-note b{color:var(--fg)}
+.prog-note .ic{flex:0 0 auto;font:800 28px/1 var(--f-display);color:var(--blue)}
+@media (max-width:1000px){.prog-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.prog-grid{grid-template-columns:1fr}}
+
+/* RACE */
+.race .wrap{display:grid;gap:48px}
+.race-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:end}
+@media (max-width:860px){.race-top{grid-template-columns:1fr}}
+.race-top img{width:100%;aspect-ratio:12/6.5;object-fit:cover}
+.track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+.leg{padding:20px 18px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:6px;min-width:0}
+.leg:nth-child(4n){border-right:0}
+.leg:nth-last-child(-n+4){border-bottom:0}
+.leg .run{font:500 12px/1 var(--f-mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.leg .no{font:500 12px/1 var(--f-mono);color:var(--red-hi)}
+.leg b{font:700 24px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em}
+.leg span{font:500 15px/1.2 var(--f-mono);font-variant-numeric:tabular-nums;color:var(--fg)}
+@media (max-width:760px){.track{grid-template-columns:1fr 1fr}.leg:nth-child(4n){border-right:1px solid var(--line)}.leg:nth-child(2n){border-right:0}.leg:nth-last-child(-n+4){border-bottom:1px solid var(--line)}.leg:nth-last-child(-n+2){border-bottom:0}}
+.truths{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.truths div{display:grid;gap:8px;align-content:start}
+.truths b{font:700 22px/1.1 var(--f-display);text-transform:uppercase}
+.truths p{color:var(--muted);font-size:16px}
+@media (max-width:760px){.truths{grid-template-columns:1fr}}
+
+/* HOW / WHO */
+.how{background:var(--surface)}
+.how .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:860px){.how .wrap{grid-template-columns:1fr}}
+.how-img img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.how-body{display:grid;gap:40px;min-width:0}
+.steps{display:grid;gap:0;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.step .n{font:800 40px/1 var(--f-display);color:var(--red-hi)}
+.step b{display:block;font:700 22px/1.1 var(--f-display);text-transform:uppercase;margin-bottom:4px}
+.step p{color:var(--muted);font-size:16px}
+.forwho{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.forwho div{border:1px solid var(--line);padding:16px 18px;background:var(--bg);font-size:16px;color:var(--muted)}
+.forwho div b{color:var(--fg);display:block;font-weight:600}
+@media (max-width:480px){.forwho{grid-template-columns:1fr}}
+
+/* COACHES */
+.coaches{padding-bottom:0}
+.coach-banner{margin-top:48px;position:relative}
+.coach-banner img{width:100%;aspect-ratio:1800/720;object-fit:cover}
+.coach-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.coach{background:var(--surface);border:1px solid var(--line);padding:28px;display:grid;gap:12px;min-width:0}
+.coach h3{font-size:36px}
+.coach .role{font:500 13px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--red-hi)}
+.coach p{color:var(--muted);font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font:500 12px/1 var(--f-mono);letter-spacing:.04em;padding:7px 9px;border:1px solid var(--line);color:var(--fg)}
+@media (max-width:760px){.coach-grid{grid-template-columns:1fr}.coach-banner img{aspect-ratio:16/9}}
+
+/* CLUBS */
+.club-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1000px){.club-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.club-grid{grid-template-columns:1fr}}
+.club{border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.club-top{padding:22px 22px 18px;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.club .city{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red-hi)}
+.club h3{font-size:34px}
+.club dl{margin:0;padding:18px 22px;display:grid;gap:12px;font-size:15px;flex:1}
+.club dt{font:500 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.club dd{margin:0;line-height:1.45;font-variant-numeric:tabular-nums}
+.club dd a.ct{text-decoration:none;border-bottom:1px solid var(--line)}
+.club dd a.ct:hover{color:var(--red-hi);border-color:var(--red-hi)}
+.club-links{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.club-links a{padding:14px 10px;text-align:center;text-decoration:none;font:700 14px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase}
+.club-links a:first-child{background:var(--red);color:#fff}
+.club-links a:first-child:hover{background:var(--red-hi)}
+.club-links a:last-child:hover{background:var(--surface-2)}
+
+/* GALLERY */
+.gallery{padding-top:0}
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:8px}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal .a{grid-row:span 2}
+.gal .d{grid-column:span 2}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gal img{aspect-ratio:1}.gal .a{grid-column:span 2;grid-row:auto}.gal .a img{aspect-ratio:16/10}.gal .d{grid-column:span 2}.gal .d img{aspect-ratio:16/9}}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;isolation:isolate;text-align:left}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:url("/img/sled.webp") center 60%/cover}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.95),rgba(9,11,19,.7))}
+.cta .wrap{display:grid;gap:24px}
+.cta h2{font-size:clamp(46px,8vw,104px)}
+.cta .lead{color:#C9CFE4}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+
+footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer a{color:var(--fg)}
+/* Rozvrh HYROX lekcí (city pages) */
+.tt{padding:72px 0;border-top:1px solid var(--line)}
+.tt-club{margin-top:28px}
+.tt-club h3{font:700 22px/1.1 var(--f-display);text-transform:uppercase;margin:0 0 12px}
+.tt-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.tt-day{background:var(--surface);border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tt-day b{font:600 13px/1 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.tt-slot{display:block;font:700 17px/1.2 var(--f-display);color:var(--fg);text-decoration:none;padding:6px 8px;background:var(--surface-2);border-left:3px solid var(--red-hi)}
+.tt-slot:hover{background:var(--red)}
+.tt-slot small{display:block;font:600 11px/1.2 var(--f-body);color:var(--muted);text-transform:none}
+.tt-ev{border-left-color:var(--blue)}
+.tt-none{color:var(--muted)}
+@media (max-width:900px){.tt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style><style>
+.langs{display:flex;gap:2px;border:1px solid var(--line)}
+.langs a{font:600 13px/1 var(--f-mono);letter-spacing:.06em;text-decoration:none;color:var(--muted);padding:8px 8px}
+.langs a:hover{color:var(--fg)}
+.langs a[aria-current]{background:var(--fg);color:var(--bg)}
+.nav-right{display:flex;align-items:center;gap:12px}
+@media (max-width:1100px){.brand small{display:none}}
+@media (max-width:520px){.nav .btn{display:none}.langs a{padding:7px 6px;font-size:12px}}
+.lead a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
+.coach .site{font:500 13px/1.3 var(--f-mono);color:var(--red-hi);text-decoration:none}
+.coach .site:hover{text-decoration:underline}
+.coach-grid{grid-template-columns:repeat(3,1fr)!important}
+.coach{align-content:start}
+.coach .ph{display:block;margin:-28px -28px 6px;overflow:hidden;background:var(--surface-2)}
+.coach .ph img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.coach h3 .aka{display:block;margin-top:6px;font:500 13px/1 var(--f-mono);letter-spacing:.08em;color:var(--muted);text-transform:none}
+@media (max-width:960px){.coach-grid{grid-template-columns:1fr!important}.coach .ph img{aspect-ratio:4/3;object-position:center 25%}}
+.prog-note a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
+.net{flex-basis:100%;padding-bottom:24px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+.net-h{margin:0 0 14px;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.net ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 24px}
+.net a{display:grid;gap:3px;text-decoration:none;color:var(--fg)}
+.net b{font:700 20px/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.net span{font-size:14px;line-height:1.35;color:var(--muted)}
+.net i{font:500 12px/1.2 var(--f-mono);font-style:normal;color:var(--muted)}
+.net a:hover b{color:var(--red-hi)}
+.hero h1 .h1-sub{display:block;margin-top:22px;font:600 15px/1.35 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--fg);-webkit-text-stroke:0}
+.club-more{display:inline-block;margin-top:14px;font:500 13px/1.3 var(--f-mono);color:var(--red-hi);text-decoration:none}
+.club-more:hover{text-decoration:underline}
+.city-faq details{border-top:1px solid var(--line);padding:16px 0}
+.city-faq summary{cursor:pointer;font:700 20px/1.2 var(--f-display);text-transform:uppercase}
+.city-faq p{color:var(--muted);max-width:720px}
+.crumbs{font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+.crumbs a{color:var(--muted)}
+.city-other{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+</style><style>
+/* 12 Weeks Race Prep */
+.rp-promo{position:relative;overflow:hidden;isolation:isolate;border-block:1px solid var(--line)}
+.rp-promo::before{content:"";position:absolute;inset:0;z-index:-2;background:url("/img/coaches.webp") center 30%/cover}
+.rp-promo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.97) 0%,rgba(9,11,19,.86) 50%,rgba(165,15,45,.55) 100%)}
+.rp-promo .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(44px,6vw,72px)}
+.rp-promo h2{font-size:clamp(40px,6vw,76px)}
+.rp-promo h2 span{color:var(--red-hi)}
+.rp-promo .lead{color:#C9CFE4;margin-top:14px}
+.rp-promo .hero-cta{margin-top:24px}
+.rp-tag{display:inline-block;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;background:var(--red);color:#fff;padding:7px 10px;margin-bottom:16px}
+.rp-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.rp-facts div{background:rgba(9,11,19,.82);padding:18px}
+.rp-facts strong{display:block;font:800 44px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.rp-facts span{color:var(--muted);font-size:14px;line-height:1.3}
+@media (max-width:860px){.rp-promo .wrap{grid-template-columns:1fr}}
+.nav ul a.rp-nav{color:var(--fg);border-bottom:2px solid var(--red-hi);padding-bottom:3px}
+
+.rp-intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.rp-intro p{color:var(--muted);max-width:60ch}
+.rp-intro p strong{color:var(--fg);font-weight:600}
+.rp-how{border:1px solid var(--line);background:var(--surface);padding:24px;display:grid;gap:10px}
+.rp-how b{font:700 22px/1.1 var(--f-display);text-transform:uppercase}
+@media (max-width:860px){.rp-intro .wrap{grid-template-columns:1fr}}
+
+.rp-who{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.rp-who div{border:1px solid var(--line);background:var(--bg);padding:22px;display:grid;gap:8px;align-content:start}
+.rp-who b{font:700 22px/1.1 var(--f-display);text-transform:uppercase}
+.rp-who p{color:var(--muted);font-size:16px}
+@media (max-width:1000px){.rp-who{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.rp-who{grid-template-columns:1fr}}
+
+.rp-inc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rp-inc article{border:1px solid var(--line);background:var(--surface);padding:24px;display:grid;gap:10px;align-content:start}
+.rp-inc .no{font:500 12px/1 var(--f-mono);color:var(--red-hi);letter-spacing:.1em}
+.rp-inc h3{font-size:28px}
+.rp-inc p{color:var(--muted);font-size:15px}
+.rp-inc ul{list-style:none;margin:6px 0 0;padding:12px 0 0;border-top:1px dashed var(--line);display:grid;gap:7px;font-size:15px}
+.rp-inc li{display:flex;gap:10px;line-height:1.4}
+.rp-inc li::before{content:"";flex:0 0 8px;height:8px;margin-top:6px;background:var(--red-hi)}
+@media (max-width:1000px){.rp-inc{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.rp-inc{grid-template-columns:1fr}}
+
+.rp-weeks{border:1px solid var(--line)}
+.rp-phase{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red-hi);background:var(--surface);padding:12px 18px;border-bottom:1px solid var(--line)}
+.rp-week{display:grid;grid-template-columns:64px 180px 1fr;gap:16px;align-items:baseline;padding:14px 18px;border-bottom:1px solid var(--line)}
+.rp-weeks .rp-week:last-child{border-bottom:0}
+.rp-week .n{font:800 30px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.rp-week b{font:700 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em}
+.rp-week span{color:var(--muted);font-size:16px}
+.rp-week.ws{background:rgba(74,99,255,.08)}
+.rp-week.ws b::after{content:" · workshop";font:500 11px/1 var(--f-mono);letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
+@media (max-width:620px){.rp-week{grid-template-columns:44px 1fr}.rp-week span{grid-column:2}}
+
+.rp-price .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.rp-card{border:2px solid var(--red);background:var(--surface);padding:30px;display:grid;gap:14px}
+.rp-card .amt{font:800 clamp(64px,9vw,104px)/.9 var(--f-display);font-variant-numeric:tabular-nums}
+.rp-card .amt small{font-size:.32em;color:var(--muted);margin-left:8px}
+.rp-card p{color:var(--muted)}
+.rp-list{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.rp-list li{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+.rp-list li::before{content:"✓";color:var(--red-hi);font-weight:700}
+.rp-note{margin-top:16px;color:var(--muted);font-size:15px;border-left:3px solid var(--blue);padding-left:14px}
+@media (max-width:860px){.rp-price .wrap{grid-template-columns:1fr}}
+
+.rp-portal-teaser{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:860px){.rp-portal-teaser{grid-template-columns:1fr}}
+.rp-coaches{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rp-coaches article{display:grid;grid-template-columns:140px 1fr;gap:18px;border:1px solid var(--line);background:var(--surface);align-items:center}
+.rp-coaches img{width:140px;height:175px;object-fit:cover;display:block}
+.rp-coaches div{padding:16px 18px 16px 0}
+.rp-coaches b{display:block;font:700 24px/1.05 var(--f-display);text-transform:uppercase}
+.rp-coaches span{font:500 12px/1.3 var(--f-mono);letter-spacing:.06em;color:var(--red-hi);text-transform:uppercase}
+.rp-coaches p{color:var(--muted);font-size:15px;margin-top:6px}
+@media (max-width:760px){.rp-coaches{grid-template-columns:1fr}}
+
+/* portal */
+.pv-bar{background:var(--blue);color:#fff;text-align:center;font:500 13px/1.4 var(--f-mono);letter-spacing:.04em;padding:9px max(16px,env(safe-area-inset-left,0px))}
+.pt-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:860px){.pt-wrap{grid-template-columns:1fr}}
+.pt-box{border:1px solid var(--line);background:var(--surface)}
+.pt-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.pt-tabs button{all:unset;cursor:pointer;text-align:center;padding:16px;font:700 17px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pt-tabs button[aria-selected="true"]{color:var(--fg);box-shadow:inset 0 -3px 0 var(--red-hi)}
+.pt-tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.pt-form{padding:26px;display:grid;gap:14px}
+.pt-form label{display:grid;gap:6px;font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pt-form input{font:400 16px/1.3 var(--f-body);color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:13px 14px;border-radius:0}
+.pt-form input:focus{outline:2px solid var(--blue);outline-offset:0;border-color:var(--blue)}
+.pt-form .chk{display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font:400 14px/1.4 var(--f-body)}
+.pt-form .chk input{margin-top:3px;padding:0}
+.pt-form .btn{justify-content:center;border:0;cursor:pointer}
+.pt-form small{color:var(--muted);font-size:13px}
+.pt-steps{display:grid;gap:0;border-top:1px solid var(--line)}
+.pt-steps div{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.pt-steps .n{font:800 32px/1 var(--f-display);color:var(--red-hi)}
+.pt-steps b{display:block;font:700 20px/1.1 var(--f-display);text-transform:uppercase;margin-bottom:4px}
+.pt-steps p{color:var(--muted);font-size:15px}
+.pt-dash{display:grid;gap:24px}
+.pt-hello{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:22px}
+.pt-hello h2{font-size:clamp(36px,5vw,58px)}
+.pt-prog{display:grid;gap:8px;min-width:240px}
+.pt-prog span{font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pt-bar{height:8px;background:var(--line)}
+.pt-bar i{display:block;height:100%;background:var(--red-hi)}
+.pt-files{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.pt-file{border:1px solid var(--line);background:var(--surface);padding:20px;display:grid;gap:10px;align-content:start}
+.pt-file .ic{font:800 13px/1 var(--f-mono);color:#fff;background:var(--red);width:max-content;padding:6px 8px;letter-spacing:.06em}
+.pt-file b{font:700 22px/1.05 var(--f-display);text-transform:uppercase}
+.pt-file p{color:var(--muted);font-size:14px}
+.pt-file .meta{font:500 12px/1 var(--f-mono);color:var(--muted)}
+.pt-file .btn{padding:11px 14px;font-size:14px;justify-content:center;border:0;cursor:pointer}
+.pt-file.locked{opacity:.6}
+.pt-file.locked .btn{background:var(--surface-2);color:var(--muted);cursor:not-allowed}
+.pt-links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pt-links a{border:1px solid var(--line);padding:18px;text-decoration:none;display:grid;gap:4px}
+.pt-links a:hover{border-color:var(--blue)}
+.pt-links b{font:700 20px/1.1 var(--f-display);text-transform:uppercase}
+.pt-links span{color:var(--muted);font-size:14px}
+@media (max-width:760px){.pt-links{grid-template-columns:1fr}}
+.pt-toast{font:500 14px/1.4 var(--f-body);color:var(--fg);background:var(--surface-2);border-left:3px solid var(--blue);padding:12px 14px}
+</style>
+<style>body{margin:0}[hidden]{display:none!important}.portal-hero{padding-block:clamp(56px,8vw,96px) 0}.portal-hero h1{font-size:clamp(48px,8vw,104px);line-height:.9}</style>
+</head>
+<body>
+<div class="pv-bar">NÁHLED · Registrace a přihlášení zatím nic neodesílají, jde jen o ukázku vzhledu.</div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <img src="/img/ff-logo.jpg" alt="Form Factory">
+      <span><b>HYROX Training Club</b><small>Form Factory · Praha · Brno · Ostrava</small></span>
+    </a>
+    <ul>
+      <li><a href="/12-weeks-race-prep/" class="rp-nav">12 Weeks</a></li>
+      <li><a href="/12-weeks-race-prep/#obsah">Co je v programu</a></li>
+      <li><a href="/12-weeks-race-prep/#cena">Cena</a></li>
+      <li><a href="/portal/">Portál</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn btn-red" href="/portal/#registrace">Registrace</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="portal-hero">
+    <div class="wrap" style="display:grid;gap:18px">
+      <p class="crumbs"><a href="/">HYROX Training Club</a> / <a href="/12-weeks-race-prep/">12 Weeks Race Prep</a> / Portál</p>
+      <p class="eyebrow">Portál účastníků</p>
+      <h1>12 Weeks<br>Race Prep.</h1>
+    </div>
+  </section>
+
+  <section id="registrace">
+    <div class="wrap">
+      <div class="pt-wrap" id="pt-auth">
+        <div class="pt-box">
+          <div class="pt-tabs" role="tablist">
+            <button role="tab" id="tab-reg" aria-selected="true" aria-controls="f-reg" type="button">Registrace</button>
+            <button role="tab" id="tab-log" aria-selected="false" aria-controls="f-log" type="button">Přihlášení</button>
+          </div>
+          <form class="pt-form" id="f-reg" novalidate>
+            <label for="r-name">Jméno a příjmení<input id="r-name" autocomplete="name" placeholder="Jan Novák" required></label>
+            <label for="r-mail">E-mail<input id="r-mail" type="email" autocomplete="email" placeholder="jan@email.cz" required></label>
+            <label for="r-pass">Heslo<input id="r-pass" type="password" autocomplete="new-password" placeholder="Alespoň 8 znaků" required></label>
+            <label for="r-club">Domovský klub (nepovinné)<input id="r-club" placeholder="Na Knížecí, Vinohradská, Campus, Hrabová"></label>
+            <label class="chk" for="r-gdpr"><input id="r-gdpr" type="checkbox"> Souhlasím se zpracováním osobních údajů pro účely programu.</label>
+            <button class="btn btn-red" type="submit">Registrovat a pokračovat k platbě →</button>
+            <small>Po zaplacení 8 999 Kč se ti portál odemkne a dostaneš e-mail s odkazem do WhatsApp komunity.</small>
+          </form>
+          <form class="pt-form" id="f-log" hidden novalidate>
+            <label for="l-mail">E-mail<input id="l-mail" type="email" autocomplete="email" placeholder="jan@email.cz"></label>
+            <label for="l-pass">Heslo<input id="l-pass" type="password" autocomplete="current-password"></label>
+            <button class="btn btn-red" type="submit">Přihlásit se →</button>
+            <small>Zapomenuté heslo? Pošleme ti odkaz na e-mail.</small>
+          </form>
+        </div>
+        <div>
+          <div class="sec-head" style="margin:0 0 20px">
+            <h2>Jak to funguje</h2>
+          </div>
+          <div class="pt-steps">
+            <div><span class="n">1</span><div><b>Zaregistruješ se</b><p>Jméno, e-mail, heslo. Za minutu máš účet.</p></div></div>
+            <div><span class="n">2</span><div><b>Zaplatíš program</b><p>8 999 Kč jednou, za celých 12 týdnů.</p></div></div>
+            <div><span class="n">3</span><div><b>Odemkne se portál</b><p>PDF průvodci, termíny workshopů a odkaz do komunity. Další materiály přibývají během programu.</p></div></div>
+          </div>
+          <p class="pt-toast" style="margin-top:20px">V náhledu stačí kliknout na „Registrovat“ nebo „Přihlásit se“ a uvidíš, jak portál vypadá po přihlášení.</p>
+        </div>
+      </div>
+
+      <div class="pt-dash" id="pt-dash" hidden>
+        <div class="pt-hello">
+          <div>
+            <p class="eyebrow">Přihlášen jako <span id="pt-who">Jan Novák</span></p>
+            <h2>Vítej v programu.</h2>
+          </div>
+          <div class="pt-prog">
+            <span>Týden 3 z 12</span>
+            <div class="pt-bar" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="3"><i style="width:25%"></i></div>
+            <span>Další workshop: Mid-program check · týden 6</span>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom:16px">Materiály ke stažení</p>
+          <div class="pt-files"><div class="pt-file"><span class="ic">PDF</span><b>Průvodce programem</b><p>Jak program funguje, týdenní rytmus, zóny a pravidla.</p><span class="meta">Odemčeno</span><button class="btn btn-red dl" type="button">Stáhnout PDF ↓</button></div><div class="pt-file"><span class="ic">PDF</span><b>Kompletní průvodce výživou</b><p>Jídlo kolem tréninku, regenerace a závodní den.</p><span class="meta">Odemčeno</span><button class="btn btn-red dl" type="button">Stáhnout PDF ↓</button></div><div class="pt-file"><span class="ic">PDF</span><b>Warm-up protokol</b><p>Rozcvička před během, silou i závodem.</p><span class="meta">Odemčeno</span><button class="btn btn-red dl" type="button">Stáhnout PDF ↓</button></div><div class="pt-file locked"><span class="ic">PDF</span><b>Mobilita a regenerace</b><p>Rutiny na dny mezi tréninky a po workshopech.</p><span class="meta">Odemkne se v týdnu 4</span><button class="btn" type="button" disabled>Zamčeno</button></div><div class="pt-file locked"><span class="ic">PDF</span><b>Závodní den + checklisty</b><p>Co si zabalit, timeline závodního dne a taktika.</p><span class="meta">Odemkne se v týdnu 10</span><button class="btn" type="button" disabled>Zamčeno</button></div></div>
+        </div>
+        <div class="pt-links">
+          <a href="#" onclick="return false"><b>WhatsApp komunita</b><span>Uzavřená skupina účastníků a trenérů</span></a>
+          <a href="#" onclick="return false"><b>Tréninková aplikace</b><span>Týdenní plán a edukační videa</span></a>
+          <a href="https://www.formfactory.cz/hyrox/#timetables" target="_blank" rel="noopener"><b>HYROX lekce ve FF</b><span>Rozvrh a rezervace →</span></a>
+        </div>
+        <p class="pt-toast" id="pt-msg" hidden></p>
+        <div><button class="btn btn-ghost" type="button" id="pt-out">Odhlásit se</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+  var tabs={reg:document.getElementById('tab-reg'),log:document.getElementById('tab-log')};
+  var forms={reg:document.getElementById('f-reg'),log:document.getElementById('f-log')};
+  function show(k){for(var x in tabs){tabs[x].setAttribute('aria-selected',x===k);forms[x].hidden=x!==k;}}
+  tabs.reg.onclick=function(){show('reg')}; tabs.log.onclick=function(){show('log')};
+  if(location.hash==='#prihlaseni')show('log');
+  function enter(name){document.getElementById('pt-auth').hidden=true;document.getElementById('pt-dash').hidden=false;document.getElementById('pt-who').textContent=name||'Jan Novák';window.scrollTo(0,document.getElementById('registrace').offsetTop-80);}
+  forms.reg.onsubmit=function(e){e.preventDefault();enter(document.getElementById('r-name').value.trim());};
+  forms.log.onsubmit=function(e){e.preventDefault();enter('');};
+  document.getElementById('pt-out').onclick=function(){document.getElementById('pt-dash').hidden=true;document.getElementById('pt-auth').hidden=false;};
+  var msg=document.getElementById('pt-msg');
+  document.querySelectorAll('.dl').forEach(function(b){b.onclick=function(){msg.hidden=false;msg.textContent='Náhled: tady se ve skutečném portálu stáhne PDF „'+b.parentNode.querySelector('b').textContent+'“.';}});
+})();
+</script>
+<footer>
+  <div class="wrap">
+    <nav class="net" aria-label="Weby STR2G"><p class="net-h">Weby STR2G</p><ul><li><a href="https://hyrox-prague.eu/cs/" target="_blank" rel="noopener"><b>HYROX Prague</b><span>HYROX trénink a příprava na závod</span><i>hyrox-prague.eu</i></a></li><li><a href="https://str2g.com/cs/" target="_blank" rel="noopener"><b>STR2G Online</b><span>Online HYROX programy</span><i>str2g.com</i></a></li><li><a href="https://formfactorygames.cz/" target="_blank" rel="noopener"><b>Form Factory Games</b><span>Závod · 5. 12. 2026</span><i>formfactorygames.cz</i></a></li><li><a href="https://www.ladislavsuchanek.cz/" target="_blank" rel="noopener"><b>Ladislav Suchánek</b><span>Osobní trénink, výživa a masáže</span><i>ladislavsuchanek.cz</i></a></li><li><a href="https://riahrusovska.cz/" target="_blank" rel="noopener"><b>Ria Suchánek Hrušovská</b><span>Mentální koučink pro sportovce</span><i>riahrusovska.cz</i></a></li><li><a href="https://strongertogether.cz/" target="_blank" rel="noopener"><b>Stronger Together</b><span>Láďa a Ria – všechny naše projekty</span><i>strongertogether.cz</i></a></li></ul></nav>
+    <span>HYROX Training Club · Form Factory × STR2G</span>
+    <span><a href="https://www.formfactory.cz/hyrox/" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
+  </div>
+</footer>
+</body>
+</html>

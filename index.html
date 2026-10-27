@@ -288,6 +288,128 @@ footer a{color:var(--fg)}
 .crumbs a{color:var(--muted)}
 .city-other{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 </style>
+<style>
+/* 12 Weeks Race Prep */
+.rp-promo{position:relative;overflow:hidden;isolation:isolate;border-block:1px solid var(--line)}
+.rp-promo::before{content:"";position:absolute;inset:0;z-index:-2;background:url("/img/coaches.webp") center 30%/cover}
+.rp-promo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.97) 0%,rgba(9,11,19,.86) 50%,rgba(165,15,45,.55) 100%)}
+.rp-promo .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(44px,6vw,72px)}
+.rp-promo h2{font-size:clamp(40px,6vw,76px)}
+.rp-promo h2 span{color:var(--red-hi)}
+.rp-promo .lead{color:#C9CFE4;margin-top:14px}
+.rp-promo .hero-cta{margin-top:24px}
+.rp-tag{display:inline-block;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;background:var(--red);color:#fff;padding:7px 10px;margin-bottom:16px}
+.rp-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.rp-facts div{background:rgba(9,11,19,.82);padding:18px}
+.rp-facts strong{display:block;font:800 44px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.rp-facts span{color:var(--muted);font-size:14px;line-height:1.3}
+@media (max-width:860px){.rp-promo .wrap{grid-template-columns:1fr}}
+.nav ul a.rp-nav{color:var(--fg);border-bottom:2px solid var(--red-hi);padding-bottom:3px}
+
+.rp-intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.rp-intro p{color:var(--muted);max-width:60ch}
+.rp-intro p strong{color:var(--fg);font-weight:600}
+.rp-how{border:1px solid var(--line);background:var(--surface);padding:24px;display:grid;gap:10px}
+.rp-how b{font:700 22px/1.1 var(--f-display);text-transform:uppercase}
+@media (max-width:860px){.rp-intro .wrap{grid-template-columns:1fr}}
+
+.rp-who{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.rp-who div{border:1px solid var(--line);background:var(--bg);padding:22px;display:grid;gap:8px;align-content:start}
+.rp-who b{font:700 22px/1.1 var(--f-display);text-transform:uppercase}
+.rp-who p{color:var(--muted);font-size:16px}
+@media (max-width:1000px){.rp-who{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.rp-who{grid-template-columns:1fr}}
+
+.rp-inc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rp-inc article{border:1px solid var(--line);background:var(--surface);padding:24px;display:grid;gap:10px;align-content:start}
+.rp-inc .no{font:500 12px/1 var(--f-mono);color:var(--red-hi);letter-spacing:.1em}
+.rp-inc h3{font-size:28px}
+.rp-inc p{color:var(--muted);font-size:15px}
+.rp-inc ul{list-style:none;margin:6px 0 0;padding:12px 0 0;border-top:1px dashed var(--line);display:grid;gap:7px;font-size:15px}
+.rp-inc li{display:flex;gap:10px;line-height:1.4}
+.rp-inc li::before{content:"";flex:0 0 8px;height:8px;margin-top:6px;background:var(--red-hi)}
+@media (max-width:1000px){.rp-inc{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.rp-inc{grid-template-columns:1fr}}
+
+.rp-weeks{border:1px solid var(--line)}
+.rp-phase{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red-hi);background:var(--surface);padding:12px 18px;border-bottom:1px solid var(--line)}
+.rp-week{display:grid;grid-template-columns:64px 180px 1fr;gap:16px;align-items:baseline;padding:14px 18px;border-bottom:1px solid var(--line)}
+.rp-weeks .rp-week:last-child{border-bottom:0}
+.rp-week .n{font:800 30px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.rp-week b{font:700 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em}
+.rp-week span{color:var(--muted);font-size:16px}
+.rp-week.ws{background:rgba(74,99,255,.08)}
+.rp-week.ws b::after{content:" · workshop";font:500 11px/1 var(--f-mono);letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
+@media (max-width:620px){.rp-week{grid-template-columns:44px 1fr}.rp-week span{grid-column:2}}
+
+.rp-price .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.rp-card{border:2px solid var(--red);background:var(--surface);padding:30px;display:grid;gap:14px}
+.rp-card .amt{font:800 clamp(64px,9vw,104px)/.9 var(--f-display);font-variant-numeric:tabular-nums}
+.rp-card .amt small{font-size:.32em;color:var(--muted);margin-left:8px}
+.rp-card p{color:var(--muted)}
+.rp-list{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.rp-list li{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+.rp-list li::before{content:"✓";color:var(--red-hi);font-weight:700}
+.rp-note{margin-top:16px;color:var(--muted);font-size:15px;border-left:3px solid var(--blue);padding-left:14px}
+@media (max-width:860px){.rp-price .wrap{grid-template-columns:1fr}}
+
+.rp-portal-teaser{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:860px){.rp-portal-teaser{grid-template-columns:1fr}}
+.rp-coaches{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rp-coaches article{display:grid;grid-template-columns:140px 1fr;gap:18px;border:1px solid var(--line);background:var(--surface);align-items:center}
+.rp-coaches img{width:140px;height:175px;object-fit:cover;display:block}
+.rp-coaches div{padding:16px 18px 16px 0}
+.rp-coaches b{display:block;font:700 24px/1.05 var(--f-display);text-transform:uppercase}
+.rp-coaches span{font:500 12px/1.3 var(--f-mono);letter-spacing:.06em;color:var(--red-hi);text-transform:uppercase}
+.rp-coaches p{color:var(--muted);font-size:15px;margin-top:6px}
+@media (max-width:760px){.rp-coaches{grid-template-columns:1fr}}
+
+/* portal */
+.pv-bar{background:var(--blue);color:#fff;text-align:center;font:500 13px/1.4 var(--f-mono);letter-spacing:.04em;padding:9px max(16px,env(safe-area-inset-left,0px))}
+.pt-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:860px){.pt-wrap{grid-template-columns:1fr}}
+.pt-box{border:1px solid var(--line);background:var(--surface)}
+.pt-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.pt-tabs button{all:unset;cursor:pointer;text-align:center;padding:16px;font:700 17px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pt-tabs button[aria-selected="true"]{color:var(--fg);box-shadow:inset 0 -3px 0 var(--red-hi)}
+.pt-tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.pt-form{padding:26px;display:grid;gap:14px}
+.pt-form label{display:grid;gap:6px;font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pt-form input{font:400 16px/1.3 var(--f-body);color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:13px 14px;border-radius:0}
+.pt-form input:focus{outline:2px solid var(--blue);outline-offset:0;border-color:var(--blue)}
+.pt-form .chk{display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font:400 14px/1.4 var(--f-body)}
+.pt-form .chk input{margin-top:3px;padding:0}
+.pt-form .btn{justify-content:center;border:0;cursor:pointer}
+.pt-form small{color:var(--muted);font-size:13px}
+.pt-steps{display:grid;gap:0;border-top:1px solid var(--line)}
+.pt-steps div{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.pt-steps .n{font:800 32px/1 var(--f-display);color:var(--red-hi)}
+.pt-steps b{display:block;font:700 20px/1.1 var(--f-display);text-transform:uppercase;margin-bottom:4px}
+.pt-steps p{color:var(--muted);font-size:15px}
+.pt-dash{display:grid;gap:24px}
+.pt-hello{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:22px}
+.pt-hello h2{font-size:clamp(36px,5vw,58px)}
+.pt-prog{display:grid;gap:8px;min-width:240px}
+.pt-prog span{font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pt-bar{height:8px;background:var(--line)}
+.pt-bar i{display:block;height:100%;background:var(--red-hi)}
+.pt-files{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.pt-file{border:1px solid var(--line);background:var(--surface);padding:20px;display:grid;gap:10px;align-content:start}
+.pt-file .ic{font:800 13px/1 var(--f-mono);color:#fff;background:var(--red);width:max-content;padding:6px 8px;letter-spacing:.06em}
+.pt-file b{font:700 22px/1.05 var(--f-display);text-transform:uppercase}
+.pt-file p{color:var(--muted);font-size:14px}
+.pt-file .meta{font:500 12px/1 var(--f-mono);color:var(--muted)}
+.pt-file .btn{padding:11px 14px;font-size:14px;justify-content:center;border:0;cursor:pointer}
+.pt-file.locked{opacity:.6}
+.pt-file.locked .btn{background:var(--surface-2);color:var(--muted);cursor:not-allowed}
+.pt-links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pt-links a{border:1px solid var(--line);padding:18px;text-decoration:none;display:grid;gap:4px}
+.pt-links a:hover{border-color:var(--blue)}
+.pt-links b{font:700 20px/1.1 var(--f-display);text-transform:uppercase}
+.pt-links span{color:var(--muted);font-size:14px}
+@media (max-width:760px){.pt-links{grid-template-columns:1fr}}
+.pt-toast{font:500 14px/1.4 var(--f-body);color:var(--fg);background:var(--surface-2);border-left:3px solid var(--blue);padding:12px 14px}
+</style>
 <style>body{margin:0}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -298,6 +420,7 @@ footer a{color:var(--fg)}
       <span><b>HYROX Training Club</b><small>Form Factory · Praha · Brno · Ostrava</small></span>
     </a>
     <ul>
+      <li><a href="/12-weeks-race-prep/" class="rp-nav">12 Weeks</a></li>
       <li><a href="#programy">Programy</a></li>
       <li><a href="#zavod">Závod</a></li>
       <li><a href="#treneri">Trenéři</a></li>
@@ -333,6 +456,21 @@ footer a{color:var(--fg)}
       <div class="stat"><strong>4</strong><span>kluby Form Factory</span></div>
     </div>
   </div>
+
+  <section class="rp-promo" aria-label="12 Weeks Race Prep">
+    <div class="wrap">
+      <div>
+        <span class="rp-tag">Nový program · Form Factory × STR2G</span>
+        <h2>HYROX 12 Weeks<br><span>Race Prep.</span></h2>
+        <p class="lead">Strukturovaná příprava na závod. Běh, síla, stanoviště a taktika v jednom plánu, pod vedením Rii a Ládi. Plán každé pondělí, 3 společné workshopy a portál s materiály ke stažení.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="/12-weeks-race-prep/">Chci do programu →</a>
+          <a class="btn btn-ghost" href="/12-weeks-race-prep/#cena">8 999 Kč · co je v ceně</a>
+        </div>
+      </div>
+      <div class="rp-facts"><div><strong>12</strong><span>týdnů přípravy</span></div><div><strong>4</strong><span>tréninky týdně</span></div><div><strong>3</strong><span>společné workshopy</span></div><div><strong>8</strong><span>stanovišť do detailu</span></div></div>
+    </div>
+  </section>
 
   <section class="about" id="klub">
     <div class="wrap">
