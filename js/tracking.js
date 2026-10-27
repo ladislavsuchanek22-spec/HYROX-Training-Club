@@ -39,6 +39,19 @@
       gtag('event', 'book_class_click', { club: club });
       gtag('event', 'generate_lead', { method: 'booking', club: club });
     } else if (/prvni-vstup/.test(h)) gtag('event', 'first_visit_click');
+    // Prodej na FF Academy: workshopy (data-ga na odkazu) a 12 Weeks Race Prep
+    var ga = a.getAttribute('data-ga');
+    var lang = (document.documentElement.lang || 'cs').slice(0, 2);
+    var where = (a.closest('section[id],.rp-bar,.rp-promo,header') || {});
+    var placement = where.id || (where.className || '').toString().split(' ')[0] || 'other';
+    if (ga === 'workshop_buy') {
+      gtag('event', 'workshop_buy_click', { workshop: a.getAttribute('data-item'), workshop_name: a.getAttribute('data-name'),
+        value: Number(a.getAttribute('data-price')) || 0, currency: 'CZK', page_lang: lang });
+    } else if (ga === 'workshop_info') {
+      gtag('event', 'workshop_info_click', { workshop: a.getAttribute('data-item'), workshop_name: a.getAttribute('data-name'), page_lang: lang });
+    } else if (/ff-academy\.cz/.test(h)) {
+      gtag('event', 'race_prep_buy_click', { value: 8999, currency: 'CZK', placement: placement, page_lang: lang });
+    }
     if (/^tel:/.test(h)) gtag('event', 'contact', { method: 'phone' });
     else if (/^mailto:/.test(h)) gtag('event', 'contact', { method: 'email' });
   }, true);
