@@ -6,6 +6,7 @@ import sys, os, html, json, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import net
 import raceprep
+import workshops
 
 STYLE = open(sys.argv[1]).read().replace('url("img/sled.webp")', 'url("/img/sled.webp")')
 OUT = sys.argv[2]
@@ -480,10 +481,13 @@ def page(lang):
 {STYLE}
 {EXTRA_CSS}
 {raceprep.RP_CSS}
+{workshops.CSS}
 <style>body{{margin:0}}[hidden]{{display:none!important}}</style>
 <script>if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash))location.replace("/portal/"+location.hash)</script>
+{workshops.jsonld()}
 </head>
 <body>
+{raceprep.bar(lang)}
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="{PATH[lang]}">
@@ -527,7 +531,7 @@ def page(lang):
       <div class="stat"><strong>4</strong><span>{t["st4"]}</span></div>
     </div>
   </div>
-{raceprep.promo(lang)}
+
   <section class="about" id="klub">
     <div class="wrap">
       <div class="about-text">
@@ -568,6 +572,7 @@ def page(lang):
     </div>
   </section>
 
+  {raceprep.promo(lang)}
   <section class="race" id="zavod">
     <div class="wrap">
       <div class="race-top">
@@ -648,6 +653,7 @@ def page(lang):
     </div>
   </section>
 
+  {workshops.section(lang)}
   <section class="clubs" id="kluby">
     <div class="wrap">
       <div class="sec-head">

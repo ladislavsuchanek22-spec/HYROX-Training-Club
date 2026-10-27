@@ -40,6 +40,11 @@ RP_CSS = """<style>
 .rp-facts strong{display:block;font:800 44px/1 var(--f-display);font-variant-numeric:tabular-nums}
 .rp-facts span{color:var(--muted);font-size:14px;line-height:1.3}
 @media (max-width:860px){.rp-promo .wrap{grid-template-columns:1fr}}
+.rp-bar{background:var(--red);text-align:center;padding:9px max(16px,env(safe-area-inset-left,0px))}
+.rp-bar a{color:#fff;text-decoration:none;font:500 14px/1.35 var(--f-body)}
+.rp-bar a b{font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.rp-bar a span{white-space:nowrap;text-decoration:underline;text-underline-offset:3px;margin-left:6px}
+.rp-bar a:hover span{text-decoration-thickness:2px}
 .nav ul a.rp-nav{color:var(--fg);border-bottom:2px solid var(--red-hi);padding-bottom:3px}
 
 .rp-intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
@@ -147,6 +152,11 @@ RP_CSS = """<style>
 @media (max-width:760px){.pt-links{grid-template-columns:1fr}}
 .pt-toast{font:500 14px/1.4 var(--f-body);color:var(--fg);background:var(--surface-2);border-left:3px solid var(--blue);padding:12px 14px}
 </style>"""
+
+def bar(lang):
+    s = RT[lang]
+    return f'<div class="rp-bar"><a href="{path(lang, SLUG)}">{s["bar"]} <span>{s["bar_cta"]}</span></a></div>'
+
 
 def nav_li(lang):
     return f'<li><a href="{path(lang, SLUG)}" class="rp-nav">12 Weeks</a></li>'

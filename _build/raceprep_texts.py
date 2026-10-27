@@ -6,6 +6,7 @@ Odkazy v textech: {cal} = rozvrh HYROX lekcí FF, {buy} = prodej na FF Academy, 
 T = {}
 
 T["cs"] = dict(
+    bar='<b>Novinka</b> · HYROX 12 Weeks Race Prep s Riou a Láďou', bar_cta='Zjistit víc →',
     locale="cs_CZ", price="8 999", cur="Kč",
     promo_tag="Nový program · Form Factory × STR2G",
     promo_lead="Strukturovaná příprava na závod. Běh, síla, stanoviště a taktika v jednom plánu, pod vedením Rii a Ládi. Plán každé pondělí, 3 společné workshopy a portál s materiály ke stažení.",
@@ -97,6 +98,7 @@ T["cs"] = dict(
 )
 
 T["en"] = dict(
+    bar='<b>New</b> · HYROX 12 Weeks Race Prep with Ria and Láďa', bar_cta='Find out more →',
     locale="en_GB", price="8,999", cur="CZK",
     promo_tag="New programme · Form Factory × STR2G",
     promo_lead="Structured HYROX race prep. Running, strength, stations and tactics in one plan, coached by Ria and Láďa. A new plan every Monday, 3 group workshops and a portal with downloadable guides.",
@@ -187,6 +189,7 @@ T["en"] = dict(
 )
 
 T["de"] = dict(
+    bar='<b>Neu</b> · HYROX 12 Weeks Race Prep mit Ria und Láďa', bar_cta='Mehr erfahren →',
     locale="de_DE", price="8.999", cur="CZK",
     promo_tag="Neues Programm · Form Factory × STR2G",
     promo_lead="Strukturierte Wettkampfvorbereitung für HYROX. Laufen, Kraft, Stationen und Taktik in einem Plan, gecoacht von Ria und Láďa. Jeden Montag ein neuer Plan, 3 gemeinsame Workshops und ein Portal mit Materialien zum Download.",
@@ -277,6 +280,7 @@ T["de"] = dict(
 )
 
 T["pl"] = dict(
+    bar='<b>Nowość</b> · HYROX 12 Weeks Race Prep z Rią i Láďą', bar_cta='Dowiedz się więcej →',
     locale="pl_PL", price="8 999", cur="CZK",
     promo_tag="Nowy program · Form Factory × STR2G",
     promo_lead="Uporządkowane przygotowanie do zawodów HYROX. Bieg, siła, stacje i taktyka w jednym planie, pod okiem Rii i Láďi. Nowy plan w każdy poniedziałek, 3 wspólne warsztaty i portal z materiałami do pobrania.",
