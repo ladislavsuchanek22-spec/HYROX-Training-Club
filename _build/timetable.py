@@ -57,11 +57,19 @@ def main():
     today = dt.date.today()
     end = today + dt.timedelta(days=DAYS - 1)
     data = {"updated": today.isoformat(), "from": today.isoformat(), "to": end.isoformat(), "clubs": {}}
+    old = {}
+    if OUT.exists():
+        old = json.loads(OUT.read_text(encoding="utf-8")).get("clubs", {})
     for key, url in CLUBS.items():
         events = []
-        for start in (today, today + dt.timedelta(days=7)):
-            page = fetch(f"{url}?day={start.strftime('%d.%m.%Y')}")
-            events += parse_week(page)
+        try:
+            for start in (today, today + dt.timedelta(days=7)):
+                page = fetch(f"{url}?day={start.strftime('%d.%m.%Y')}")
+                events += parse_week(page)
+        except Exception as e:  # jeden klub nesmí shodit ostatní
+            print(f"::warning::{key}: {type(e).__name__}: {e}")
+            data["clubs"][key] = [r for r in old.get(key, []) if r["date"] >= today.isoformat()]
+            continue
         seen, rows = set(), []
         for day, a, b, name in sorted(events):
             if today <= day <= end and is_htc(name) and (day, a, name) not in seen:
@@ -70,7 +78,8 @@ def main():
         data["clubs"][key] = rows
         print(key, len(rows), "lekcí")
     if sum(len(v) for v in data["clubs"].values()) == 0:
-        sys.exit("žádné lekce – rozvrh nepřepisuju")
+        print("::error::žádné lekce – rozvrh nepřepisuju")
+        sys.exit(1)
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
