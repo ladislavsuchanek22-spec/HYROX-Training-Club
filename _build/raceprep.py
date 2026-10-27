@@ -281,7 +281,7 @@ def program_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
 ''' + nav(t, cal) + f'''
 <main id="top">
   <section class="hero">
-    <div class="hero-img"><img src="/img/coaches.webp" alt="Ria Suchánek Hrušovská a Ladislav Suchánek na HYROX závodě" style="object-position:center 25%"></div>
+    <div class="hero-img"><img src="/img/sled.webp" alt="Sled push v HYROX zóně Form Factory" style="object-position:center 55%"></div>
     <div class="wrap">
       <p class="crumbs"><a href="/">HYROX Training Club</a> / 12 Weeks Race Prep</p>
       <p class="eyebrow">Form Factory × STR2G · 12týdenní příprava</p>
