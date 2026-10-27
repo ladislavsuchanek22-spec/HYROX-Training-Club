@@ -7,6 +7,9 @@ Portál je v této fázi jen vizuální náhled: formuláře nic neodesílají.
 SLUG = "12-weeks-race-prep"
 PORTAL = "portal"
 
+# Oficiální prodej programu na FF Academy. Až bude mít program vlastní stránku, stačí změnit tuhle adresu.
+BUY = "https://www.ff-academy.cz/label/verejnost/add/hyrox/"
+
 RP_CSS = """<style>
 /* 12 Weeks Race Prep */
 .rp-promo{position:relative;overflow:hidden;isolation:isolate;border-block:1px solid var(--line)}
@@ -187,7 +190,7 @@ def promo():
         <p class="lead">Strukturovaná příprava na závod. Běh, síla, stanoviště a taktika v jednom plánu, pod vedením Rii a Ládi. Plán každé pondělí, 3 společné workshopy a portál s materiály ke stažení.</p>
         <div class="hero-cta">
           <a class="btn btn-red" href="/{SLUG}/">Chci do programu →</a>
-          <a class="btn btn-ghost" href="/{SLUG}/#cena">8 999 Kč · co je v ceně</a>
+          <a class="btn btn-ghost" href="{BUY}" target="_blank" rel="noopener">Koupit na FF Academy · 8 999 Kč</a>
         </div>
       </div>
       <div class="rp-facts">{facts}</div>
@@ -237,7 +240,8 @@ def nav(t, cal):
       <li><a href="/{PORTAL}/">Portál</a></li>
     </ul>
     <div class="nav-right">
-      <a class="btn btn-red" href="/{PORTAL}/#registrace">Registrace</a>
+      <a class="btn btn-ghost" href="/{PORTAL}/#prihlaseni" style="padding:11px 14px;font-size:14px">Portál</a>
+      <a class="btn btn-red" href="{BUY}" target="_blank" rel="noopener" style="padding:11px 18px;font-size:15px">Koupit program</a>
     </div>
   </div>
 </header>
@@ -288,7 +292,7 @@ def program_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
       <h1>HYROX<span>12 Weeks</span><em>Race Prep.</em></h1>
       <p class="lead">Strukturovaná příprava na HYROX. Běh, síla, stanoviště a taktika v jednom plánu. Pod vedením Rii a Ládi.</p>
       <div class="hero-cta">
-        <a class="btn btn-red" href="/{PORTAL}/#registrace">Registrovat se →</a>
+        <a class="btn btn-red" href="{BUY}" target="_blank" rel="noopener">Koupit na FF Academy →</a>
         <a class="btn btn-ghost" href="#obsah">Co je v programu</a>
       </div>
       <p class="cities"><b>Plan.</b> Train. <b>Perform.</b></p>
@@ -359,7 +363,8 @@ def program_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
           <span class="rp-tag" style="margin:0;width:max-content">12 Weeks Race Prep</span>
           <div class="amt">8 999<small>Kč</small></div>
           <p>Kompletní 12týdenní příprava na HYROX.</p>
-          <a class="btn btn-red" href="/{PORTAL}/#registrace" style="justify-content:center">Registrovat se do programu →</a>
+          <a class="btn btn-red" href="{BUY}" target="_blank" rel="noopener" style="justify-content:center">Koupit na FF Academy →</a>
+          <p style="font-size:14px">Prodej probíhá oficiálně přes FF Academy, vzdělávací platformu Form Factory. Po nákupu se zaregistruješ do <a href="/{PORTAL}/" style="color:var(--fg)">portálu účastníků</a>.</p>
         </div>
       </div>
       <div>
@@ -403,10 +408,10 @@ def program_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
     <div class="wrap">
       <p class="eyebrow">Plan. Train. Perform.</p>
       <h2>12 týdnů.<br>Jasný plán. Tvůj čas.</h2>
-      <p class="lead">Registruj se, zaplať jednou a v pondělí dostaneš první týden. Stronger together.</p>
+      <p class="lead">Kup program na FF Academy, zaregistruj se do portálu a v pondělí dostaneš první týden. Stronger together.</p>
       <div class="cta-row">
-        <a class="btn btn-red" href="/{PORTAL}/#registrace">Registrovat se →</a>
-        <a class="btn btn-ghost" href="/">HYROX Training Club</a>
+        <a class="btn btn-red" href="{BUY}" target="_blank" rel="noopener">Koupit na FF Academy →</a>
+        <a class="btn btn-ghost" href="/{PORTAL}/">Portál účastníků</a>
       </div>
     </div>
   </section>
@@ -451,8 +456,8 @@ def portal_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
             <label for="r-pass">Heslo<input id="r-pass" type="password" autocomplete="new-password" placeholder="Alespoň 8 znaků" required></label>
             <label for="r-club">Domovský klub (nepovinné)<input id="r-club" placeholder="Na Knížecí, Vinohradská, Campus, Hrabová"></label>
             <label class="chk" for="r-gdpr"><input id="r-gdpr" type="checkbox"> Souhlasím se zpracováním osobních údajů pro účely programu.</label>
-            <button class="btn btn-red" type="submit">Registrovat a pokračovat k platbě →</button>
-            <small>Po zaplacení 8 999 Kč se ti portál odemkne a dostaneš e-mail s odkazem do WhatsApp komunity.</small>
+            <button class="btn btn-red" type="submit">Registrovat se →</button>
+            <small>Použij stejný e-mail jako při nákupu na FF Academy. Podle něj ti portál odemkneme a pošleme odkaz do WhatsApp komunity. Program ještě nemáš? <a href="{BUY}" target="_blank" rel="noopener" style="color:var(--fg)">Koupit na FF Academy</a>.</small>
           </form>
           <form class="pt-form" id="f-log" hidden novalidate>
             <label for="l-mail">E-mail<input id="l-mail" type="email" autocomplete="email" placeholder="jan@email.cz"></label>
@@ -466,8 +471,8 @@ def portal_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
             <h2>Jak to funguje</h2>
           </div>
           <div class="pt-steps">
-            <div><span class="n">1</span><div><b>Zaregistruješ se</b><p>Jméno, e-mail, heslo. Za minutu máš účet.</p></div></div>
-            <div><span class="n">2</span><div><b>Zaplatíš program</b><p>8 999 Kč jednou, za celých 12 týdnů.</p></div></div>
+            <div><span class="n">1</span><div><b>Koupíš program na FF Academy</b><p>Oficiální prodej, 8 999 Kč jednou za celých 12 týdnů. <a href="{BUY}" target="_blank" rel="noopener" style="color:var(--fg)">Přejít na FF Academy →</a></p></div></div>
+            <div><span class="n">2</span><div><b>Zaregistruješ se do portálu</b><p>Jméno, e-mail z nákupu a heslo. Za minutu máš účet.</p></div></div>
             <div><span class="n">3</span><div><b>Odemkne se portál</b><p>PDF průvodci, termíny workshopů a odkaz do komunity. Další materiály přibývají během programu.</p></div></div>
           </div>
           <p class="pt-toast" style="margin-top:20px">V náhledu stačí kliknout na „Registrovat“ nebo „Přihlásit se“ a uvidíš, jak portál vypadá po přihlášení.</p>
