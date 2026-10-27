@@ -481,6 +481,7 @@ def page(lang):
 {EXTRA_CSS}
 {raceprep.RP_CSS if lang == "cs" else ""}
 <style>body{{margin:0}}[hidden]{{display:none!important}}</style>
+<script>if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash))location.replace("/portal/"+location.hash)</script>
 </head>
 <body>
 <header class="nav">

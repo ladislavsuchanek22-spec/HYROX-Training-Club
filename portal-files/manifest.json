@@ -1,0 +1,11 @@
+{
+  "_info": "Seznam souborů v portálu 12 Weeks Race Prep. Soubor zpřístupníš tak, že ho nahraješ do složky portal-files a u položky dáš \"available\": true.",
+  "files": [
+    {"id": "prezentace", "name": "Prezentace programu", "desc": "Celý program na jednom místě: struktura, co je součástí a cena.", "file": "STR2G_HYROX_12_Weeks_Race_Prep.pdf", "available": true},
+    {"id": "pruvodce", "name": "Průvodce programem", "desc": "Jak program funguje, týdenní rytmus, zóny a pravidla.", "file": "pruvodce-programem.pdf", "available": false, "note": "Připravujeme"},
+    {"id": "vyziva", "name": "Kompletní průvodce výživou", "desc": "Jídlo kolem tréninku, regenerace a závodní den.", "file": "pruvodce-vyzivou.pdf", "available": false, "note": "Připravujeme"},
+    {"id": "warmup", "name": "Warm-up protokol", "desc": "Rozcvička před během, silou i závodem.", "file": "warm-up-protokol.pdf", "available": false, "note": "Připravujeme"},
+    {"id": "mobilita", "name": "Mobilita a regenerace", "desc": "Rutiny na dny mezi tréninky a po workshopech.", "file": "mobilita-a-regenerace.pdf", "available": false, "note": "Odemkne se v týdnu 4"},
+    {"id": "zavod", "name": "Závodní den + checklisty", "desc": "Co si zabalit, timeline závodního dne a taktika.", "file": "zavodni-den.pdf", "available": false, "note": "Odemkne se v týdnu 10"}
+  ]
+}

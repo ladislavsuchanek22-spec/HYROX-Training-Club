@@ -411,6 +411,7 @@ footer a{color:var(--fg)}
 .pt-toast{font:500 14px/1.4 var(--f-body);color:var(--fg);background:var(--surface-2);border-left:3px solid var(--blue);padding:12px 14px}
 </style>
 <style>body{margin:0}[hidden]{display:none!important}</style>
+<script>if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash))location.replace("/portal/"+location.hash)</script>
 </head>
 <body>
 <header class="nav">

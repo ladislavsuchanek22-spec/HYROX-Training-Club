@@ -1,0 +1,8 @@
+{
+  "name": "hyrox-training-club",
+  "private": true,
+  "description": "Statický web, závislosti jen pro Netlify funkci portálu.",
+  "dependencies": {
+    "@netlify/identity": "2.0.0"
+  }
+}

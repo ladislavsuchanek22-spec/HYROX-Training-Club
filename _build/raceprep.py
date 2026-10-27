@@ -423,16 +423,12 @@ def portal_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
     t = T["cs"]
     cal = FF_HYROX["cs"] + "#timetables"
     url = f"{SITE}/{PORTAL}/"
-    files = ""
-    for name, d, meta, locked in PDFS:
-        btn = '<button class="btn" type="button" disabled>Zamčeno</button>' if locked else '<button class="btn btn-red dl" type="button">Stáhnout PDF ↓</button>'
-        files += f'<div class="pt-file{" locked" if locked else ""}"><span class="ic">PDF</span><b>{name}</b><p>{d}</p><span class="meta">{meta}</span>{btn}</div>'
-    return head("Portál účastníků | HYROX 12 Weeks Race Prep", "Portál účastníků programu HYROX 12 Weeks Race Prep: PDF materiály ke stažení, komunita a workshopy.", url, SITE, robots="noindex,nofollow") + STYLE + EXTRA_CSS + RP_CSS + '''
-<style>body{margin:0}[hidden]{display:none!important}.portal-hero{padding-block:clamp(56px,8vw,96px) 0}.portal-hero h1{font-size:clamp(48px,8vw,104px);line-height:.9}</style>
+    return head("Portál účastníků | HYROX 12 Weeks Race Prep", "Portál účastníků programu HYROX 12 Weeks Race Prep: PDF materiály ke stažení, komunita a workshopy.", url, SITE, robots="noindex,nofollow") + STYLE + EXTRA_CSS + RP_CSS + """
+<style>body{margin:0}[hidden]{display:none!important}.portal-hero{padding-block:clamp(56px,8vw,96px) 0}.portal-hero h1{font-size:clamp(48px,8vw,104px);line-height:.9}.pt-err{color:#ff8a9c;font-size:14px}.pt-ok{color:#9be3b0;font-size:14px}.pt-form .linkbtn{all:unset;cursor:pointer;color:var(--fg);text-decoration:underline;font-size:13px}</style>
 </head>
 <body>
-<div class="pv-bar">NÁHLED · Registrace a přihlášení zatím nic neodesílají, jde jen o ukázku vzhledu.</div>
-''' + nav(t, cal) + f'''
+<div class="pv-bar" id="pv-bar" hidden>NÁHLED · Testovací verze portálu na náhledové adrese.</div>
+""" + nav(t, cal) + f"""
 <main id="top">
   <section class="portal-hero">
     <div class="wrap" style="display:grid;gap:18px">
@@ -444,81 +440,127 @@ def portal_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
 
   <section id="registrace">
     <div class="wrap">
-      <div class="pt-wrap" id="pt-auth">
+      <p class="pt-toast" id="pt-loading">Načítám portál…</p>
+
+      <div class="pt-wrap" id="pt-auth" hidden>
         <div class="pt-box">
           <div class="pt-tabs" role="tablist">
-            <button role="tab" id="tab-reg" aria-selected="true" aria-controls="f-reg" type="button">Registrace</button>
-            <button role="tab" id="tab-log" aria-selected="false" aria-controls="f-log" type="button">Přihlášení</button>
+            <button role="tab" id="tab-log" aria-selected="true" aria-controls="f-log" type="button">Přihlášení</button>
+            <button role="tab" id="tab-forgot" aria-selected="false" aria-controls="f-forgot" type="button">Zapomenuté heslo</button>
           </div>
-          <form class="pt-form" id="f-reg" novalidate>
-            <label for="r-name">Jméno a příjmení<input id="r-name" autocomplete="name" placeholder="Jan Novák" required></label>
-            <label for="r-mail">E-mail<input id="r-mail" type="email" autocomplete="email" placeholder="jan@email.cz" required></label>
-            <label for="r-pass">Heslo<input id="r-pass" type="password" autocomplete="new-password" placeholder="Alespoň 8 znaků" required></label>
-            <label for="r-club">Domovský klub (nepovinné)<input id="r-club" placeholder="Na Knížecí, Vinohradská, Campus, Hrabová"></label>
-            <label class="chk" for="r-gdpr"><input id="r-gdpr" type="checkbox"> Souhlasím se zpracováním osobních údajů pro účely programu.</label>
-            <button class="btn btn-red" type="submit">Registrovat se →</button>
-            <small>Použij stejný e-mail jako při nákupu na FF Academy. Podle něj ti portál odemkneme a pošleme odkaz do WhatsApp komunity. Program ještě nemáš? <a href="{BUY}" target="_blank" rel="noopener" style="color:var(--fg)">Koupit na FF Academy</a>.</small>
-          </form>
-          <form class="pt-form" id="f-log" hidden novalidate>
-            <label for="l-mail">E-mail<input id="l-mail" type="email" autocomplete="email" placeholder="jan@email.cz"></label>
-            <label for="l-pass">Heslo<input id="l-pass" type="password" autocomplete="current-password"></label>
+          <form class="pt-form" id="f-log">
+            <label for="l-mail">E-mail<input id="l-mail" type="email" autocomplete="email" placeholder="jan@email.cz" required></label>
+            <label for="l-pass">Heslo<input id="l-pass" type="password" autocomplete="current-password" required></label>
             <button class="btn btn-red" type="submit">Přihlásit se →</button>
-            <small>Zapomenuté heslo? Pošleme ti odkaz na e-mail.</small>
+            <p class="pt-err" id="l-err" hidden></p>
+          </form>
+          <form class="pt-form" id="f-forgot" hidden>
+            <label for="r-mail">E-mail<input id="r-mail" type="email" autocomplete="email" placeholder="jan@email.cz" required></label>
+            <button class="btn btn-red" type="submit">Poslat odkaz na nové heslo →</button>
+            <p class="pt-ok" id="r-ok" hidden>Pokud je e-mail v programu, přijde ti odkaz na nastavení nového hesla.</p>
+            <p class="pt-err" id="r-err" hidden></p>
           </form>
         </div>
         <div>
-          <div class="sec-head" style="margin:0 0 20px">
-            <h2>Jak to funguje</h2>
-          </div>
+          <div class="sec-head" style="margin:0 0 20px"><h2>Jak se dostat do portálu</h2></div>
           <div class="pt-steps">
             <div><span class="n">1</span><div><b>Koupíš program na FF Academy</b><p>Oficiální prodej, 8 999 Kč jednou za celých 12 týdnů. <a href="{BUY}" target="_blank" rel="noopener" style="color:var(--fg)">Přejít na FF Academy →</a></p></div></div>
-            <div><span class="n">2</span><div><b>Zaregistruješ se do portálu</b><p>Jméno, e-mail z nákupu a heslo. Za minutu máš účet.</p></div></div>
-            <div><span class="n">3</span><div><b>Odemkne se portál</b><p>PDF průvodci, termíny workshopů a odkaz do komunity. Další materiály přibývají během programu.</p></div></div>
+            <div><span class="n">2</span><div><b>Přijde ti pozvánka</b><p>Na e-mail z nákupu ti pošleme pozvánku do portálu. Klikneš na odkaz a nastavíš si heslo.</p></div></div>
+            <div><span class="n">3</span><div><b>Přihlásíš se</b><p>PDF průvodci ke stažení, termíny workshopů a odkaz do komunity. Další materiály přibývají během programu.</p></div></div>
           </div>
-          <p class="pt-toast" style="margin-top:20px">V náhledu stačí kliknout na „Registrovat“ nebo „Přihlásit se“ a uvidíš, jak portál vypadá po přihlášení.</p>
+        </div>
+      </div>
+
+      <div class="pt-wrap" id="pt-setpass" hidden>
+        <div class="pt-box">
+          <form class="pt-form" id="f-set">
+            <p class="eyebrow" id="set-title">Vítej v programu</p>
+            <h2 style="font-size:36px" id="set-h">Nastav si heslo</h2>
+            <label for="s-pass">Nové heslo<input id="s-pass" type="password" autocomplete="new-password" minlength="8" placeholder="Alespoň 8 znaků" required></label>
+            <label for="s-pass2">Heslo znovu<input id="s-pass2" type="password" autocomplete="new-password" minlength="8" required></label>
+            <button class="btn btn-red" type="submit">Uložit heslo a vstoupit →</button>
+            <p class="pt-err" id="s-err" hidden></p>
+          </form>
         </div>
       </div>
 
       <div class="pt-dash" id="pt-dash" hidden>
         <div class="pt-hello">
           <div>
-            <p class="eyebrow">Přihlášen jako <span id="pt-who">Jan Novák</span></p>
+            <p class="eyebrow">Přihlášen jako <span id="pt-who"></span></p>
             <h2>Vítej v programu.</h2>
           </div>
-          <div class="pt-prog">
-            <span>Týden 3 z 12</span>
-            <div class="pt-bar" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="3"><i style="width:25%"></i></div>
-            <span>Další workshop: Mid-program check · týden 6</span>
-          </div>
+          <button class="btn btn-ghost" type="button" id="pt-out">Odhlásit se</button>
         </div>
         <div>
           <p class="eyebrow" style="margin-bottom:16px">Materiály ke stažení</p>
-          <div class="pt-files">{files}</div>
+          <div class="pt-files" id="pt-files"></div>
+          <p class="pt-err" id="d-err" hidden></p>
         </div>
         <div class="pt-links">
-          <a href="#" onclick="return false"><b>WhatsApp komunita</b><span>Uzavřená skupina účastníků a trenérů</span></a>
+          <a href="#" onclick="return false"><b>WhatsApp komunita</b><span>Odkaz doplníme před startem programu</span></a>
           <a href="#" onclick="return false"><b>Tréninková aplikace</b><span>Týdenní plán a edukační videa</span></a>
           <a href="{cal}" target="_blank" rel="noopener"><b>HYROX lekce ve FF</b><span>Rozvrh a rezervace →</span></a>
         </div>
-        <p class="pt-toast" id="pt-msg" hidden></p>
-        <div><button class="btn btn-ghost" type="button" id="pt-out">Odhlásit se</button></div>
       </div>
     </div>
   </section>
 </main>
-<script>
-(function(){{
-  var tabs={{reg:document.getElementById('tab-reg'),log:document.getElementById('tab-log')}};
-  var forms={{reg:document.getElementById('f-reg'),log:document.getElementById('f-log')}};
-  function show(k){{for(var x in tabs){{tabs[x].setAttribute('aria-selected',x===k);forms[x].hidden=x!==k;}}}}
-  tabs.reg.onclick=function(){{show('reg')}}; tabs.log.onclick=function(){{show('log')}};
-  if(location.hash==='#prihlaseni')show('log');
-  function enter(name){{document.getElementById('pt-auth').hidden=true;document.getElementById('pt-dash').hidden=false;document.getElementById('pt-who').textContent=name||'Jan Novák';window.scrollTo(0,document.getElementById('registrace').offsetTop-80);}}
-  forms.reg.onsubmit=function(e){{e.preventDefault();enter(document.getElementById('r-name').value.trim());}};
-  forms.log.onsubmit=function(e){{e.preventDefault();enter('');}};
-  document.getElementById('pt-out').onclick=function(){{document.getElementById('pt-dash').hidden=true;document.getElementById('pt-auth').hidden=false;}};
-  var msg=document.getElementById('pt-msg');
-  document.querySelectorAll('.dl').forEach(function(b){{b.onclick=function(){{msg.hidden=false;msg.textContent='Náhled: tady se ve skutečném portálu stáhne PDF „'+b.parentNode.querySelector('b').textContent+'“.';}}}});
-}})();
+<script type="module">
+import {{ getUser, login, logout, handleAuthCallback, acceptInvite, requestPasswordRecovery, updateUser }} from "https://cdn.jsdelivr.net/npm/@netlify/identity@2.0.0/+esm";
+const $ = (id) => document.getElementById(id);
+if (location.hostname.startsWith("deploy-preview-")) $("pv-bar").hidden = false;
+function view(name) {{ for (const v of ["pt-loading","pt-auth","pt-setpass","pt-dash"]) $(v).hidden = v !== name; }}
+function err(el, e) {{ el.hidden = false; el.textContent = e; }}
+const tabs = {{ log: [$("tab-log"), $("f-log")], forgot: [$("tab-forgot"), $("f-forgot")] }};
+function tab(k) {{ for (const [n, [b, f]] of Object.entries(tabs)) {{ b.setAttribute("aria-selected", n === k); f.hidden = n !== k; }} }}
+$("tab-log").onclick = () => tab("log"); $("tab-forgot").onclick = () => tab("forgot");
+
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}})[c]);
+async function dashboard(user) {{
+  view("pt-dash");
+  $("pt-who").textContent = user.name || user.email;
+  try {{
+    const r = await fetch("/api/portal-files", {{ credentials: "same-origin", cache: "no-store" }});
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    $("pt-files").innerHTML = data.files.map((f) => `<div class="pt-file${{f.available ? "" : " locked"}}"><span class="ic">PDF</span><b>${{esc(f.name)}}</b><p>${{esc(f.desc)}}</p><span class="meta">${{f.available ? "Odemčeno" : esc(f.note || "Připravujeme")}}</span>${{f.available ? `<a class="btn btn-red" href="/api/portal-files?f=${{encodeURIComponent(f.id)}}">Stáhnout PDF ↓</a>` : `<button class="btn" type="button" disabled>Zamčeno</button>`}}</div>`).join("");
+  }} catch (e) {{ err($("d-err"), "Materiály se nepodařilo načíst. Zkus stránku obnovit, případně se odhlas a přihlas znovu."); }}
+}}
+
+let pending = null; // "invite" + token, nebo "recovery"
+$("f-set").onsubmit = async (e) => {{
+  e.preventDefault(); $("s-err").hidden = true;
+  const p1 = $("s-pass").value, p2 = $("s-pass2").value;
+  if (p1.length < 8) return err($("s-err"), "Heslo musí mít alespoň 8 znaků.");
+  if (p1 !== p2) return err($("s-err"), "Hesla se neshodují.");
+  try {{
+    const user = pending.type === "invite" ? await acceptInvite(pending.token, p1) : await updateUser({{ password: p1 }});
+    history.replaceState(null, "", location.pathname);
+    dashboard(user || await getUser());
+  }} catch (x) {{ err($("s-err"), "Heslo se nepodařilo uložit. Odkaz z e-mailu mohl vypršet, požádej o nový."); }}
+}};
+$("f-log").onsubmit = async (e) => {{
+  e.preventDefault(); $("l-err").hidden = true;
+  try {{ dashboard(await login($("l-mail").value.trim(), $("l-pass").value)); }}
+  catch (x) {{ err($("l-err"), "Přihlášení se nepovedlo. Zkontroluj e-mail a heslo, nebo si nech poslat nové heslo."); }}
+}};
+$("f-forgot").onsubmit = async (e) => {{
+  e.preventDefault(); $("r-err").hidden = true; $("r-ok").hidden = true;
+  try {{ await requestPasswordRecovery($("r-mail").value.trim()); $("r-ok").hidden = false; }}
+  catch (x) {{ $("r-ok").hidden = false; }}
+}};
+$("pt-out").onclick = async () => {{ try {{ await logout(); }} finally {{ view("pt-auth"); }} }};
+
+(async () => {{
+  try {{
+    const cb = await handleAuthCallback();
+    if (cb && cb.type === "invite") {{ pending = {{ type: "invite", token: cb.token }}; view("pt-setpass"); return; }}
+    if (cb && cb.type === "recovery") {{ pending = {{ type: "recovery" }}; $("set-title").textContent = "Obnova hesla"; $("set-h").textContent = "Nastav si nové heslo"; view("pt-setpass"); return; }}
+  }} catch (e) {{ /* neplatný nebo prošlý odkaz: pokračuj na přihlášení */ }}
+  const user = await getUser();
+  if (user) dashboard(user); else view("pt-auth");
+  if (location.hash === "#prihlaseni") tab("log");
+}})().catch(() => view("pt-auth"));
 </script>
-''' + footer(net, FF_HYROX["cs"])
+""" + footer(net, FF_HYROX["cs"])
