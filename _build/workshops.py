@@ -107,6 +107,12 @@ CSS = """<style>
 </style>"""
 
 
+def _utm(url, campaign, lang):
+    """UTM značky, aby FF Academy ve své analytice viděla, že nákup přišel z hyroxtrainingclub.cz."""
+    sep = "&" if "?" in url else "?"
+    return f"{url}{sep}utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign={campaign}&amp;utm_content={lang}"
+
+
 def _upcoming(today=None):
     today = today or datetime.date.today()
     return [e for e in EVENTS if datetime.date.fromisoformat(e["date"]) >= today]
@@ -154,7 +160,7 @@ def section(lang):
               <dt>{s['price']}</dt><dd class="ws-price">{_price(e['price'], lang)}</dd>
             </dl>
           </div>
-          <div class="ws-links"><a href="{e['buy']}" target="_blank" rel="noopener">{s['buy']}</a><a href="{e['info']}" target="_blank" rel="noopener">{s['info']}</a></div>
+          <div class="ws-links"><a href="{_utm(e['buy'], e['id'], lang)}" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="{e['id']}" data-name="{e['title']}" data-price="{e['price']}">{s['buy']}</a><a href="{_utm(e['info'], e['id'], lang)}" target="_blank" rel="noopener" data-ga="workshop_info" data-item="{e['id']}" data-name="{e['title']}">{s['info']}</a></div>
         </article>"""
     return f"""
   <section class="workshops" id="workshopy">
