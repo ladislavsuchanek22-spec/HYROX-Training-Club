@@ -9,6 +9,8 @@ PORTAL = "portal"
 
 # Oficiální prodej programu na FF Academy. Až bude mít program vlastní stránku, stačí změnit tuhle adresu.
 BUY = "https://www.ff-academy.cz/label/verejnost/add/hyrox/"
+# Tréninková aplikace: Láďův profil na Strivee
+STRIVEE = "https://train.strivee.app/p/str2g-hyrox"
 
 RP_CSS = """<style>
 /* 12 Weeks Race Prep */
@@ -123,6 +125,7 @@ RP_CSS = """<style>
 .pt-file .meta{font:500 12px/1 var(--f-mono);color:var(--muted)}
 .pt-file .btn{padding:11px 14px;font-size:14px;justify-content:center;border:0;cursor:pointer}
 .pt-file.locked{opacity:.6}
+.pt-dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px}
 .pt-file.locked .btn{background:var(--surface-2);color:var(--muted);cursor:not-allowed}
 .pt-links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .pt-links a{border:1px solid var(--line);padding:18px;text-decoration:none;display:grid;gap:4px}
@@ -172,10 +175,10 @@ PRICE_LIST = ["12 týdnů programmingu, plán každé pondělí", "Individuáln�
 
 PDFS = [
     ("Průvodce programem", "Jak program funguje, týdenní rytmus, zóny a pravidla.", "Odemčeno", False),
-    ("Kompletní průvodce výživou", "Jídlo kolem tréninku, regenerace a závodní den.", "Odemčeno", False),
+    ("Průvodce výživou", "Jídlo kolem tréninku, regenerace a závodní den.", "Odemčeno", False),
     ("Warm-up protokol", "Rozcvička před během, silou i závodem.", "Odemčeno", False),
     ("Mobilita a regenerace", "Rutiny na dny mezi tréninky a po workshopech.", "Odemkne se v týdnu 4", True),
-    ("Závodní den + checklisty", "Co si zabalit, timeline závodního dne a taktika.", "Odemkne se v týdnu 10", True),
+    ("Závodní den", "Co si zabalit, timeline závodního dne a taktika.", "Odemkne se v týdnu 10", True),
 ]
 
 
@@ -499,7 +502,7 @@ def portal_page(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
         </div>
         <div class="pt-links">
           <a href="#" onclick="return false"><b>WhatsApp komunita</b><span>Odkaz doplníme před startem programu</span></a>
-          <a href="#" onclick="return false"><b>Tréninková aplikace</b><span>Týdenní plán a edukační videa</span></a>
+          <a href="{STRIVEE}" target="_blank" rel="noopener"><b>Tréninková aplikace</b><span>Strivee · týdenní plán a edukační videa →</span></a>
           <a href="{cal}" target="_blank" rel="noopener"><b>HYROX lekce ve FF</b><span>Rozvrh a rezervace →</span></a>
         </div>
       </div>
@@ -524,7 +527,7 @@ async function dashboard(user) {{
     const r = await fetch("/api/portal-files", {{ credentials: "same-origin", cache: "no-store" }});
     if (!r.ok) throw new Error(r.status);
     const data = await r.json();
-    $("pt-files").innerHTML = data.files.map((f) => `<div class="pt-file${{f.available ? "" : " locked"}}"><span class="ic">PDF</span><b>${{esc(f.name)}}</b><p>${{esc(f.desc)}}</p><span class="meta">${{f.available ? "Odemčeno" : esc(f.note || "Připravujeme")}}</span>${{f.available ? `<a class="btn btn-red" href="/api/portal-files?f=${{encodeURIComponent(f.id)}}">Stáhnout PDF ↓</a>` : `<button class="btn" type="button" disabled>Zamčeno</button>`}}</div>`).join("");
+    $("pt-files").innerHTML = data.files.map((f) => `<div class="pt-file${{f.available ? "" : " locked"}}"><span class="ic">${{esc(f.no || "PDF")}}</span><b>${{esc(f.name)}}</b><p>${{esc(f.desc)}}</p><span class="meta">${{f.available ? "PDF · " + f.langs.map((l) => l === "cs" ? "česky" : "anglicky").join(" / ") : esc(f.note || "Připravujeme")}}</span>${{f.available ? `<div class="pt-dl">${{f.langs.map((l) => `<a class="btn btn-red" href="/api/portal-files?f=${{encodeURIComponent(f.id)}}&lang=${{l}}">${{l === "cs" ? "CZ" : l.toUpperCase()}} ↓</a>`).join("")}}</div>` : `<button class="btn" type="button" disabled>Zamčeno</button>`}}</div>`).join("");
   }} catch (e) {{ err($("d-err"), "Materiály se nepodařilo načíst. Zkus stránku obnovit, případně se odhlas a přihlas znovu."); }}
 }}
 

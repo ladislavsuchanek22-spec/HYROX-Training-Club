@@ -26,17 +26,19 @@ export default async (req) => {
 
   const id = new URL(req.url).searchParams.get("f");
   if (!id) {
-    const files = manifest.files.map(({ id, name, desc, available, note }) => ({ id, name, desc, available, note }));
+    const files = manifest.files.map(({ id, no, name, desc, available, note, versions }) => ({ id, no, name, desc, available, note, langs: available ? Object.keys(versions || {}) : [] }));
     return Response.json({ user: { email: user.email, name: user.name || "" }, files }, { headers: { "cache-control": "no-store" } });
   }
 
+  const lang = new URL(req.url).searchParams.get("lang") || "cs";
   const item = /^[a-z0-9-]+$/.test(id) && manifest.files.find((f) => f.id === id && f.available);
-  const buf = item && (await read(path.basename(item.file)));
+  const file = item && item.versions && (item.versions[lang] || item.versions.cs);
+  const buf = file && (await read(path.basename(file)));
   if (!buf) return new Response("Soubor není k dispozici.", { status: 404 });
   return new Response(buf, {
     headers: {
       "content-type": "application/pdf",
-      "content-disposition": `attachment; filename="${path.basename(item.file)}"`,
+      "content-disposition": `attachment; filename="${path.basename(file)}"`,
       "cache-control": "private, no-store",
     },
   });
