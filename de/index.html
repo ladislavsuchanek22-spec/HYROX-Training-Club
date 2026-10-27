@@ -411,8 +411,36 @@ footer a{color:var(--fg)}
 @media (max-width:760px){.pt-links{grid-template-columns:1fr}}
 .pt-toast{font:500 14px/1.4 var(--f-body);color:var(--fg);background:var(--surface-2);border-left:3px solid var(--blue);padding:12px 14px}
 </style>
+<style>
+.ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ws{border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.ws-img{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface-2)}
+.ws-img img{width:100%;height:100%;object-fit:cover}
+.ws-date{position:absolute;left:0;bottom:0;background:var(--red);color:#fff;padding:10px 14px;display:grid;gap:2px}
+.ws-date b{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.ws-date span{font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+.ws-body{padding:24px;display:grid;gap:12px;flex:1;align-content:start}
+.ws-tag{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red-hi)}
+.ws h3{font-size:clamp(34px,3.6vw,46px)}
+.ws h3 small{display:block;margin-top:6px;font:600 15px/1.2 var(--f-body);letter-spacing:.12em;color:var(--muted)}
+.ws p{color:var(--muted);font-size:16px}
+.ws ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:15px}
+.ws li{display:flex;gap:10px;line-height:1.4}
+.ws li::before{content:"";flex:0 0 8px;height:8px;margin-top:6px;background:var(--red-hi)}
+.ws dl{margin:6px 0 0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;padding-top:14px;border-top:1px dashed var(--line);font-size:15px}
+.ws dt{font:500 11px/1.6 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ws dd{margin:0;font-variant-numeric:tabular-nums}
+.ws .ws-price{font:800 28px/1 var(--f-display)}
+.ws-links{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.ws-links a{padding:15px 10px;text-align:center;text-decoration:none;font:700 15px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase}
+.ws-links a:first-child{background:var(--red);color:#fff}
+.ws-links a:first-child:hover{background:var(--red-hi)}
+.ws-links a:last-child:hover{background:var(--surface-2)}
+@media (max-width:860px){.ws-grid{grid-template-columns:1fr}}
+</style>
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <script>if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash))location.replace("/portal/"+location.hash)</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX Level 1 – Základní workshop", "description": "Jednodenní praktický workshop pro trenéry a instruktory, kteří chtějí vést HYROX lekce se strukturou a energií. Žádná teorie bez kontextu: reálný trénink, technika, programming a nakonec si sám odvedeš část lekce.", "startDate": "2026-11-28T10:00:00+01:00", "endDate": "2026-11-28T18:00:00+01:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 20, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": {"@type": "Person", "name": "Ria Suchánek Hrušovská"}, "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "offers": {"@type": "Offer", "price": 4990, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180", "availability": "https://schema.org/InStock"}, "url": "https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "Mental Game – Hlava pod tlakem", "description": "Dvouhodinový workshop, který začíná 30minutovým HYROX workoutem. Nejde o čas ani výkon, ale o to, co se ti děje v hlavě, když už nemůžeš. Pak to rozebereme a přeneseme do práce i běžného života.", "startDate": "2026-11-29T10:00:00+01:00", "endDate": "2026-11-29T12:00:00+01:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 40, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": {"@type": "Person", "name": "Ria Suchánek Hrušovská"}, "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "offers": {"@type": "Offer", "price": 1299, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview", "availability": "https://schema.org/InStock"}, "url": "https://www.ff-academy.cz/instruktor/mental-game/"}]</script>
 </head>
 <body>
 <header class="nav">
@@ -471,6 +499,52 @@ footer a{color:var(--fg)}
         </div>
       </div>
       <div class="rp-facts"><div><strong>12</strong><span>Wochen Vorbereitung</span></div><div><strong>4</strong><span>Einheiten pro Woche</span></div><div><strong>3</strong><span>gemeinsame Workshops</span></div><div><strong>8</strong><span>Stationen im Detail</span></div></div>
+    </div>
+  </section>
+
+
+  <section class="workshops" id="workshopy">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Workshops der FF Academy</p>
+        <h2>Workshops mit Ria.</h2>
+        <p class="lead">November-Workshops bei Form Factory Na Knížecí in Prag, geleitet von Ria Suchánek Hrušovská, Head Coach des HYROX Training Clubs. Tickets gibt es über die FF Academy.</p>
+      </div>
+      <div class="ws-grid"><article class="ws" id="ws-hyrox-level-1">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/group.webp" alt="HYROX Level 1"><div class="ws-date"><b>28. 11.</b><span>Sa. · 2026</span></div></div>
+          <div class="ws-body">
+            <span class="ws-tag">Für Trainer und Instruktoren</span>
+            <h3>HYROX Level 1<small>Grundlagen-Workshop</small></h3>
+            <p>Eintägiger Praxis-Workshop für Trainer und Instruktoren, die HYROX-Kurse mit Struktur und Energie leiten wollen. Keine Theorie ohne Kontext: echtes Training, Technik, Programming, und am Ende leitest du selbst einen Teil der Einheit.</p>
+            <ul><li>Aufbau einer HYROX-Einheit und Programming-Grundlagen</li><li>Stationstechnik: Schlitten, Wall Balls, Lunges, Ergometer</li><li>Coaching gemischter Gruppen und Skalierung</li><li>Bei Zusammenarbeit mit FF: HYROX Foundation Course gratis</li></ul>
+            <dl>
+              <dt>Datum</dt><dd>Sa. 28.11.2026</dd>
+              <dt>Zeit</dt><dd>10:00–18:00</dd>
+              <dt>Ort</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
+              <dt>Leitung</dt><dd>Ria Suchánek Hrušovská, MSc. <i style="font-style:normal;color:var(--muted)">Auf Tschechisch.</i></dd>
+              <dt>Kapazität</dt><dd>20 Plätze</dd>
+              <dt>Preis</dt><dd class="ws-price">4.990 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180" target="_blank" rel="noopener">Online kaufen →</a><a href="https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/" target="_blank" rel="noopener">Mehr bei FF Academy</a></div>
+        </article><article class="ws" id="ws-mental-game">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/ria-mic.webp" alt="Mental Game"><div class="ws-date"><b>29. 11.</b><span>So. · 2026</span></div></div>
+          <div class="ws-body">
+            <span class="ws-tag">Für alle</span>
+            <h3>Mental Game<small>Der Kopf unter Druck</small></h3>
+            <p>Zweistündiger Workshop, der mit einem 30-minütigen HYROX-Workout beginnt. Es geht nicht um Zeit oder Fitness, sondern darum, was in deinem Kopf passiert, wenn du nicht mehr kannst. Danach arbeiten wir es auf und übertragen es auf Job und Alltag.</p>
+            <ul><li>30 Minuten HYROX-Workout</li><li>Kopf unter Druck: innerer Dialog, Fokus, Emotionen</li><li>Mentale Stärke und Umgang mit Unbehagen</li><li>Dein eigener Mental-Game-Plan für Sport und Leben</li></ul>
+            <dl>
+              <dt>Datum</dt><dd>So. 29.11.2026</dd>
+              <dt>Zeit</dt><dd>10:00–12:00</dd>
+              <dt>Ort</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
+              <dt>Leitung</dt><dd>Ria Suchánek Hrušovská, MSc. <i style="font-style:normal;color:var(--muted)">Auf Tschechisch.</i></dd>
+              <dt>Kapazität</dt><dd>40 Plätze</dd>
+              <dt>Preis</dt><dd class="ws-price">1.299 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview" target="_blank" rel="noopener">Online kaufen →</a><a href="https://www.ff-academy.cz/instruktor/mental-game/" target="_blank" rel="noopener">Mehr bei FF Academy</a></div>
+        </article></div>
     </div>
   </section>
 
