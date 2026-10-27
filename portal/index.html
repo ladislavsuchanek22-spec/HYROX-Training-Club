@@ -15,6 +15,11 @@
 <meta property="og:image" content="https://hyroxtrainingclub.cz/img/coaches.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://hyroxtrainingclub.cz/portal/">
+<link rel="alternate" hreflang="cs" href="https://hyroxtrainingclub.cz/portal/">
+<link rel="alternate" hreflang="en" href="https://hyroxtrainingclub.cz/en/portal/">
+<link rel="alternate" hreflang="de" href="https://hyroxtrainingclub.cz/de/portal/">
+<link rel="alternate" hreflang="pl" href="https://hyroxtrainingclub.cz/pl/portal/">
+<link rel="alternate" hreflang="x-default" href="https://hyroxtrainingclub.cz/portal/">
 <script src="/js/tracking.js"></script>
 <link rel="icon" href="/favicon.png" type="image/png" sizes="160x160">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -327,7 +332,7 @@ footer a{color:var(--fg)}
 .rp-week b{font:700 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em}
 .rp-week span{color:var(--muted);font-size:16px}
 .rp-week.ws{background:rgba(74,99,255,.08)}
-.rp-week.ws b::after{content:" · workshop";font:500 11px/1 var(--f-mono);letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
+.rp-week .wsl{margin-left:8px;font:500 11px/1 var(--f-mono);letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
 @media (max-width:620px){.rp-week{grid-template-columns:44px 1fr}.rp-week span{grid-column:2}}
 
 .rp-price .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
@@ -399,7 +404,7 @@ footer a{color:var(--fg)}
 @media (max-width:760px){.pt-links{grid-template-columns:1fr}}
 .pt-toast{font:500 14px/1.4 var(--f-body);color:var(--fg);background:var(--surface-2);border-left:3px solid var(--blue);padding:12px 14px}
 </style>
-<style>body{margin:0}[hidden]{display:none!important}.portal-hero{padding-block:clamp(56px,8vw,96px) 0}.portal-hero h1{font-size:clamp(48px,8vw,104px);line-height:.9}.pt-err{color:#ff8a9c;font-size:14px}.pt-ok{color:#9be3b0;font-size:14px}.pt-form .linkbtn{all:unset;cursor:pointer;color:var(--fg);text-decoration:underline;font-size:13px}</style>
+<style>body{margin:0}[hidden]{display:none!important}.portal-hero{padding-block:clamp(56px,8vw,96px) 0}.portal-hero h1{font-size:clamp(48px,8vw,104px);line-height:.9}.pt-err{color:#ff8a9c;font-size:14px}.pt-ok{color:#9be3b0;font-size:14px}</style>
 </head>
 <body>
 <div class="pv-bar" id="pv-bar" hidden>NÁHLED · Testovací verze portálu na náhledové adrese.</div>
@@ -416,7 +421,7 @@ footer a{color:var(--fg)}
       <li><a href="/portal/">Portál</a></li>
     </ul>
     <div class="nav-right">
-      <a class="btn btn-ghost" href="/portal/#prihlaseni" style="padding:11px 14px;font-size:14px">Portál</a>
+      <nav class="langs" aria-label="Language"><a href="/portal/" hreflang="cs" lang="cs" aria-current="page">CZ</a><a href="/en/portal/" hreflang="en" lang="en">EN</a><a href="/de/portal/" hreflang="de" lang="de">DE</a><a href="/pl/portal/" hreflang="pl" lang="pl">PL</a></nav>
       <a class="btn btn-red" href="https://www.ff-academy.cz/label/verejnost/add/hyrox/" target="_blank" rel="noopener" style="padding:11px 18px;font-size:15px">Koupit program</a>
     </div>
   </div>
@@ -451,7 +456,6 @@ footer a{color:var(--fg)}
             <label for="r-mail">E-mail<input id="r-mail" type="email" autocomplete="email" placeholder="jan@email.cz" required></label>
             <button class="btn btn-red" type="submit">Poslat odkaz na nové heslo →</button>
             <p class="pt-ok" id="r-ok" hidden>Pokud je e-mail v programu, přijde ti odkaz na nastavení nového hesla.</p>
-            <p class="pt-err" id="r-err" hidden></p>
           </form>
         </div>
         <div>
@@ -499,8 +503,10 @@ footer a{color:var(--fg)}
     </div>
   </section>
 </main>
+<script type="application/json" id="pt-i18n">{"load": "Materiály se nepodařilo načíst. Zkus stránku obnovit, případně se odhlas a přihlas znovu.", "short": "Heslo musí mít alespoň 8 znaků.", "mismatch": "Hesla se neshodují.", "save": "Heslo se nepodařilo uložit. Odkaz z e-mailu mohl vypršet, požádej o nový.", "login": "Přihlášení se nepovedlo. Zkontroluj e-mail a heslo, nebo si nech poslat nové heslo.", "langs": {"cs": "česky", "en": "anglicky"}, "locked": "Zamčeno", "soon": "Připravujeme", "lang": "cs", "rec_eyebrow": "Obnova hesla", "rec_h": "Nastav si nové heslo"}</script>
 <script type="module">
 import { getUser, login, logout, handleAuthCallback, acceptInvite, requestPasswordRecovery, updateUser } from "https://cdn.jsdelivr.net/npm/@netlify/identity@2.0.0/+esm";
+const L = JSON.parse(document.getElementById("pt-i18n").textContent);
 const $ = (id) => document.getElementById(id);
 if (location.hostname.startsWith("deploy-preview-")) $("pv-bar").hidden = false;
 function view(name) { for (const v of ["pt-loading","pt-auth","pt-setpass","pt-dash"]) $(v).hidden = v !== name; }
@@ -508,8 +514,10 @@ function err(el, e) { el.hidden = false; el.textContent = e; }
 const tabs = { log: [$("tab-log"), $("f-log")], forgot: [$("tab-forgot"), $("f-forgot")] };
 function tab(k) { for (const [n, [b, f]] of Object.entries(tabs)) { b.setAttribute("aria-selected", n === k); f.hidden = n !== k; } }
 $("tab-log").onclick = () => tab("log"); $("tab-forgot").onclick = () => tab("forgot");
-
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+const loc = (f, k) => (f.i18n && f.i18n[L.lang] && f.i18n[L.lang][k]) || f[k];
+const order = (langs) => L.lang === "cs" ? langs : [...langs].sort((a, b) => (a === "en" ? -1 : b === "en" ? 1 : 0));
+
 async function dashboard(user) {
   view("pt-dash");
   $("pt-who").textContent = user.name || user.email;
@@ -517,31 +525,38 @@ async function dashboard(user) {
     const r = await fetch("/api/portal-files", { credentials: "same-origin", cache: "no-store" });
     if (!r.ok) throw new Error(r.status);
     const data = await r.json();
-    $("pt-files").innerHTML = data.files.map((f) => `<div class="pt-file${f.available ? "" : " locked"}"><span class="ic">${esc(f.no || "PDF")}</span><b>${esc(f.name)}</b><p>${esc(f.desc)}</p><span class="meta">${f.available ? "PDF · " + f.langs.map((l) => l === "cs" ? "česky" : "anglicky").join(" / ") : esc(f.note || "Připravujeme")}</span>${f.available ? `<div class="pt-dl">${f.langs.map((l) => `<a class="btn btn-red" href="/api/portal-files?f=${encodeURIComponent(f.id)}&lang=${l}">${l === "cs" ? "CZ" : l.toUpperCase()} ↓</a>`).join("")}</div>` : `<button class="btn" type="button" disabled>Zamčeno</button>`}</div>`).join("");
-  } catch (e) { err($("d-err"), "Materiály se nepodařilo načíst. Zkus stránku obnovit, případně se odhlas a přihlas znovu."); }
+    $("pt-files").innerHTML = data.files.map((f) => {
+      const langs = order(f.langs || []);
+      const meta = f.available ? "PDF · " + langs.map((l) => L.langs[l] || l).join(" / ") : esc(loc(f, "note") || L.soon);
+      const btns = f.available
+        ? `<div class="pt-dl">${langs.map((l) => `<a class="btn btn-red" href="/api/portal-files?f=${encodeURIComponent(f.id)}&lang=${l}">${l === "cs" ? "CZ" : l.toUpperCase()} ↓</a>`).join("")}</div>`
+        : `<button class="btn" type="button" disabled>${esc(L.locked)}</button>`;
+      return `<div class="pt-file${f.available ? "" : " locked"}"><span class="ic">${esc(f.no || "PDF")}</span><b>${esc(loc(f, "name"))}</b><p>${esc(loc(f, "desc"))}</p><span class="meta">${meta}</span>${btns}</div>`;
+    }).join("");
+  } catch (e) { err($("d-err"), L.load); }
 }
 
-let pending = null; // "invite" + token, nebo "recovery"
+let pending = null;
 $("f-set").onsubmit = async (e) => {
   e.preventDefault(); $("s-err").hidden = true;
   const p1 = $("s-pass").value, p2 = $("s-pass2").value;
-  if (p1.length < 8) return err($("s-err"), "Heslo musí mít alespoň 8 znaků.");
-  if (p1 !== p2) return err($("s-err"), "Hesla se neshodují.");
+  if (p1.length < 8) return err($("s-err"), L.short);
+  if (p1 !== p2) return err($("s-err"), L.mismatch);
   try {
     const user = pending.type === "invite" ? await acceptInvite(pending.token, p1) : await updateUser({ password: p1 });
     history.replaceState(null, "", location.pathname);
     dashboard(user || await getUser());
-  } catch (x) { err($("s-err"), "Heslo se nepodařilo uložit. Odkaz z e-mailu mohl vypršet, požádej o nový."); }
+  } catch (x) { err($("s-err"), L.save); }
 };
 $("f-log").onsubmit = async (e) => {
   e.preventDefault(); $("l-err").hidden = true;
   try { dashboard(await login($("l-mail").value.trim(), $("l-pass").value)); }
-  catch (x) { err($("l-err"), "Přihlášení se nepovedlo. Zkontroluj e-mail a heslo, nebo si nech poslat nové heslo."); }
+  catch (x) { err($("l-err"), L.login); }
 };
 $("f-forgot").onsubmit = async (e) => {
-  e.preventDefault(); $("r-err").hidden = true; $("r-ok").hidden = true;
-  try { await requestPasswordRecovery($("r-mail").value.trim()); $("r-ok").hidden = false; }
-  catch (x) { $("r-ok").hidden = false; }
+  e.preventDefault(); $("r-ok").hidden = true;
+  try { await requestPasswordRecovery($("r-mail").value.trim()); } catch (x) {}
+  $("r-ok").hidden = false;
 };
 $("pt-out").onclick = async () => { try { await logout(); } finally { view("pt-auth"); } };
 
@@ -549,11 +564,10 @@ $("pt-out").onclick = async () => { try { await logout(); } finally { view("pt-a
   try {
     const cb = await handleAuthCallback();
     if (cb && cb.type === "invite") { pending = { type: "invite", token: cb.token }; view("pt-setpass"); return; }
-    if (cb && cb.type === "recovery") { pending = { type: "recovery" }; $("set-title").textContent = "Obnova hesla"; $("set-h").textContent = "Nastav si nové heslo"; view("pt-setpass"); return; }
-  } catch (e) { /* neplatný nebo prošlý odkaz: pokračuj na přihlášení */ }
+    if (cb && cb.type === "recovery") { pending = { type: "recovery" }; $("set-title").textContent = L.rec_eyebrow; $("set-h").textContent = L.rec_h; view("pt-setpass"); return; }
+  } catch (e) {}
   const user = await getUser();
   if (user) dashboard(user); else view("pt-auth");
-  if (location.hash === "#prihlaseni") tab("log");
 })().catch(() => view("pt-auth"));
 </script>
 <footer>

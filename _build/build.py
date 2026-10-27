@@ -479,7 +479,7 @@ def page(lang):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 {STYLE}
 {EXTRA_CSS}
-{raceprep.RP_CSS if lang == "cs" else ""}
+{raceprep.RP_CSS}
 <style>body{{margin:0}}[hidden]{{display:none!important}}</style>
 <script>if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash))location.replace("/portal/"+location.hash)</script>
 </head>
@@ -491,7 +491,7 @@ def page(lang):
       <span><b>HYROX Training Club</b><small>{t["brand_sub"]}</small></span>
     </a>
     <ul>
-      {'<li><a href="/12-weeks-race-prep/" class="rp-nav">12 Weeks</a></li>' if lang == "cs" else ""}
+      {raceprep.nav_li(lang)}
       <li><a href="#programy">{t["nav_prog"]}</a></li>
       <li><a href="#zavod">{t["nav_race"]}</a></li>
       <li><a href="#treneri">{t["nav_coach"]}</a></li>
@@ -527,7 +527,7 @@ def page(lang):
       <div class="stat"><strong>4</strong><span>{t["st4"]}</span></div>
     </div>
   </div>
-{raceprep.promo() if lang == "cs" else ""}
+{raceprep.promo(lang)}
   <section class="about" id="klub">
     <div class="wrap">
       <div class="about-text">
@@ -1192,8 +1192,9 @@ for l in LANGS:
     print("wrote", os.path.join(d, "index.html"))
 
 
-for _slug, _fn in ((raceprep.SLUG, raceprep.program_page), (raceprep.PORTAL, raceprep.portal_page)):
-    d = os.path.join(OUT, _slug)
-    os.makedirs(d, exist_ok=True)
-    open(os.path.join(d, "index.html"), "w").write(_fn(T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX))
-    print("wrote", os.path.join(d, "index.html"))
+for _lang in raceprep.LANGS:
+    for _slug, _fn in ((raceprep.SLUG, raceprep.program_page), (raceprep.PORTAL, raceprep.portal_page)):
+        d = os.path.join(OUT, raceprep.path(_lang, _slug).strip("/"))
+        os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, "index.html"), "w").write(_fn(_lang, T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX))
+        print("wrote", os.path.join(d, "index.html"))
