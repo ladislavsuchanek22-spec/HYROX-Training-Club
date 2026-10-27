@@ -23,9 +23,9 @@ EXTRA_CSS = """<style>
 .coach-grid{grid-template-columns:repeat(3,1fr)!important}
 .coach{align-content:start}
 .coach .ph{display:block;margin:-28px -28px 6px;overflow:hidden;background:var(--surface-2)}
-.coach .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.coach .ph img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
 .coach h3 .aka{display:block;margin-top:6px;font:500 13px/1 var(--f-mono);letter-spacing:.08em;color:var(--muted);text-transform:none}
-@media (max-width:960px){.coach-grid{grid-template-columns:1fr!important}.coach .ph img{aspect-ratio:4/3}}
+@media (max-width:960px){.coach-grid{grid-template-columns:1fr!important}.coach .ph img{aspect-ratio:4/3;object-position:center 25%}}
 .prog-note a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
 .net{flex-basis:100%;padding-bottom:24px;margin-bottom:8px;border-bottom:1px solid var(--line)}
 .net-h{margin:0 0 14px;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
@@ -618,7 +618,7 @@ def page(lang):
     <div class="wrap">
       <div class="coach-grid" style="margin-top:48px">
         <article class="coach">
-          <picture class="ph"><source srcset="/img/coach-ria.webp" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-ria.jpg" alt="{t["ph_ria"]}" width="800" height="1000"></picture>
+          <picture class="ph"><source srcset="/img/coach-ria.webp?v=2" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-ria.jpg?v=2" alt="{t["ph_ria"]}" width="800" height="1000"></picture>
           <span class="role">{t["ria_role"]}</span>
           <h3>Ria Suchánek Hrušovská, MSc.</h3>
           <p>{t["ria_txt"]}</p>
@@ -626,7 +626,7 @@ def page(lang):
           <a class="site" href="{net.url("ria", lang)}" target="_blank" rel="noopener">{t["ria_link"]}</a>
         </article>
         <article class="coach">
-          <picture class="ph"><source srcset="/img/coach-lada.webp" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-lada.jpg" alt="{t["ph_lada"]}" width="800" height="1000"></picture>
+          <picture class="ph"><source srcset="/img/coach-lada.webp?v=2" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-lada.jpg?v=2" alt="{t["ph_lada"]}" width="800" height="1000"></picture>
           <span class="role">{t["lada_role"]}</span>
           <h3>Ladislav Suchánek</h3>
           <p>{t["lada_txt"]}</p>
@@ -634,7 +634,7 @@ def page(lang):
           <a class="site" href="{net.url("hp", lang)}" target="_blank" rel="noopener">{t["lada_link"]}</a>
         </article>
         <article class="coach">
-          <picture class="ph"><source srcset="/img/coach-michal.webp" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-michal.jpg" alt="{t["ph_mich"]}" width="800" height="1000"></picture>
+          <picture class="ph"><source srcset="/img/coach-michal.webp?v=2" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-michal.jpg?v=2" alt="{t["ph_mich"]}" width="800" height="1000"></picture>
           <span class="role">{t["mich_role"]}</span>
           <h3>Michal Holotík <small class="aka">aka Mike Holo</small></h3>
           <p>{t["mich_txt"]}</p>
