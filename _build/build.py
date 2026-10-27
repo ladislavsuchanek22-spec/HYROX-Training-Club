@@ -696,8 +696,8 @@ CITY_LINK = {
 CITIES = {
   "praha": dict(
     clubs=["prague5", "prague3"], name="Praha", loc="v Praze",
-    title="HYROX trénink Praha · Smíchov a Vinohrady | Form Factory",
-    desc="HYROX tréninky v Praze ve dvou klubech Form Factory: Na Knížecí (Praha 5) a Vinohradská (Praha 3). Lekce podle programu HYROX365, rozvrh a rezervace online.",
+    title="HYROX Praha: tréninky a rozvrh lekcí · Smíchov, Vinohrady",
+    desc="HYROX v Praze: skupinové tréninky ve Form Factory Na Knížecí (Praha 5) a Vinohradská (Praha 3) podle programu HYROX365. Aktuální rozvrh lekcí a rezervace online.",
     h1="HYROX trénink Praha", sub="Na Knížecí · Vinohradská",
     lead="V Praze trénujeme ve dvou klubech Form Factory: Na Knížecí na Smíchově a na Vinohradské. Lekce jedou podle oficiálního programu HYROX365. Běh, síla, stanice a práce pod únavou. Přijď jako začátečník i jako závodník.",
     img="/img/group.webp",
@@ -705,8 +705,8 @@ CITIES = {
   ),
   "brno": dict(
     clubs=["brno"], name="Brno", loc="v Brně",
-    title="HYROX trénink Brno · Form Factory Campus",
-    desc="HYROX tréninky v Brně ve Form Factory Campus na Palachově náměstí. Skupinové lekce podle programu HYROX365 pro začátečníky i závodníky. Rozvrh a rezervace online.",
+    title="HYROX Brno: tréninky a rozvrh lekcí · Form Factory Campus",
+    desc="HYROX v Brně: skupinové tréninky ve Form Factory Campus podle programu HYROX365, pro začátečníky i závodníky. Aktuální rozvrh lekcí a rezervace online.",
     h1="HYROX trénink Brno", sub="Form Factory Campus",
     lead="V Brně trénujeme ve Form Factory Campus ve Starém Lískovci. Stejný program HYROX365 jako v Praze a Ostravě: běh, síla, stanice a práce pod únavou. Lekci si rezervuješ online.",
     img="/img/sled.webp",
@@ -714,14 +714,67 @@ CITIES = {
   ),
   "ostrava": dict(
     clubs=["ostrava"], name="Ostrava", loc="v Ostravě",
-    title="HYROX trénink Ostrava · Form Factory Hrabová",
-    desc="HYROX tréninky v Ostravě ve Form Factory Hrabová. Skupinové lekce podle programu HYROX365 pro začátečníky i závodníky. Rozvrh a rezervace online.",
+    title="HYROX Ostrava: tréninky a rozvrh lekcí · Form Factory Hrabová",
+    desc="HYROX v Ostravě: skupinové tréninky ve Form Factory Hrabová podle programu HYROX365, pro začátečníky i závodníky. Aktuální rozvrh lekcí a rezervace online.",
     h1="HYROX trénink Ostrava", sub="Form Factory Hrabová",
     lead="V Ostravě trénujeme ve Form Factory Hrabová. Stejný program HYROX365 jako v Praze a Brně: běh, síla, stanice a práce pod únavou. Lekci si rezervuješ online.",
     img="/img/group-v.webp",
     faq_extra=("Je program v Ostravě stejný jako v Praze?", "Ano. Všechny kluby jedou podle stejné metodiky HYROX365, takže můžeš trénovat v Ostravě a přijet na lekci do Prahy nebo Brna."),
   ),
 }
+
+
+# ---------- ROZVRH (z _build/timetable.json, plní ho _build/timetable.py přes GitHub Action každý den)
+TT_DAYS = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"]
+
+
+def _tt_load():
+    import json as _json
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "timetable.json")
+    try:
+        with open(p, encoding="utf-8") as f:
+            return _json.load(f)
+    except (OSError, ValueError):
+        return None
+
+
+def timetable_html(keys, loc):
+    import datetime as _dt
+    tt = _tt_load()
+    if not tt:
+        return ""
+    d0, d1 = _dt.date.fromisoformat(tt["from"]), _dt.date.fromisoformat(tt["to"])
+    days = [d0 + _dt.timedelta(days=i) for i in range((d1 - d0).days + 1)]
+    upd = _dt.date.fromisoformat(tt["updated"])
+    blocks = []
+    for key in keys:
+        club = next(x for x in CLUBS if x[0] == key)
+        cal = club[7]
+        rows = tt["clubs"].get(key, [])
+        cols = []
+        for d in days:
+            ds = d.isoformat()
+            slots = "".join(
+                f'<a class="tt-slot{" tt-ev" if "experience" in r["name"].lower() else ""}" href="{cal}?day={d.strftime("%d.%m.%Y")}&amp;view=DayByHour" target="_blank" rel="noopener">{r["start"]}–{r["end"]}'
+                + ('<small>HYROX Experience</small>' if "experience" in r["name"].lower() else "") + "</a>"
+                for r in rows if r["date"] == ds)
+            cols.append(f'<div class="tt-day"><b>{TT_DAYS[d.weekday()]} {d.day}. {d.month}.</b>{slots or "<span class=\"tt-none\">–</span>"}</div>')
+        blocks.append(f'''<div class="tt-club">
+        <h3>Form Factory {club[1]}</h3>
+        <div class="tt-grid">{"".join(cols)}</div>
+      </div>''')
+    return f'''
+  <section class="tt" id="rozvrh">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Rozvrh lekcí</p>
+        <h2>Rozvrh HYROX lekcí {loc}</h2>
+        <p class="lead">HYROX lekce na nejbližších 7 dní ({d0.day}. {d0.month}. – {d1.day}. {d1.month}.), aktualizováno {upd.day}. {upd.month}. {upd.year}. Kliknutím na čas otevřeš rezervaci. Rezervovat můžeš 48 hodin předem v aplikaci Moje Form Factory nebo online.</p>
+      </div>
+      {"".join(blocks)}
+    </div>
+  </section>
+'''
 
 
 def club_card(key, t):
@@ -770,6 +823,7 @@ def city_page(slug):
     faqs = [
         ("Musím mít s HYROXem zkušenosti?", "Ne. " + t["w1t"] + " Váhy i tempo se upraví podle tvé úrovně."),
         ("Jak si lekci zarezervuju?", t["s1t"]),
+        (f"Kdy jsou HYROX lekce {c['loc']}?", 'Několikrát týdně ráno, v poledne i večer, podle klubu. Aktuální rozvrh na 7 dní je <a href="#rozvrh">nahoře na této stránce</a>, rezervace v aplikaci Moje Form Factory.'),
         ("Kolik stojí první vstup?", f'Podmínky prvního vstupu najdeš na <a href="{FF_FIRST["cs"]}" target="_blank" rel="noopener">webu Form Factory</a>.'),
         ("Co si mám vzít s sebou?", t["cta_lead"]),
         c["faq_extra"],
@@ -833,11 +887,12 @@ def city_page(slug):
       <p class="lead">{c["lead"]}</p>
       <div class="hero-cta">
         <a class="btn btn-red" href="{cal}" target="_blank" rel="noopener">Rozvrh a rezervace →</a>
-        <a class="btn btn-ghost" href="#kluby">Adresa a otevírací doba</a>
+        <a class="btn btn-ghost" href="#rozvrh">Rozvrh na tento týden</a>
       </div>
     </div>
   </section>
 
+{timetable_html(c["clubs"], c["loc"])}
   <section class="clubs" id="kluby">
     <div class="wrap">
       <div class="sec-head">
@@ -921,7 +976,7 @@ ARTICLES = {
     lead="Na první HYROX lekci nepotřebuješ zkušenost ani formu. Potřebuješ přijít. Tady je, jak lekce v HYROX Training Clubu probíhá a co si vzít s sebou.",
     body="""
 <h2>Jak HYROX lekce probíhá</h2>
-<p>Lekce trvá 45 minut a pracuje se na 4 nebo 8 stanovištích. Kombinuje kardio a sílu, vede ji trenér a jede se v týmové energii s hudbou. Na začátku je rozcvička a technika, pak hlavní blok. Váhy i tempo se upraví podle tvé úrovně.</p>
+<p>Lekce trvá 45 až 60 minut podle klubu a času. Kombinuje kardio a sílu, vede ji trenér a jede se v týmové energii s hudbou. Na začátku je rozcvička a technika, pak hlavní blok. Váhy i tempo se upraví podle tvé úrovně.</p>
 <p>Lekce jedou podle oficiálního programu HYROX365 ve čtyřech formátech: Foundational, Engine, Power a Complete. Formát si nevybíráš, program ho během týdnů střídá za tebe. Přehled formátů je na <a href="/#programy">hlavní stránce</a>.</p>
 <h2>Jak se přihlásit</h2>
 <p>Lekci si rezervuješ v aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství. Podmínky prvního vstupu najdeš na <a href="https://www.formfactory.cz/prvni-vstup/" target="_blank" rel="noopener">webu Form Factory</a>.</p>
@@ -944,7 +999,7 @@ ARTICLES = {
 """,
     faqs=[
       ("Můžu na HYROX lekci jako úplný začátečník?", "Ano. Předchozí zkušenost není potřeba. Lekce jsou vedené tak, aby se v nich zorientovali i úplní začátečníci, a váhy i tempo se upraví podle tvé úrovně."),
-      ("Jak dlouho trvá HYROX lekce?", "45 minut. Pracuje se na 4 nebo 8 stanovištích a kombinuje se kardio a síla."),
+      ("Jak dlouho trvá HYROX lekce?", "45 až 60 minut podle klubu a času. Kombinuje se běh, síla a HYROX stanice. Přesný čas každé lekce najdeš v rozvrhu na stránce svého města."),
       ("Jak si HYROX lekci zarezervuju?", "V aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství."),
       ("Co si vzít na HYROX lekci?", "Sportovní oblečení, čisté sálové tenisky, ručník a pití."),
       ("Musím být ve formě?", "Nemusíš. Důležité je chtít začít. Forma přijde s pravidelným tréninkem."),

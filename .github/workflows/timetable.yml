@@ -1,0 +1,26 @@
+# Každý den stáhne rozvrh HYROX lekcí z rezervačního systému Form Factory,
+# přegeneruje web a pushne změny (Netlify pak nasadí). Ručně: Actions → Rozvrh → Run workflow.
+name: Rozvrh
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stáhnout rozvrh
+        run: python3 _build/timetable.py
+      - name: Přegenerovat web
+        run: python3 _build/build.py _build/style.css .
+      - name: Commit a push
+        run: |
+          git config user.name "rozvrh-bot"
+          git config user.email "rozvrh-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "beze změny" && exit 0
+          git commit -m "Rozvrh HYROX lekcí: aktualizace $(date +%F)"
+          git push

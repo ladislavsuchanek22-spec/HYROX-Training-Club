@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://hyroxtrainingclub.cz/img/hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://hyroxtrainingclub.cz/prvni-hyrox-lekce/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "HYROX Training Club", "item": "https://hyroxtrainingclub.cz/"}, {"@type": "ListItem", "position": 2, "name": "První HYROX lekce", "item": "https://hyroxtrainingclub.cz/prvni-hyrox-lekce/"}]}, {"@type": "Article", "headline": "První HYROX lekce", "description": "Jdeš na první HYROX lekci ve Form Factory? Jak lekce probíhá, jak se přihlásit, co si vzít a jak se nebát, když jsi začátečník. Praha, Brno, Ostrava.", "inLanguage": "cs", "mainEntityOfPage": "https://hyroxtrainingclub.cz/prvni-hyrox-lekce/", "image": "https://hyroxtrainingclub.cz/img/group.webp", "publisher": {"@id": "https://hyroxtrainingclub.cz/#club"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Můžu na HYROX lekci jako úplný začátečník?", "acceptedAnswer": {"@type": "Answer", "text": "Ano. Předchozí zkušenost není potřeba. Lekce jsou vedené tak, aby se v nich zorientovali i úplní začátečníci, a váhy i tempo se upraví podle tvé úrovně."}}, {"@type": "Question", "name": "Jak dlouho trvá HYROX lekce?", "acceptedAnswer": {"@type": "Answer", "text": "45 minut. Pracuje se na 4 nebo 8 stanovištích a kombinuje se kardio a síla."}}, {"@type": "Question", "name": "Jak si HYROX lekci zarezervuju?", "acceptedAnswer": {"@type": "Answer", "text": "V aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství."}}, {"@type": "Question", "name": "Co si vzít na HYROX lekci?", "acceptedAnswer": {"@type": "Answer", "text": "Sportovní oblečení, čisté sálové tenisky, ručník a pití."}}, {"@type": "Question", "name": "Musím být ve formě?", "acceptedAnswer": {"@type": "Answer", "text": "Nemusíš. Důležité je chtít začít. Forma přijde s pravidelným tréninkem."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "HYROX Training Club", "item": "https://hyroxtrainingclub.cz/"}, {"@type": "ListItem", "position": 2, "name": "První HYROX lekce", "item": "https://hyroxtrainingclub.cz/prvni-hyrox-lekce/"}]}, {"@type": "Article", "headline": "První HYROX lekce", "description": "Jdeš na první HYROX lekci ve Form Factory? Jak lekce probíhá, jak se přihlásit, co si vzít a jak se nebát, když jsi začátečník. Praha, Brno, Ostrava.", "inLanguage": "cs", "mainEntityOfPage": "https://hyroxtrainingclub.cz/prvni-hyrox-lekce/", "image": "https://hyroxtrainingclub.cz/img/group.webp", "publisher": {"@id": "https://hyroxtrainingclub.cz/#club"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Můžu na HYROX lekci jako úplný začátečník?", "acceptedAnswer": {"@type": "Answer", "text": "Ano. Předchozí zkušenost není potřeba. Lekce jsou vedené tak, aby se v nich zorientovali i úplní začátečníci, a váhy i tempo se upraví podle tvé úrovně."}}, {"@type": "Question", "name": "Jak dlouho trvá HYROX lekce?", "acceptedAnswer": {"@type": "Answer", "text": "45 až 60 minut podle klubu a času. Kombinuje se běh, síla a HYROX stanice. Přesný čas každé lekce najdeš v rozvrhu na stránce svého města."}}, {"@type": "Question", "name": "Jak si HYROX lekci zarezervuju?", "acceptedAnswer": {"@type": "Answer", "text": "V aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství."}}, {"@type": "Question", "name": "Co si vzít na HYROX lekci?", "acceptedAnswer": {"@type": "Answer", "text": "Sportovní oblečení, čisté sálové tenisky, ručník a pití."}}, {"@type": "Question", "name": "Musím být ve formě?", "acceptedAnswer": {"@type": "Answer", "text": "Nemusíš. Důležité je chtít začít. Forma přijde s pravidelným tréninkem."}}]}]}</script>
 <script src="/js/tracking.js"></script>
 <link rel="icon" href="/favicon.png" type="image/png" sizes="160x160">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -229,6 +229,19 @@ section{padding-block:clamp(72px,10vw,128px)}
 footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
 footer a{color:var(--fg)}
+/* Rozvrh HYROX lekcí (city pages) */
+.tt{padding:72px 0;border-top:1px solid var(--line)}
+.tt-club{margin-top:28px}
+.tt-club h3{font:700 22px/1.1 var(--f-display);text-transform:uppercase;margin:0 0 12px}
+.tt-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.tt-day{background:var(--surface);border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tt-day b{font:600 13px/1 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.tt-slot{display:block;font:700 17px/1.2 var(--f-display);color:var(--fg);text-decoration:none;padding:6px 8px;background:var(--surface-2);border-left:3px solid var(--red-hi)}
+.tt-slot:hover{background:var(--red)}
+.tt-slot small{display:block;font:600 11px/1.2 var(--f-body);color:var(--muted);text-transform:none}
+.tt-ev{border-left-color:var(--blue)}
+.tt-none{color:var(--muted)}
+@media (max-width:900px){.tt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 <style>
 .langs{display:flex;gap:2px;border:1px solid var(--line)}
@@ -299,7 +312,7 @@ footer a{color:var(--fg)}
     <div class="wrap">
       <div class="art">
 <h2>Jak HYROX lekce probíhá</h2>
-<p>Lekce trvá 45 minut a pracuje se na 4 nebo 8 stanovištích. Kombinuje kardio a sílu, vede ji trenér a jede se v týmové energii s hudbou. Na začátku je rozcvička a technika, pak hlavní blok. Váhy i tempo se upraví podle tvé úrovně.</p>
+<p>Lekce trvá 45 až 60 minut podle klubu a času. Kombinuje kardio a sílu, vede ji trenér a jede se v týmové energii s hudbou. Na začátku je rozcvička a technika, pak hlavní blok. Váhy i tempo se upraví podle tvé úrovně.</p>
 <p>Lekce jedou podle oficiálního programu HYROX365 ve čtyřech formátech: Foundational, Engine, Power a Complete. Formát si nevybíráš, program ho během týdnů střídá za tebe. Přehled formátů je na <a href="/#programy">hlavní stránce</a>.</p>
 <h2>Jak se přihlásit</h2>
 <p>Lekci si rezervuješ v aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství. Podmínky prvního vstupu najdeš na <a href="https://www.formfactory.cz/prvni-vstup/" target="_blank" rel="noopener">webu Form Factory</a>.</p>
@@ -329,7 +342,7 @@ footer a{color:var(--fg)}
         <p class="eyebrow">Časté otázky</p>
         <h2>První HYROX lekce: co potřebuješ vědět</h2>
       </div>
-      <div class="city-faq"><details><summary>Můžu na HYROX lekci jako úplný začátečník?</summary><p>Ano. Předchozí zkušenost není potřeba. Lekce jsou vedené tak, aby se v nich zorientovali i úplní začátečníci, a váhy i tempo se upraví podle tvé úrovně.</p></details><details><summary>Jak dlouho trvá HYROX lekce?</summary><p>45 minut. Pracuje se na 4 nebo 8 stanovištích a kombinuje se kardio a síla.</p></details><details><summary>Jak si HYROX lekci zarezervuju?</summary><p>V aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství.</p></details><details><summary>Co si vzít na HYROX lekci?</summary><p>Sportovní oblečení, čisté sálové tenisky, ručník a pití.</p></details><details><summary>Musím být ve formě?</summary><p>Nemusíš. Důležité je chtít začít. Forma přijde s pravidelným tréninkem.</p></details></div>
+      <div class="city-faq"><details><summary>Můžu na HYROX lekci jako úplný začátečník?</summary><p>Ano. Předchozí zkušenost není potřeba. Lekce jsou vedené tak, aby se v nich zorientovali i úplní začátečníci, a váhy i tempo se upraví podle tvé úrovně.</p></details><details><summary>Jak dlouho trvá HYROX lekce?</summary><p>45 až 60 minut podle klubu a času. Kombinuje se běh, síla a HYROX stanice. Přesný čas každé lekce najdeš v rozvrhu na stránce svého města.</p></details><details><summary>Jak si HYROX lekci zarezervuju?</summary><p>V aplikaci Moje Form Factory nebo na webu Form Factory. Lekce jsou součástí členství.</p></details><details><summary>Co si vzít na HYROX lekci?</summary><p>Sportovní oblečení, čisté sálové tenisky, ručník a pití.</p></details><details><summary>Musím být ve formě?</summary><p>Nemusíš. Důležité je chtít začít. Forma přijde s pravidelným tréninkem.</p></details></div>
       <div class="city-other"><a class="btn btn-ghost" href="/">Všechny kluby</a><a class="btn btn-ghost" href="/praha/">HYROX Praha</a><a class="btn btn-ghost" href="/brno/">HYROX Brno</a><a class="btn btn-ghost" href="/ostrava/">HYROX Ostrava</a></div>
     </div>
   </section>
