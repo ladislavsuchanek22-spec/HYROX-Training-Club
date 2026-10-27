@@ -304,6 +304,11 @@ footer a{color:var(--fg)}
 .rp-facts strong{display:block;font:800 44px/1 var(--f-display);font-variant-numeric:tabular-nums}
 .rp-facts span{color:var(--muted);font-size:14px;line-height:1.3}
 @media (max-width:860px){.rp-promo .wrap{grid-template-columns:1fr}}
+.rp-bar{background:var(--red);text-align:center;padding:9px max(16px,env(safe-area-inset-left,0px))}
+.rp-bar a{color:#fff;text-decoration:none;font:500 14px/1.35 var(--f-body)}
+.rp-bar a b{font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.rp-bar a span{white-space:nowrap;text-decoration:underline;text-underline-offset:3px;margin-left:6px}
+.rp-bar a:hover span{text-decoration-thickness:2px}
 .nav ul a.rp-nav{color:var(--fg);border-bottom:2px solid var(--red-hi);padding-bottom:3px}
 
 .rp-intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
@@ -443,6 +448,7 @@ footer a{color:var(--fg)}
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX Level 1 – Základní workshop", "description": "Jednodenní praktický workshop pro trenéry a instruktory, kteří chtějí vést HYROX lekce se strukturou a energií. Žádná teorie bez kontextu: reálný trénink, technika, programming a nakonec si sám odvedeš část lekce.", "startDate": "2026-11-28T10:00:00+01:00", "endDate": "2026-11-28T18:00:00+01:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 20, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": {"@type": "Person", "name": "Ria Suchánek Hrušovská"}, "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "offers": {"@type": "Offer", "price": 4990, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180", "availability": "https://schema.org/InStock"}, "url": "https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "Mental Game – Hlava pod tlakem", "description": "Dvouhodinový workshop, který začíná 30minutovým HYROX workoutem. Nejde o čas ani výkon, ale o to, co se ti děje v hlavě, když už nemůžeš. Pak to rozebereme a přeneseme do práce i běžného života.", "startDate": "2026-11-29T10:00:00+01:00", "endDate": "2026-11-29T12:00:00+01:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 40, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": {"@type": "Person", "name": "Ria Suchánek Hrušovská"}, "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "offers": {"@type": "Offer", "price": 1299, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview", "availability": "https://schema.org/InStock"}, "url": "https://www.ff-academy.cz/instruktor/mental-game/"}]</script>
 </head>
 <body>
+<div class="rp-bar"><a href="/en/12-weeks-race-prep/"><b>New</b> · HYROX 12 Weeks Race Prep with Ria and Láďa <span>Find out more →</span></a></div>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="/en/">
@@ -486,67 +492,6 @@ footer a{color:var(--fg)}
       <div class="stat"><strong>4</strong><span>Form Factory clubs</span></div>
     </div>
   </div>
-
-  <section class="rp-promo" aria-label="12 Weeks Race Prep">
-    <div class="wrap">
-      <div>
-        <span class="rp-tag">New programme · Form Factory × STR2G</span>
-        <h2>HYROX 12 Weeks<br><span>Race Prep.</span></h2>
-        <p class="lead">Structured HYROX race prep. Running, strength, stations and tactics in one plan, coached by Ria and Láďa. A new plan every Monday, 3 group workshops and a portal with downloadable guides.</p>
-        <div class="hero-cta">
-          <a class="btn btn-red" href="/en/12-weeks-race-prep/">I'm in →</a>
-          <a class="btn btn-ghost" href="https://www.ff-academy.cz/label/verejnost/add/hyrox/" target="_blank" rel="noopener">Buy at FF Academy · 8,999 CZK</a>
-        </div>
-      </div>
-      <div class="rp-facts"><div><strong>12</strong><span>weeks of prep</span></div><div><strong>4</strong><span>sessions a week</span></div><div><strong>3</strong><span>group workshops</span></div><div><strong>8</strong><span>stations in detail</span></div></div>
-    </div>
-  </section>
-
-
-  <section class="workshops" id="workshopy">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">FF Academy workshops</p>
-        <h2>Workshops with Ria Suchánek Hrušovská.</h2>
-        <p class="lead">November workshops at Form Factory Na Knížecí, Prague, with the head coach of the HYROX Training Club. Tickets are sold through FF Academy.</p>
-      </div>
-      <div class="ws-grid"><article class="ws" id="ws-hyrox-level-1">
-          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/group.webp" alt="HYROX Level 1"><div class="ws-date"><b>28. 11.</b><span>Sat · 2026</span></div></div>
-          <div class="ws-body">
-            <span class="ws-tag">For coaches and instructors</span>
-            <h3>HYROX Level 1<small>Foundation workshop</small></h3>
-            <p>A one-day, hands-on workshop for coaches and instructors who want to run HYROX classes with structure and energy. No theory without context: real training, technique, programming, and at the end you coach part of the session yourself.</p>
-            <ul><li>HYROX class structure and programming basics</li><li>Station technique: sleds, wall balls, lunges, ergs</li><li>Coaching mixed-ability groups and scaling</li><li>Free HYROX Foundation course if you go on to coach at FF</li></ul>
-            <dl>
-              <dt>Date</dt><dd>Sat 28 Nov 2026</dd>
-              <dt>Time</dt><dd>10:00–18:00</dd>
-              <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
-              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc. <i style="font-style:normal;color:var(--muted)">Held in Czech.</i></dd>
-              <dt>Capacity</dt><dd>20 places</dd>
-              <dt>Price</dt><dd class="ws-price">4,990 CZK</dd>
-            </dl>
-          </div>
-          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180" target="_blank" rel="noopener">Buy online →</a><a href="https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/" target="_blank" rel="noopener">More on FF Academy</a></div>
-        </article><article class="ws" id="ws-mental-game">
-          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/ria-mic.webp" alt="Mental Game"><div class="ws-date"><b>29. 11.</b><span>Sun · 2026</span></div></div>
-          <div class="ws-body">
-            <span class="ws-tag">Open to everyone</span>
-            <h3>Mental Game<small>Your head under pressure</small></h3>
-            <p>A two-hour workshop that starts with a 30-minute HYROX workout. It's not about your time or fitness, but about what goes on in your head when you want to stop. Then we unpack it and carry it over to work and everyday life.</p>
-            <ul><li>30-minute HYROX workout</li><li>Head under pressure: inner voice, focus, emotions</li><li>Mental resilience and working with discomfort</li><li>Your own mental game plan for sport and life</li></ul>
-            <dl>
-              <dt>Date</dt><dd>Sun 29 Nov 2026</dd>
-              <dt>Time</dt><dd>10:00–12:00</dd>
-              <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
-              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc. <i style="font-style:normal;color:var(--muted)">Held in Czech.</i></dd>
-              <dt>Capacity</dt><dd>40 places</dd>
-              <dt>Price</dt><dd class="ws-price">1,299 CZK</dd>
-            </dl>
-          </div>
-          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview" target="_blank" rel="noopener">Buy online →</a><a href="https://www.ff-academy.cz/instruktor/mental-game/" target="_blank" rel="noopener">More on FF Academy</a></div>
-        </article></div>
-    </div>
-  </section>
 
   <section class="about" id="klub">
     <div class="wrap">
@@ -613,6 +558,22 @@ footer a{color:var(--fg)}
         </article>
       </div>
       <div class="prog-note"><span class="ic">↻</span><p><b>You don't pick the focus. The programme rotates it for you.</b> You show up and the coach knows what today is about. Over the weeks you go through base, conditioning, strength and race-specific work. That's how you build performance that lasts all 8 kilometres.</p></div>
+    </div>
+  </section>
+
+  
+  <section class="rp-promo" aria-label="12 Weeks Race Prep">
+    <div class="wrap">
+      <div>
+        <span class="rp-tag">New programme · Form Factory × STR2G</span>
+        <h2>HYROX 12 Weeks<br><span>Race Prep.</span></h2>
+        <p class="lead">Structured HYROX race prep. Running, strength, stations and tactics in one plan, coached by Ria and Láďa. A new plan every Monday, 3 group workshops and a portal with downloadable guides.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="/en/12-weeks-race-prep/">I'm in →</a>
+          <a class="btn btn-ghost" href="https://www.ff-academy.cz/label/verejnost/add/hyrox/" target="_blank" rel="noopener">Buy at FF Academy · 8,999 CZK</a>
+        </div>
+      </div>
+      <div class="rp-facts"><div><strong>12</strong><span>weeks of prep</span></div><div><strong>4</strong><span>sessions a week</span></div><div><strong>3</strong><span>group workshops</span></div><div><strong>8</strong><span>stations in detail</span></div></div>
     </div>
   </section>
 
@@ -693,6 +654,52 @@ footer a{color:var(--fg)}
           <div class="chips"><span>FTVS UK</span><span>Les Mills Assessor</span><span>BODYPUMP</span><span>BODYCOMBAT</span><span>BODYBALANCE</span><span>GRIT</span><span>HYROX athlete</span></div>
         </article>
       </div>
+    </div>
+  </section>
+
+  
+  <section class="workshops" id="workshopy">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">FF Academy workshops</p>
+        <h2>Workshops with Ria Suchánek Hrušovská.</h2>
+        <p class="lead">November workshops at Form Factory Na Knížecí, Prague, with the head coach of the HYROX Training Club. Tickets are sold through FF Academy.</p>
+      </div>
+      <div class="ws-grid"><article class="ws" id="ws-hyrox-level-1">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/group.webp" alt="HYROX Level 1"><div class="ws-date"><b>28. 11.</b><span>Sat · 2026</span></div></div>
+          <div class="ws-body">
+            <span class="ws-tag">For coaches and instructors</span>
+            <h3>HYROX Level 1<small>Foundation workshop</small></h3>
+            <p>A one-day, hands-on workshop for coaches and instructors who want to run HYROX classes with structure and energy. No theory without context: real training, technique, programming, and at the end you coach part of the session yourself.</p>
+            <ul><li>HYROX class structure and programming basics</li><li>Station technique: sleds, wall balls, lunges, ergs</li><li>Coaching mixed-ability groups and scaling</li><li>Free HYROX Foundation course if you go on to coach at FF</li></ul>
+            <dl>
+              <dt>Date</dt><dd>Sat 28 Nov 2026</dd>
+              <dt>Time</dt><dd>10:00–18:00</dd>
+              <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
+              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc. <i style="font-style:normal;color:var(--muted)">Held in Czech.</i></dd>
+              <dt>Capacity</dt><dd>20 places</dd>
+              <dt>Price</dt><dd class="ws-price">4,990 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180" target="_blank" rel="noopener">Buy online →</a><a href="https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/" target="_blank" rel="noopener">More on FF Academy</a></div>
+        </article><article class="ws" id="ws-mental-game">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/ria-mic.webp" alt="Mental Game"><div class="ws-date"><b>29. 11.</b><span>Sun · 2026</span></div></div>
+          <div class="ws-body">
+            <span class="ws-tag">Open to everyone</span>
+            <h3>Mental Game<small>Your head under pressure</small></h3>
+            <p>A two-hour workshop that starts with a 30-minute HYROX workout. It's not about your time or fitness, but about what goes on in your head when you want to stop. Then we unpack it and carry it over to work and everyday life.</p>
+            <ul><li>30-minute HYROX workout</li><li>Head under pressure: inner voice, focus, emotions</li><li>Mental resilience and working with discomfort</li><li>Your own mental game plan for sport and life</li></ul>
+            <dl>
+              <dt>Date</dt><dd>Sun 29 Nov 2026</dd>
+              <dt>Time</dt><dd>10:00–12:00</dd>
+              <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
+              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc. <i style="font-style:normal;color:var(--muted)">Held in Czech.</i></dd>
+              <dt>Capacity</dt><dd>40 places</dd>
+              <dt>Price</dt><dd class="ws-price">1,299 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview" target="_blank" rel="noopener">Buy online →</a><a href="https://www.ff-academy.cz/instruktor/mental-game/" target="_blank" rel="noopener">More on FF Academy</a></div>
+        </article></div>
     </div>
   </section>
 

@@ -487,6 +487,7 @@ def page(lang):
 {workshops.jsonld()}
 </head>
 <body>
+{raceprep.bar(lang)}
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="{PATH[lang]}">
@@ -530,8 +531,7 @@ def page(lang):
       <div class="stat"><strong>4</strong><span>{t["st4"]}</span></div>
     </div>
   </div>
-{raceprep.promo(lang)}
-{workshops.section(lang)}
+
   <section class="about" id="klub">
     <div class="wrap">
       <div class="about-text">
@@ -572,6 +572,7 @@ def page(lang):
     </div>
   </section>
 
+  {raceprep.promo(lang)}
   <section class="race" id="zavod">
     <div class="wrap">
       <div class="race-top">
@@ -652,6 +653,7 @@ def page(lang):
     </div>
   </section>
 
+  {workshops.section(lang)}
   <section class="clubs" id="kluby">
     <div class="wrap">
       <div class="sec-head">
