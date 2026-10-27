@@ -26,7 +26,7 @@ export default async (req) => {
 
   const id = new URL(req.url).searchParams.get("f");
   if (!id) {
-    const files = manifest.files.map(({ id, no, name, desc, available, note, versions }) => ({ id, no, name, desc, available, note, langs: available ? Object.keys(versions || {}) : [] }));
+    const files = manifest.files.map(({ id, no, name, desc, available, note, versions, i18n }) => ({ id, no, name, desc, available, note, i18n, langs: available ? Object.keys(versions || {}) : [] }));
     return Response.json({ user: { email: user.email, name: user.name || "" }, files }, { headers: { "cache-control": "no-store" } });
   }
 
