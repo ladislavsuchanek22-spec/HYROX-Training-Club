@@ -35,7 +35,7 @@ def parse_week(page):
         raise ValueError("calendar table not found")
     t = table.group(1)
     dates = re.findall(r'meta:date="(\d\d)\.(\d\d)\.(\d{4})"', t)
-    body = t.split("<tbody>", 1)[1]
+    body = t.split("</thead>", 1)[1] if "</thead>" in t else t
     cells = re.findall(r"<td[^>]*>(.*?)</td>", body, re.S)
     out = []
     for (d, m, y), cell in zip(dates, cells):
