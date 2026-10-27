@@ -20,6 +20,12 @@ EXTRA_CSS = """<style>
 .lead a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
 .coach .site{font:500 13px/1.3 var(--f-mono);color:var(--red-hi);text-decoration:none}
 .coach .site:hover{text-decoration:underline}
+.coach-grid{grid-template-columns:repeat(3,1fr)!important}
+.coach{align-content:start}
+.coach .ph{display:block;margin:-28px -28px 6px;overflow:hidden;background:var(--surface-2)}
+.coach .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.coach h3 .aka{display:block;margin-top:6px;font:500 13px/1 var(--f-mono);letter-spacing:.08em;color:var(--muted);text-transform:none}
+@media (max-width:960px){.coach-grid{grid-template-columns:1fr!important}.coach .ph img{aspect-ratio:4/3}}
 .prog-note a{color:var(--fg);text-decoration-color:var(--red-hi);text-underline-offset:3px}
 .net{flex-basis:100%;padding-bottom:24px;margin-bottom:8px;border-bottom:1px solid var(--line)}
 .net-h{margin:0 0 14px;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
@@ -111,6 +117,7 @@ T["cs"] = dict(
   ria_txt="Head coach HYROX Training Clubu, trenérka a závodnice. Stojí za tréninkovou metodikou klubů. Technika, stabilita a hlava. Ví, jak dostat ze skupiny energii a z každého jednotlivce maximum, aniž by se rozbil.",
   lada_role="Coach · HYROX Performance Coach",
   lada_txt="Trenér a aktivní HYROX závodník. Spojuje sílu, kondici, běh a mentální přípravu do tréninku, který dává smysl. Trénuje lidi v klubech i online po celém světě.",
+  mich_role='Coach · Les Mills &amp; HYROX', mich_txt='Sport má v sobě od dětství. Deset let závodně plaval, vystudoval FTVS v Praze a pak zakotvil ve fitness. Od roku 2012 vede Les Mills lekce BODYPUMP, BODYCOMBAT, BODYBALANCE a GRIT a jako assessor pomáhá novým instruktorům na jejich cestě. V roce 2026 naplno propadl HYROXu: závodí a vede skupinové lekce ve Form Factory. Nejvíc ho baví pocit totálně zničeného těla po tréninku, který člověka posune zase o kus dál.', mich_chip='HYROX závodník', ph_ria='Ria Suchánek Hrušovská vede HYROX lekci', ph_lada='Ladislav Suchánek na HYROX závodě', ph_mich='Michal Holotík ve Form Factory',
   chip_mental="Mental Coach", chip_nutri="Nutrition Specialist", chip_run="Running Coach", chip_mass="Sportovní masér",
   cl_eyebrow="Kde trénujeme", cl_h="Čtyři kluby. Tři města.",
   cl_lead="Všechny kluby mají HYROX zónu se saněmi, SkiErgy, vesly a běžeckými drahami. Po tréninku sauna, ta je v ceně členství.",
@@ -189,6 +196,7 @@ T["en"] = dict(
   ria_txt="Head coach of the HYROX Training Club, coach and athlete. She's behind the clubs' training method. Technique, stability and mindset. She knows how to get energy out of a group and the most out of every individual without breaking them.",
   lada_role="Coach · HYROX Performance Coach",
   lada_txt="Coach and active HYROX racer. He combines strength, conditioning, running and mental preparation into training that makes sense. Coaches athletes in the clubs and online worldwide.",
+  mich_role='Coach · Les Mills &amp; HYROX', mich_txt='Sport has been part of his life since childhood. Ten years of competitive swimming, a sports degree from FTVS in Prague, then the world of fitness. Since 2012 he has taught Les Mills BODYPUMP, BODYCOMBAT, BODYBALANCE and GRIT, and as an assessor he helps new instructors on their way. In 2026 he fell hard for HYROX: he races and coaches group classes at Form Factory. What he loves most is the feeling of a completely wrecked body after a session that moves you another step forward.', mich_chip='HYROX athlete', ph_ria='Ria Suchánek Hrušovská coaching a HYROX class', ph_lada='Ladislav Suchánek at a HYROX race', ph_mich='Michal Holotík at Form Factory',
   chip_mental="Mental Coach", chip_nutri="Nutrition Specialist", chip_run="Running Coach", chip_mass="Sports massage therapist",
   cl_eyebrow="Where we train", cl_h="Four clubs. Three cities.",
   cl_lead="Every club has a HYROX zone with sleds, SkiErgs, rowers and running lanes. Sauna after training, included in the membership.",
@@ -267,6 +275,7 @@ T["de"] = dict(
   ria_txt="Head Coach des HYROX Training Clubs, Trainerin und Athletin. Sie steht hinter der Trainingsmethodik der Clubs. Technik, Stabilität und Kopf. Sie holt Energie aus der Gruppe und das Maximum aus jedem Einzelnen heraus, ohne ihn zu verheizen.",
   lada_role="Coach · HYROX Performance Coach",
   lada_txt="Trainer und aktiver HYROX-Athlet. Er verbindet Kraft, Kondition, Laufen und mentale Vorbereitung zu einem Training, das Sinn ergibt. Coacht Athleten in den Clubs und online weltweit.",
+  mich_role='Coach · Les Mills &amp; HYROX', mich_txt='Sport gehört seit seiner Kindheit zu seinem Leben. Zehn Jahre Leistungsschwimmen, Sportstudium an der FTVS in Prag, danach die Fitnesswelt. Seit 2012 unterrichtet er Les Mills BODYPUMP, BODYCOMBAT, BODYBALANCE und GRIT und begleitet als Assessor neue Instruktoren. 2026 hat ihn HYROX voll gepackt: Er startet bei Rennen und leitet Gruppenkurse bei Form Factory. Am meisten liebt er das Gefühl eines komplett zerstörten Körpers nach einem Training, das einen wieder ein Stück weiterbringt.', mich_chip='HYROX-Athlet', ph_ria='Ria Suchánek Hrušovská leitet einen HYROX-Kurs', ph_lada='Ladislav Suchánek bei einem HYROX-Rennen', ph_mich='Michal Holotík bei Form Factory',
   chip_mental="Mental Coach", chip_nutri="Ernährungsspezialistin", chip_run="Lauftrainer", chip_mass="Sportmasseur",
   cl_eyebrow="Wo wir trainieren", cl_h="Vier Clubs. Drei Städte.",
   cl_lead="Alle Clubs haben eine HYROX-Zone mit Schlitten, SkiErgs, Rudergeräten und Laufbahnen. Nach dem Training Sauna, in der Mitgliedschaft enthalten.",
@@ -345,6 +354,7 @@ T["pl"] = dict(
   ria_txt="Head coach HYROX Training Club, trenerka i zawodniczka. Stoi za metodyką treningową klubów. Technika, stabilizacja i głowa. Wie, jak wydobyć energię z grupy i maksimum z każdego, nie niszcząc go.",
   lada_role="Coach · HYROX Performance Coach",
   lada_txt="Trener i aktywny zawodnik HYROX. Łączy siłę, kondycję, bieg i przygotowanie mentalne w trening, który ma sens. Prowadzi sportowców w klubach i online na całym świecie.",
+  mich_role='Coach · Les Mills &amp; HYROX', mich_txt='Sport jest częścią jego życia od dzieciństwa. Dziesięć lat pływania wyczynowego, studia na FTVS w Pradze, a potem świat fitnessu. Od 2012 roku prowadzi zajęcia Les Mills BODYPUMP, BODYCOMBAT, BODYBALANCE i GRIT, a jako assessor pomaga nowym instruktorom. W 2026 roku na dobre wciągnął go HYROX: startuje w zawodach i prowadzi zajęcia grupowe w Form Factory. Najbardziej lubi uczucie totalnie wykończonego ciała po treningu, który przesuwa człowieka o kawałek dalej.', mich_chip='Zawodnik HYROX', ph_ria='Ria Suchánek Hrušovská prowadzi zajęcia HYROX', ph_lada='Ladislav Suchánek na zawodach HYROX', ph_mich='Michal Holotík w Form Factory',
   chip_mental="Mental Coach", chip_nutri="Specjalistka ds. żywienia", chip_run="Trener biegania", chip_mass="Masażysta sportowy",
   cl_eyebrow="Gdzie trenujemy", cl_h="Cztery kluby. Trzy miasta.",
   cl_lead="Każdy klub ma strefę HYROX z saniami, SkiErgami, wioślarzami i bieżnią. Po treningu sauna, w cenie członkostwa.",
@@ -408,7 +418,8 @@ def jsonld(lang):
          "memberOf": {"@type": "Organization", "@id": "https://strongertogether.cz/#org", "name": "Stronger Together", "url": "https://strongertogether.cz/"},
          "sameAs": ["https://www.instagram.com/hyroxprague/"],
          "location": places,
-         "member": [{"@id": "https://hyrox-prague.eu/#ria"}, {"@id": "https://hyrox-prague.eu/#lada"}]},
+         "member": [{"@id": "https://hyrox-prague.eu/#ria"}, {"@id": "https://hyrox-prague.eu/#lada"}, {"@id": SITE + "/#michal"}]},
+        {"@type": "Person", "@id": SITE + "/#michal", "name": "Michal Holotík", "alternateName": "Mike Holo", "jobTitle": "HYROX Coach"},
         {"@type": "Person", "@id": "https://hyrox-prague.eu/#ria", "name": "Ria Suchánek Hrušovská", "jobTitle": "Mental Coach",
          "url": "https://riahrusovska.cz/", "sameAs": ["https://riahrusovska.cz/", "https://www.instagram.com/riahrusovskaofficial/"]},
         {"@type": "Person", "@id": "https://hyrox-prague.eu/#lada", "name": "Ladislav Suchánek",
@@ -604,12 +615,10 @@ def page(lang):
         <p class="lead">{t["co_lead"]} <a href="{net.url("s2", lang)}" target="_blank" rel="noopener">{t["co_more"]}</a></p>
       </div>
     </div>
-    <figure class="coach-banner" style="margin-inline:0;margin-bottom:0;margin-top:48px">
-      <img loading="lazy" decoding="async" src="/img/coaches.webp" alt="{t["co_alt"]}">
-    </figure>
     <div class="wrap">
-      <div class="coach-grid">
+      <div class="coach-grid" style="margin-top:48px">
         <article class="coach">
+          <picture class="ph"><source srcset="/img/coach-ria.webp" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-ria.jpg" alt="{t["ph_ria"]}" width="800" height="1000"></picture>
           <span class="role">{t["ria_role"]}</span>
           <h3>Ria Suchánek Hrušovská, MSc.</h3>
           <p>{t["ria_txt"]}</p>
@@ -617,11 +626,19 @@ def page(lang):
           <a class="site" href="{net.url("ria", lang)}" target="_blank" rel="noopener">{t["ria_link"]}</a>
         </article>
         <article class="coach">
+          <picture class="ph"><source srcset="/img/coach-lada.webp" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-lada.jpg" alt="{t["ph_lada"]}" width="800" height="1000"></picture>
           <span class="role">{t["lada_role"]}</span>
           <h3>Ladislav Suchánek</h3>
           <p>{t["lada_txt"]}</p>
           <div class="chips"><span>HYROX Performance Coach L1</span><span>CrossFit L1</span><span>OPEX CCP</span><span>Precision Nutrition L1</span><span>{t["chip_run"]}</span><span>{t["chip_mass"]}</span></div>
           <a class="site" href="{net.url("hp", lang)}" target="_blank" rel="noopener">{t["lada_link"]}</a>
+        </article>
+        <article class="coach">
+          <picture class="ph"><source srcset="/img/coach-michal.webp" type="image/webp"><img loading="lazy" decoding="async" src="/img/coach-michal.jpg" alt="{t["ph_mich"]}" width="800" height="1000"></picture>
+          <span class="role">{t["mich_role"]}</span>
+          <h3>Michal Holotík <small class="aka">aka Mike Holo</small></h3>
+          <p>{t["mich_txt"]}</p>
+          <div class="chips"><span>FTVS UK</span><span>Les Mills Assessor</span><span>BODYPUMP</span><span>BODYCOMBAT</span><span>BODYBALANCE</span><span>GRIT</span><span>{t["mich_chip"]}</span></div>
         </article>
       </div>
     </div>
