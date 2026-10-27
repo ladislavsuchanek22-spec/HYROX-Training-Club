@@ -288,7 +288,9 @@ footer a{color:var(--fg)}
 .crumbs a{color:var(--muted)}
 .city-other{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 </style>
+
 <style>body{margin:0}[hidden]{display:none!important}</style>
+<script>if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash))location.replace("/portal/"+location.hash)</script>
 </head>
 <body>
 <header class="nav">
@@ -298,6 +300,7 @@ footer a{color:var(--fg)}
       <span><b>HYROX Training Club</b><small>Form Factory · Prague · Brno · Ostrava</small></span>
     </a>
     <ul>
+      
       <li><a href="#programy">Programmes</a></li>
       <li><a href="#zavod">The race</a></li>
       <li><a href="#treneri">Coaches</a></li>

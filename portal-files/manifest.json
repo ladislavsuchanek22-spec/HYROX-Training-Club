@@ -1,0 +1,17 @@
+{
+  "_info": "Seznam materiálů v portálu 12 Weeks Race Prep. Nový materiál: nahraj PDF do složky portal-files a přidej sem položku. Pořadí položek = pořadí v portálu. \"available\": false materiál zobrazí jako zamčený s textem z \"note\".",
+  "files": [
+    {"id": "pruvodce", "no": "01", "name": "Průvodce programem", "desc": "Jak program funguje, jak si poskládat týden a jak z dvanácti týdnů dostat maximum.", "available": true,
+     "versions": {"cs": "STR2G_01_Pruvodce_programem_CZ.pdf", "en": "STR2G_01_Program_Guide_EN.pdf"}},
+    {"id": "vyziva", "no": "02", "name": "Průvodce výživou", "desc": "Jídlo kolem tréninku, regenerace a závodní den.", "available": true,
+     "versions": {"cs": "STR2G_02_Pruvodce_vyzivou_CZ.pdf", "en": "STR2G_02_Nutrition_Guide_EN.pdf"}},
+    {"id": "warmup", "no": "03", "name": "Warm-up protokol", "desc": "Rozcvička před během, silou i závodem.", "available": true,
+     "versions": {"cs": "STR2G_03_Warm-up_protokol_CZ.pdf", "en": "STR2G_03_Warm-up_Protocol_EN.pdf"}},
+    {"id": "mobilita", "no": "04", "name": "Mobilita a regenerace", "desc": "Spánek, únava, mobilita, práce s měkkými tkáněmi a prevence zranění.", "available": true,
+     "versions": {"cs": "STR2G_04_Mobilita_a_regenerace_CZ.pdf", "en": "STR2G_04_Mobility_and_Recovery_EN.pdf"}},
+    {"id": "zavod", "no": "05", "name": "Závodní den", "desc": "Co si zabalit, timeline závodního dne, taktika a checklisty.", "available": true,
+     "versions": {"cs": "STR2G_05_Zavodni_den_CZ.pdf", "en": "STR2G_05_Race_Day_EN.pdf"}},
+    {"id": "prezentace", "no": "00", "name": "Prezentace programu", "desc": "Celý program na jednom místě: struktura, co je součástí a cena.", "available": true,
+     "versions": {"cs": "STR2G_HYROX_12_Weeks_Race_Prep.pdf"}}
+  ]
+}

@@ -1,6 +1,22 @@
 [build]
   publish = "."
 
+# Portál 12 Weeks Race Prep: PDF jsou dostupná jen přes funkci /api/portal-files (po přihlášení)
+[functions]
+  included_files = ["portal-files/**"]
+
+[[redirects]]
+  from = "/portal-files/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404"
+  status = 404
+  force = true
+
 [[headers]]
   for = "/img/*"
   [headers.values]
