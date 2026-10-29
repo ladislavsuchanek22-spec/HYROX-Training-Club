@@ -176,6 +176,11 @@ def section(lang):
 """
 
 
+IMG_BASE = "https://hyroxtrainingclub.cz"
+# Od kdy je workshop v prodeji (Google „Události“ chce validFrom). Bez vlastního on_sale = den, kdy se objevil na webu.
+ON_SALE_DEFAULT = "2026-10-27"
+
+
 def jsonld():
     evs = _upcoming()
     if not evs:
@@ -189,7 +194,9 @@ def jsonld():
         "location": {"@type": "Place", "name": e["place"], "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}},
         "performer": {"@type": "Person", "name": "Ria Suchánek Hrušovská"},
         "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"},
-        "offers": {"@type": "Offer", "price": e["price"], "priceCurrency": "CZK", "url": e["buy"], "availability": "https://schema.org/InStock"},
+        "image": [IMG_BASE + e["img"].rsplit(".", 1)[0] + ".jpg"],
+        "offers": {"@type": "Offer", "price": e["price"], "priceCurrency": "CZK", "url": e["buy"], "availability": "https://schema.org/InStock",
+                   "validFrom": e.get("on_sale", ON_SALE_DEFAULT) + "T00:00:00+01:00"},
         "url": e["info"],
     } for e in evs]
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
