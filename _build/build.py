@@ -422,7 +422,7 @@ def jsonld(lang):
          "location": places,
          "member": [{"@id": "https://hyrox-prague.eu/#ria"}, {"@id": "https://hyrox-prague.eu/#lada"}, {"@id": SITE + "/#michal"}]},
         {"@type": "Person", "@id": SITE + "/#michal", "name": "Michal Holotík", "alternateName": "Mike Holo", "jobTitle": "HYROX Coach"},
-        {"@type": "Person", "@id": "https://hyrox-prague.eu/#ria", "name": "Ria Suchánek Hrušovská", "jobTitle": "Mental Coach",
+        {"@type": "Person", "@id": "https://hyrox-prague.eu/#ria", "name": "Ria Suchánek Hrušovská", "jobTitle": "Head Coach, HYROX Performance Coach L1, Mental Coach",
          "url": "https://riahrusovska.cz/", "sameAs": ["https://riahrusovska.cz/", "https://www.instagram.com/riahrusovskaofficial/"]},
         {"@type": "Person", "@id": "https://hyrox-prague.eu/#lada", "name": "Ladislav Suchánek",
          "url": "https://hyrox-prague.eu/",
@@ -631,7 +631,7 @@ def page(lang):
           <span class="role">{t["ria_role"]}</span>
           <h3>Ria Suchánek Hrušovská, MSc.</h3>
           <p>{t["ria_txt"]}</p>
-          <div class="chips"><span>HYROX Performance Coach</span><span>CrossFit L2</span><span>{t["chip_mental"]}</span><span>Aarmy Coach</span><span>Les Mills</span><span>{t["chip_nutri"]}</span><span>DNS</span></div>
+          <div class="chips"><span>HYROX Performance Coach L1</span><span>CrossFit L2</span><span>{t["chip_mental"]}</span><span>Aarmy Coach</span><span>Les Mills</span><span>{t["chip_nutri"]}</span><span>DNS</span></div>
           <a class="site" href="{net.url("ria", lang)}" target="_blank" rel="noopener">{t["ria_link"]}</a>
         </article>
         <article class="coach">
