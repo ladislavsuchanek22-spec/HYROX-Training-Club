@@ -116,7 +116,7 @@ T["cs"] = dict(
   co_lead="Za HYROX Training Clubem stojí tým STR2G (Stronger Together). Trénujeme, závodíme a víme, jak bolí sedmý kilometr.",
   co_alt="Ria Suchánek Hrušovská a Ladislav Suchánek na HYROX závodě",
   ria_role="Head coach · HYROX Performance Coach",
-  ria_txt="Head coach HYROX Training Clubu, trenérka a závodnice. Stojí za tréninkovou metodikou klubů. Technika, stabilita a hlava. Ví, jak dostat ze skupiny energii a z každého jednotlivce maximum, aniž by se rozbil.",
+  ria_txt="Head coach HYROX Training Clubu, trenérka a závodnice. Stojí za tréninkovou metodikou klubů. V tréninku se zaměřuje hlavně na práci s hlavou: jak vydržet pod únavou, zvládnout nervozitu a nepustit se ve chvíli, kdy chceš skončit. Ví, jak dostat ze skupiny energii a z každého jednotlivce maximum, aniž by se rozbil.",
   lada_role="Head coach · HYROX Performance Coach",
   lada_txt="Trenér a aktivní HYROX závodník. Spojuje sílu, kondici, běh a mentální přípravu do tréninku, který dává smysl. Trénuje lidi v klubech i online po celém světě.",
   mich_role='Coach · Les Mills &amp; HYROX', mich_txt='Sport má v sobě od dětství. Deset let závodně plaval, vystudoval FTVS v Praze a pak zakotvil ve fitness. Od roku 2012 vede Les Mills lekce BODYPUMP, BODYCOMBAT, BODYBALANCE a GRIT a jako assessor pomáhá novým instruktorům na jejich cestě. V roce 2026 naplno propadl HYROXu: závodí a vede skupinové lekce ve Form Factory. Nejvíc ho baví pocit totálně zničeného těla po tréninku, který člověka posune zase o kus dál.', mich_chip='HYROX závodník', ph_ria='Ria Suchánek Hrušovská vede HYROX lekci', ph_lada='Ladislav Suchánek na HYROX závodě', ph_mich='Michal Holotík ve Form Factory',
@@ -195,7 +195,7 @@ T["en"] = dict(
   co_lead="The HYROX Training Club is run by team STR2G (Stronger Together). We train, we race, and we know how kilometre seven feels.",
   co_alt="Ria Suchánek Hrušovská and Ladislav Suchánek at a HYROX race",
   ria_role="Head coach · HYROX Performance Coach",
-  ria_txt="Head coach of the HYROX Training Club, coach and athlete. She's behind the clubs' training method. Technique, stability and mindset. She knows how to get energy out of a group and the most out of every individual without breaking them.",
+  ria_txt="Head coach of the HYROX Training Club, coach and athlete. She's behind the clubs' training method. In training, her focus is the head: holding on under fatigue, handling nerves and not letting go when you want to stop. She knows how to get energy out of a group and the most out of every individual without breaking them.",
   lada_role="Head coach · HYROX Performance Coach",
   lada_txt="Coach and active HYROX racer. He combines strength, conditioning, running and mental preparation into training that makes sense. Coaches athletes in the clubs and online worldwide.",
   mich_role='Coach · Les Mills &amp; HYROX', mich_txt='Sport has been part of his life since childhood. Ten years of competitive swimming, a sports degree from FTVS in Prague, then the world of fitness. Since 2012 he has taught Les Mills BODYPUMP, BODYCOMBAT, BODYBALANCE and GRIT, and as an assessor he helps new instructors on their way. In 2026 he fell hard for HYROX: he races and coaches group classes at Form Factory. What he loves most is the feeling of a completely wrecked body after a session that moves you another step forward.', mich_chip='HYROX athlete', ph_ria='Ria Suchánek Hrušovská coaching a HYROX class', ph_lada='Ladislav Suchánek at a HYROX race', ph_mich='Michal Holotík at Form Factory',
@@ -274,7 +274,7 @@ T["de"] = dict(
   co_lead="Hinter dem HYROX Training Club steht das Team STR2G (Stronger Together). Wir trainieren, wir starten bei Rennen und wissen, wie sich Kilometer sieben anfühlt.",
   co_alt="Ria Suchánek Hrušovská und Ladislav Suchánek bei einem HYROX-Rennen",
   ria_role="Head Coach · HYROX Performance Coach",
-  ria_txt="Head Coach des HYROX Training Clubs, Trainerin und Athletin. Sie steht hinter der Trainingsmethodik der Clubs. Technik, Stabilität und Kopf. Sie holt Energie aus der Gruppe und das Maximum aus jedem Einzelnen heraus, ohne ihn zu verheizen.",
+  ria_txt="Head Coach des HYROX Training Clubs, Trainerin und Athletin. Sie steht hinter der Trainingsmethodik der Clubs. Im Training liegt ihr Fokus auf der Arbeit mit dem Kopf: unter Ermüdung durchhalten, Nervosität in den Griff bekommen und nicht loslassen, wenn du aufhören willst. Sie holt Energie aus der Gruppe und das Maximum aus jedem Einzelnen heraus, ohne ihn zu verheizen.",
   lada_role="Head Coach · HYROX Performance Coach",
   lada_txt="Trainer und aktiver HYROX-Athlet. Er verbindet Kraft, Kondition, Laufen und mentale Vorbereitung zu einem Training, das Sinn ergibt. Coacht Athleten in den Clubs und online weltweit.",
   mich_role='Coach · Les Mills &amp; HYROX', mich_txt='Sport gehört seit seiner Kindheit zu seinem Leben. Zehn Jahre Leistungsschwimmen, Sportstudium an der FTVS in Prag, danach die Fitnesswelt. Seit 2012 unterrichtet er Les Mills BODYPUMP, BODYCOMBAT, BODYBALANCE und GRIT und begleitet als Assessor neue Instruktoren. 2026 hat ihn HYROX voll gepackt: Er startet bei Rennen und leitet Gruppenkurse bei Form Factory. Am meisten liebt er das Gefühl eines komplett zerstörten Körpers nach einem Training, das einen wieder ein Stück weiterbringt.', mich_chip='HYROX-Athlet', ph_ria='Ria Suchánek Hrušovská leitet einen HYROX-Kurs', ph_lada='Ladislav Suchánek bei einem HYROX-Rennen', ph_mich='Michal Holotík bei Form Factory',
@@ -353,7 +353,7 @@ T["pl"] = dict(
   co_lead="Za HYROX Training Club stoi zespół STR2G (Stronger Together). Trenujemy, startujemy i wiemy, jak boli siódmy kilometr.",
   co_alt="Ria Suchánek Hrušovská i Ladislav Suchánek na zawodach HYROX",
   ria_role="Head coach · HYROX Performance Coach",
-  ria_txt="Head coach HYROX Training Club, trenerka i zawodniczka. Stoi za metodyką treningową klubów. Technika, stabilizacja i głowa. Wie, jak wydobyć energię z grupy i maksimum z każdego, nie niszcząc go.",
+  ria_txt="Head coach HYROX Training Club, trenerka i zawodniczka. Stoi za metodyką treningową klubów. W treningu skupia się przede wszystkim na pracy z głową: jak wytrwać w zmęczeniu, opanować nerwy i nie odpuścić, kiedy masz ochotę skończyć. Wie, jak wydobyć energię z grupy i maksimum z każdego, nie niszcząc go.",
   lada_role="Head coach · HYROX Performance Coach",
   lada_txt="Trener i aktywny zawodnik HYROX. Łączy siłę, kondycję, bieg i przygotowanie mentalne w trening, który ma sens. Prowadzi sportowców w klubach i online na całym świecie.",
   mich_role='Coach · Les Mills &amp; HYROX', mich_txt='Sport jest częścią jego życia od dzieciństwa. Dziesięć lat pływania wyczynowego, studia na FTVS w Pradze, a potem świat fitnessu. Od 2012 roku prowadzi zajęcia Les Mills BODYPUMP, BODYCOMBAT, BODYBALANCE i GRIT, a jako assessor pomaga nowym instruktorom. W 2026 roku na dobre wciągnął go HYROX: startuje w zawodach i prowadzi zajęcia grupowe w Form Factory. Najbardziej lubi uczucie totalnie wykończonego ciała po treningu, który przesuwa człowieka o kawałek dalej.', mich_chip='Zawodnik HYROX', ph_ria='Ria Suchánek Hrušovská prowadzi zajęcia HYROX', ph_lada='Ladislav Suchánek na zawodach HYROX', ph_mich='Michal Holotík w Form Factory',
@@ -422,7 +422,7 @@ def jsonld(lang):
          "location": places,
          "member": [{"@id": "https://hyrox-prague.eu/#ria"}, {"@id": "https://hyrox-prague.eu/#lada"}, {"@id": SITE + "/#michal"}]},
         {"@type": "Person", "@id": SITE + "/#michal", "name": "Michal Holotík", "alternateName": "Mike Holo", "jobTitle": "HYROX Coach"},
-        {"@type": "Person", "@id": "https://hyrox-prague.eu/#ria", "name": "Ria Suchánek Hrušovská", "jobTitle": "Mental Coach",
+        {"@type": "Person", "@id": "https://hyrox-prague.eu/#ria", "name": "Ria Suchánek Hrušovská", "jobTitle": "Head Coach, HYROX Performance Coach L1, Mental Coach",
          "url": "https://riahrusovska.cz/", "sameAs": ["https://riahrusovska.cz/", "https://www.instagram.com/riahrusovskaofficial/"]},
         {"@type": "Person", "@id": "https://hyrox-prague.eu/#lada", "name": "Ladislav Suchánek",
          "url": "https://hyrox-prague.eu/",
@@ -631,7 +631,7 @@ def page(lang):
           <span class="role">{t["ria_role"]}</span>
           <h3>Ria Suchánek Hrušovská, MSc.</h3>
           <p>{t["ria_txt"]}</p>
-          <div class="chips"><span>HYROX Performance Coach</span><span>CrossFit L2</span><span>{t["chip_mental"]}</span><span>Aarmy Coach</span><span>Les Mills</span><span>{t["chip_nutri"]}</span><span>DNS</span></div>
+          <div class="chips"><span>HYROX Performance Coach L1</span><span>CrossFit L2</span><span>{t["chip_mental"]}</span><span>Aarmy Coach</span><span>Les Mills</span><span>{t["chip_nutri"]}</span><span>DNS</span></div>
           <a class="site" href="{net.url("ria", lang)}" target="_blank" rel="noopener">{t["ria_link"]}</a>
         </article>
         <article class="coach">
