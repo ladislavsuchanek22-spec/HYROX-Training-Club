@@ -1,5 +1,5 @@
 {
-  "_info": "Seznam trenérů pro stránku /ohodnot-coache/. Zatím ukázkový – doplní se podle seznamu od Lády. id = trvalý identifikátor (nesmí se měnit, váže se k němu hodnocení), clubs = id klubů níže, active=false trenéra skryje.",
+  "_info": "Seznam trenérů pro stránku /ohodnot-coache/. id = trvalý identifikátor (nesmí se měnit, váže se k němu hodnocení), clubs = id klubů níže, active=false trenéra skryje (hodnocení zůstanou).",
   "clubs": [
     {
       "id": "praha-knizeci",
@@ -42,14 +42,6 @@
       "name": "Michal Holotík",
       "clubs": [
         "praha-knizeci"
-      ],
-      "active": true
-    },
-    {
-      "id": "ukazka-brno",
-      "name": "Ukázkový trenér Brno",
-      "clubs": [
-        "brno-campus"
       ],
       "active": true
     },
@@ -228,6 +220,14 @@
       "name": "Veronika Stabová",
       "clubs": [
         "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "denisa-mala",
+      "name": "Denisa Malá",
+      "clubs": [
+        "brno-campus"
       ],
       "active": true
     }
