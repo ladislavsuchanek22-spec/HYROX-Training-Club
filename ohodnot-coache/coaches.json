@@ -1,16 +1,130 @@
 {
   "_info": "Seznam trenérů pro stránku /ohodnot-coache/. Zatím ukázkový – doplní se podle seznamu od Lády. id = trvalý identifikátor (nesmí se měnit, váže se k němu hodnocení), clubs = id klubů níže, active=false trenéra skryje.",
   "clubs": [
-    { "id": "praha-knizeci", "name": "Praha – Na Knížecí" },
-    { "id": "praha-vinohradska", "name": "Praha – Vinohradská" },
-    { "id": "brno-campus", "name": "Brno – Campus" },
-    { "id": "ostrava-hrabova", "name": "Ostrava – Hrabová" }
+    {
+      "id": "praha-knizeci",
+      "name": "Praha – Na Knížecí"
+    },
+    {
+      "id": "praha-vinohradska",
+      "name": "Praha – Vinohradská"
+    },
+    {
+      "id": "brno-campus",
+      "name": "Brno – Campus"
+    },
+    {
+      "id": "ostrava-hrabova",
+      "name": "Ostrava – Hrabová"
+    }
   ],
   "coaches": [
-    { "id": "ladislav-suchanek", "name": "Ladislav Suchánek", "clubs": ["praha-knizeci", "praha-vinohradska"], "active": true },
-    { "id": "ria-suchanek-hrusovska", "name": "Ria Suchánek Hrušovská", "clubs": ["praha-knizeci", "praha-vinohradska"], "active": true },
-    { "id": "michal-holotik", "name": "Michal Holotík", "clubs": ["praha-knizeci", "praha-vinohradska"], "active": true },
-    { "id": "ukazka-brno", "name": "Ukázkový trenér Brno", "clubs": ["brno-campus"], "active": true },
-    { "id": "ukazka-ostrava", "name": "Ukázkový trenér Ostrava", "clubs": ["ostrava-hrabova"], "active": true }
+    {
+      "id": "ladislav-suchanek",
+      "name": "Ladislav Suchánek",
+      "clubs": [
+        "praha-knizeci",
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "ria-suchanek-hrusovska",
+      "name": "Ria Suchánek Hrušovská",
+      "clubs": [
+        "praha-knizeci",
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "michal-holotik",
+      "name": "Michal Holotík",
+      "clubs": [
+        "praha-knizeci",
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "ukazka-brno",
+      "name": "Ukázkový trenér Brno",
+      "clubs": [
+        "brno-campus"
+      ],
+      "active": true
+    },
+    {
+      "id": "aneta-pifkova",
+      "name": "Aneta Pifková",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "denisa-szotkowska",
+      "name": "Denisa Szotkowská",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "martin-kahanek",
+      "name": "Martin Kahánek",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "pavel-novak",
+      "name": "Pavel Novák",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "tereza-skulinova",
+      "name": "Tereza Skulinová",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "tereza-ziskova",
+      "name": "Tereza Žišková",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "veronika-janska",
+      "name": "Veronika Jánská",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "zuzana-danihelova",
+      "name": "Zuzana Danihelová",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "sarka-thiemlova",
+      "name": "Šárka Thiemlová",
+      "clubs": [
+        "ostrava-hrabova"
+      ],
+      "active": true
+    }
   ]
 }
