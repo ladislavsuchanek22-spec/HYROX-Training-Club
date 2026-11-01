@@ -107,19 +107,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <p>Byl jsi dnes na HYROX lekci? Dej nám vědět, jak ji trenér vedl. Zabere to minutu. Hodnocení čteme jen my, vedení klubu, a pomáhá nám dělat lekce líp.</p>
   </div>
 
-  <!-- Netlify Forms: formulář se ukládá v Netlify (Forms → coach-rating). Až bude hotová aplikace HYROX Coaches, přepne se SUBMIT_URL níže. -->
-  <!-- Skrytá kopie pro Netlify: při deployi z ní pozná všechna pole (stupnice se vykreslují až JavaScriptem) -->
-  <form name="coach-rating" data-netlify="true" netlify-honeypot="web" hidden>
-    <input name="club_id"><input name="club_name"><input name="coach_id"><input name="coach_name">
-    <input name="score_lead"><input name="score_technique"><input name="score_energy"><input name="score_individual"><input name="average">
-    <textarea name="positives"></textarea><textarea name="negatives"></textarea><input name="client_name"><input name="web">
-  </form>
-
-  <form name="coach-rating-ui" id="rating" method="POST" novalidate>
-    <input type="hidden" name="form-name" value="coach-rating">
-    <input type="hidden" name="coach_name">
-    <input type="hidden" name="club_name">
-    <input type="hidden" name="average">
+  <!-- Hodnocení se ukládá do aplikace HYROX Coaches (coaches.hyroxtrainingclub.cz → Administrace → Hodnocení) -->
+  <form id="rating" method="POST" novalidate>
     <p class="hp"><label>Nevyplňuj <input name="web" tabindex="-1" autocomplete="off"></label></p>
 
     <section class="card">
@@ -183,8 +172,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <script>
 (function(){
-  // Kam se hodnocení odesílá. "/" = Netlify Forms. Později endpoint aplikace HYROX Coaches.
-  var SUBMIT_URL = '/';
+  // Aplikace HYROX Coaches: odtud se načítá seznam trenérů (spravuje se v administraci)
+  // a sem se ukládají hodnocení. ?api= jen pro lokální testování.
+  var API = 'https://coaches.hyroxtrainingclub.cz';
+  var qApi = new URLSearchParams(location.search).get('api');
+  if (qApi && /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(qApi)) API = qApi;
 
   // Čtyři hodnocené body: name = název pole v datech (nesmí se měnit, váže se k nim statistika)
   var CRITERIA = [
@@ -235,7 +227,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     var err = card.querySelector('.err.on'); if (err) err.classList.remove('on');
   }); });
 
-  fetch('coaches.json', { cache:'no-cache' }).then(function(r){ return r.json(); }).then(function(d){
+  fetch(API + '/api/rating/roster').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(d){
     data = d;
     d.clubs.forEach(function(c){ clubSel.appendChild(opt(c.id, c.name)); });
     // Předvyplnění z odkazu / QR kódu: ?klub=praha-knizeci&trener=michal-holotik
@@ -263,24 +255,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       if (first) first.closest('.card').scrollIntoView({ behavior:'smooth', block:'start' });
       return;
     }
-    fd.set('coach_name', coachSel.options[coachSel.selectedIndex].text);
-    fd.set('club_name', clubSel.options[clubSel.selectedIndex].text);
-    fd.set('average', (scores.reduce(function(a,b){ return a+b; }, 0) / scores.length).toFixed(1));
 
     var btn = document.getElementById('send');
     btn.disabled = true; btn.textContent = 'Odesílám…';
-    fetch(SUBMIT_URL, {
+    fetch(API + '/api/rating', {
       method:'POST',
       headers:{ 'Content-Type':'application/x-www-form-urlencoded' },
       body:new URLSearchParams(fd).toString()
     }).then(function(r){
-      if (!r.ok) throw new Error(r.status);
+      if (!r.ok) return r.json().catch(function(){ return {}; }).then(function(j){ throw new Error(j.error || ''); });
       form.style.display = 'none';
       document.getElementById('head').style.display = 'none';
       show('done', true);
       window.scrollTo(0, 0);
       if (window.gtag) gtag('event', 'coach_rating_sent');
-    }).catch(function(){
+    }).catch(function(err){
+      var box = document.getElementById('err-send');
+      box.textContent = (err && err.message && !/^\d+$/.test(err.message) && err.message !== 'Failed to fetch') ? err.message : 'Odeslání se nepovedlo. Zkontroluj připojení a zkus to znovu.';
       show('err-send', true);
     }).then(function(){
       btn.disabled = false; btn.textContent = 'Odeslat hodnocení';
