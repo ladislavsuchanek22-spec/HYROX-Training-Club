@@ -23,7 +23,8 @@
       "id": "ladislav-suchanek",
       "name": "Ladislav Suchánek",
       "clubs": [
-        "praha-knizeci"
+        "praha-knizeci",
+        "praha-vinohradska"
       ],
       "active": true
     },
@@ -31,7 +32,8 @@
       "id": "ria-suchanek-hrusovska",
       "name": "Ria Suchánek Hrušovská",
       "clubs": [
-        "praha-knizeci"
+        "praha-knizeci",
+        "praha-vinohradska"
       ],
       "active": true
     },
@@ -127,7 +129,8 @@
       "id": "denisa-vavrova",
       "name": "Denisa Vávrová",
       "clubs": [
-        "praha-knizeci"
+        "praha-knizeci",
+        "praha-vinohradska"
       ],
       "active": true
     },
@@ -151,7 +154,8 @@
       "id": "pavla-carlsson",
       "name": "Pavla Carlsson",
       "clubs": [
-        "praha-knizeci"
+        "praha-knizeci",
+        "praha-vinohradska"
       ],
       "active": true
     },
@@ -160,6 +164,62 @@
       "name": "Rena Černá",
       "clubs": [
         "praha-knizeci"
+      ],
+      "active": true
+    },
+    {
+      "id": "febronia-fagone",
+      "name": "Febronia Fagone",
+      "clubs": [
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "kamila-graef",
+      "name": "Kamila Graef",
+      "clubs": [
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "lucia-rojkova",
+      "name": "Lucia Rojková",
+      "clubs": [
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "martina-hudcova",
+      "name": "Martina Hudcová",
+      "clubs": [
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "pavla-pitrofova",
+      "name": "Pavla Pitrofová",
+      "clubs": [
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "raul-leuska",
+      "name": "Raul Leuska",
+      "clubs": [
+        "praha-vinohradska"
+      ],
+      "active": true
+    },
+    {
+      "id": "rudolf-horyna",
+      "name": "Rudolf Horyna",
+      "clubs": [
+        "praha-vinohradska"
       ],
       "active": true
     }
