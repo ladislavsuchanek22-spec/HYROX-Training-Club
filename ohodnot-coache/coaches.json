@@ -222,6 +222,14 @@
         "praha-vinohradska"
       ],
       "active": true
+    },
+    {
+      "id": "veronika-stabova",
+      "name": "Veronika Stabová",
+      "clubs": [
+        "praha-vinohradska"
+      ],
+      "active": true
     }
   ]
 }
