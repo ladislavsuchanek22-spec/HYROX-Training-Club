@@ -23,8 +23,7 @@
       "id": "ladislav-suchanek",
       "name": "Ladislav Suchánek",
       "clubs": [
-        "praha-knizeci",
-        "praha-vinohradska"
+        "praha-knizeci"
       ],
       "active": true
     },
@@ -32,8 +31,7 @@
       "id": "ria-suchanek-hrusovska",
       "name": "Ria Suchánek Hrušovská",
       "clubs": [
-        "praha-knizeci",
-        "praha-vinohradska"
+        "praha-knizeci"
       ],
       "active": true
     },
@@ -41,8 +39,7 @@
       "id": "michal-holotik",
       "name": "Michal Holotík",
       "clubs": [
-        "praha-knizeci",
-        "praha-vinohradska"
+        "praha-knizeci"
       ],
       "active": true
     },
@@ -123,6 +120,46 @@
       "name": "Šárka Thiemlová",
       "clubs": [
         "ostrava-hrabova"
+      ],
+      "active": true
+    },
+    {
+      "id": "denisa-vavrova",
+      "name": "Denisa Vávrová",
+      "clubs": [
+        "praha-knizeci"
+      ],
+      "active": true
+    },
+    {
+      "id": "jakub-marek",
+      "name": "Jakub Marek",
+      "clubs": [
+        "praha-knizeci"
+      ],
+      "active": true
+    },
+    {
+      "id": "monika-zemankova",
+      "name": "Monika Zemanková",
+      "clubs": [
+        "praha-knizeci"
+      ],
+      "active": true
+    },
+    {
+      "id": "pavla-carlsson",
+      "name": "Pavla Carlsson",
+      "clubs": [
+        "praha-knizeci"
+      ],
+      "active": true
+    },
+    {
+      "id": "rena-cerna",
+      "name": "Rena Černá",
+      "clubs": [
+        "praha-knizeci"
       ],
       "active": true
     }
