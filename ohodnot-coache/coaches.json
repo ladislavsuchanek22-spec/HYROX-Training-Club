@@ -16,6 +16,10 @@
     {
       "id": "ostrava-hrabova",
       "name": "Ostrava – Hrabová"
+    },
+    {
+      "id": "les-mills-hyrox",
+      "name": "Les Mills HYROX"
     }
   ],
   "coaches": [
@@ -24,7 +28,8 @@
       "name": "Ladislav Suchánek",
       "clubs": [
         "praha-knizeci",
-        "praha-vinohradska"
+        "praha-vinohradska",
+        "les-mills-hyrox"
       ],
       "active": true
     },
@@ -33,7 +38,8 @@
       "name": "Ria Suchánek Hrušovská",
       "clubs": [
         "praha-knizeci",
-        "praha-vinohradska"
+        "praha-vinohradska",
+        "les-mills-hyrox"
       ],
       "active": true
     },
@@ -155,7 +161,8 @@
       "id": "rena-cerna",
       "name": "Rena Černá",
       "clubs": [
-        "praha-knizeci"
+        "praha-knizeci",
+        "les-mills-hyrox"
       ],
       "active": true
     },
@@ -195,7 +202,8 @@
       "id": "pavla-pitrofova",
       "name": "Pavla Pitrofová",
       "clubs": [
-        "praha-vinohradska"
+        "praha-vinohradska",
+        "les-mills-hyrox"
       ],
       "active": true
     },
@@ -211,7 +219,8 @@
       "id": "rudolf-horyna",
       "name": "Rudolf Horyna",
       "clubs": [
-        "praha-vinohradska"
+        "praha-vinohradska",
+        "les-mills-hyrox"
       ],
       "active": true
     },
@@ -228,6 +237,86 @@
       "name": "Denisa Malá",
       "clubs": [
         "brno-campus"
+      ],
+      "active": true
+    },
+    {
+      "id": "alzbeta-sablova",
+      "name": "Alžběta Sáblová",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "dominik-ruzicka",
+      "name": "Dominik Růžička",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "dominik-syrovy",
+      "name": "Dominik Syrový",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "kristyna-slavickova",
+      "name": "Kristýna Slavíčková",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "martin-vodraska",
+      "name": "Martin Vodraška",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "michaela-hofirkova",
+      "name": "Michaela Hofírková",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "mirka-liskova",
+      "name": "Mirka Líšková",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "monika-striteszka",
+      "name": "Monika Stříteszká",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "mara-skala",
+      "name": "Mára Skala",
+      "clubs": [
+        "les-mills-hyrox"
+      ],
+      "active": true
+    },
+    {
+      "id": "patrick-sedlmajer",
+      "name": "Patrick Sedlmajer",
+      "clubs": [
+        "les-mills-hyrox"
       ],
       "active": true
     }
