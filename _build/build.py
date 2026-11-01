@@ -46,6 +46,9 @@ EXTRA_CSS = """<style>
 .crumbs{font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
 .crumbs a{color:var(--muted)}
 .city-other{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.rate-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;margin-top:28px;padding:22px 26px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--red-hi)}
+.rate-cta b{display:block;font:700 26px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.rate-cta span{color:var(--muted);font-size:16px}
 </style>"""
 
 LANGS = ["cs", "en", "de", "pl"]
@@ -650,6 +653,7 @@ def page(lang):
           <div class="chips"><span>FTVS UK</span><span>Les Mills Assessor</span><span>BODYPUMP</span><span>BODYCOMBAT</span><span>BODYBALANCE</span><span>GRIT</span><span>{t["mich_chip"]}</span></div>
         </article>
       </div>
+      {rate_cta() if lang == "cs" else ""}
     </div>
   </section>
 
@@ -693,7 +697,7 @@ def page(lang):
   <div class="wrap">
     {net.block("htc", lang)}
     <span>HYROX Training Club · Form Factory × STR2G</span>
-    <span><a href="{FF_HYROX[lang]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
+    <span>{RATE_FOOT if lang == "cs" else ""}<a href="{FF_HYROX[lang]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
   </div>
 </footer>
 </body>
@@ -713,6 +717,14 @@ for l in LANGS:
 # Městské stránky (jen CZ): /praha/, /brno/, /ostrava/
 # Cílí na dotazy typu „hyrox praha“, „hyrox brno“, „hyrox ostrava“.
 # ---------------------------------------------------------------------------
+# Odkaz na hodnocení trenérů (formulář je jen česky; data jdou do aplikace HYROX Coaches)
+def rate_cta(klub=""):
+    q = f"?klub={klub}" if klub else ""
+    return f'''<div class="rate-cta"><div><b>Byl jsi na lekci?</b><span>Ohodnoť trenéra, který ji vedl. Zabere to minutu a pomůže nám dělat lekce líp.</span></div><a class="btn btn-ghost" href="/ohodnot-coache/{q}">Ohodnoť svého coache →</a></div>'''
+
+RATE_FOOT = '<a href="/ohodnot-coache/">Ohodnoť trenéra</a> · '
+CITY_RATE_CLUB = {"praha": "", "brno": "brno-campus", "ostrava": "ostrava-hrabova"}
+
 CITY_LINK = {
     "prague5": '<a class="club-more" href="/praha/">HYROX v Praze →</a>',
     "prague3": '<a class="club-more" href="/praha/">HYROX v Praze →</a>',
@@ -973,6 +985,7 @@ def city_page(slug):
       </div>
       <div class="city-faq">{faq_html}</div>
       <p class="lead" style="margin-top:28px">Chceš individuální přípravu na závod? <a href="https://www.ladislavsuchanek.cz/hyrox-coaching/">HYROX trenér Praha – osobní coaching 1:1</a>. Trénuješ sám? <a href="{net.url("s2", "cs")}" target="_blank" rel="noopener">Online HYROX programy STR2G</a>.</p>
+      {rate_cta(CITY_RATE_CLUB.get(slug, ""))}
       <div class="city-other"><a class="btn btn-ghost" href="/">Všechny kluby</a>{others}</div>
     </div>
   </section>
@@ -982,7 +995,7 @@ def city_page(slug):
   <div class="wrap">
     {net.block("htc", "cs")}
     <span>HYROX Training Club · Form Factory × STR2G</span>
-    <span><a href="{FF_HYROX["cs"]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
+    <span>{RATE_FOOT}<a href="{FF_HYROX["cs"]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
   </div>
 </footer>
 </body>
@@ -1167,7 +1180,7 @@ def article_page(slug):
   <div class="wrap">
     {net.block("htc", "cs")}
     <span>HYROX Training Club · Form Factory × STR2G</span>
-    <span><a href="{FF_HYROX["cs"]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
+    <span>{RATE_FOOT}<a href="{FF_HYROX["cs"]}" target="_blank" rel="noopener">formfactory.cz/hyrox</a> · <a href="https://www.instagram.com/hyroxprague/" target="_blank" rel="noopener">@hyroxprague</a> · <a href="#" onclick="window.cookieSettings&&cookieSettings();return false">Cookies</a></span>
   </div>
 </footer>
 </body>
