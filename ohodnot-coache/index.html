@@ -206,6 +206,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     box.appendChild(fs);
   });
 
+  // Náhodné id tohoto prohlížeče (jen kvůli odhalení opakovaného hodnocení stejného trenéra).
+  // Nic o člověku neprozrazuje; aplikace si ukládá jen jeho hash.
+  function deviceId(){
+    try {
+      var k = 'htc_rating_device', v = localStorage.getItem(k);
+      if (!v || !/^[A-Za-z0-9_-]{16,64}$/.test(v)) {
+        var a = new Uint8Array(18); crypto.getRandomValues(a);
+        v = Array.prototype.map.call(a, function(b){ return ('0' + b.toString(16)).slice(-2); }).join('');
+        localStorage.setItem(k, v);
+      }
+      return v;
+    } catch (e) { return ''; }
+  }
+
   function opt(value, text){ var o = document.createElement('option'); o.value = value; o.textContent = text; return o; }
 
   function fillCoaches(){
@@ -256,6 +270,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       return;
     }
 
+    var dev = deviceId(); if (dev) fd.set('device', dev);
     var btn = document.getElementById('send');
     btn.disabled = true; btn.textContent = 'Odesílám…';
     fetch(API + '/api/rating', {
