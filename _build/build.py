@@ -49,6 +49,60 @@ EXTRA_CSS = """<style>
 .rate-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;margin-top:28px;padding:22px 26px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--red-hi)}
 .rate-cta b{display:block;font:700 26px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
 .rate-cta span{color:var(--muted);font-size:16px}
+
+/* === Vizuál formfactory.cz === */
+body{font-weight:400;letter-spacing:.005em}
+h1,h2,h3{font-weight:700;letter-spacing:0}
+.hero h1{font-weight:800}
+.hero h1 span{color:var(--fg);-webkit-text-stroke:0}
+.hero h1 em{color:var(--yellow)}
+.eyebrow{color:var(--red-hi);font-weight:700;letter-spacing:.14em}
+.eyebrow::before{background:var(--red-hi)}
+/* tlačítka jako na FF: bílá, černý text, zaoblená, šipka */
+.btn{border-radius:var(--radius);font:700 15px/1 var(--f-body);letter-spacing:.06em;padding:15px 26px}
+.btn-red{background:#fff;color:#000;border-color:#fff}
+.btn-red:hover{background:var(--red-hi);border-color:var(--red-hi);color:#fff;transform:none}
+.btn-ghost{border-color:#fff;color:#fff;border-width:2px}
+.btn-ghost:hover{background:#fff;color:#000}
+.nav .btn{padding:10px 18px;font-size:14px}
+/* hlavička: logo v červeném bloku jako na formfactory.cz */
+.nav{background:rgba(0,0,0,.92);border-bottom:1px solid var(--line)}
+.nav .wrap{padding-block:0}
+.brand{background:var(--red);align-self:stretch;padding:12px 16px;margin-left:-16px;gap:12px}
+.brand img{width:36px;height:36px}
+.brand small{color:rgba(255,255,255,.75)}
+.nav ul a{color:#fff;font-weight:700;letter-spacing:.06em}
+.nav ul a:hover{color:var(--yellow)}
+.nav-right{padding-block:10px}
+.langs{border-radius:var(--radius);overflow:hidden;border-color:rgba(255,255,255,.35)}
+.langs a{font-weight:700}
+.langs a[aria-current]{background:#fff;color:#000}
+/* karty a boxy se zaoblením */
+.prog,.club,.coach,.ws,.prog-note,.forwho div,.rp-who div,.rp-inc article,.rp-card,.rp-how,.rp-facts,.rp-weeks,.rp-coaches article,.pt-box,.pt-file,.pt-links a,.pillars,.track,.about-img img,.how-img img,.race-top img,.gal img{border-radius:var(--radius)}
+.prog,.club,.coach,.ws,.rp-coaches article,.pt-box,.pt-file,.rp-weeks,.track,.pillars,.rp-facts{overflow:hidden}
+.prog:hover{border-color:var(--yellow)}
+.meter i.on{background:var(--yellow)}
+.about-img figcaption{border-radius:0 var(--radius) 0 var(--radius)}
+/* spodní tlačítka karet (kluby, workshopy) jako bílé FF tlačítko */
+.club-links a:first-child,.ws-links a:first-child{background:#fff;color:#000}
+.club-links a:first-child:hover,.ws-links a:first-child:hover{background:var(--red-hi);color:#fff}
+.ws-date,.rp-tag{border-radius:0 var(--radius) 0 0}
+.rp-tag{border-radius:4px}
+.ws-date b{color:#fff}
+.chips span{border-radius:4px}
+.stats{background:var(--bg)}
+.stat strong{color:#fff}
+/* 12 Weeks promo a pruh v barvách FF */
+.rp-promo::after{background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.82) 50%,rgba(162,15,43,.7) 100%)}
+.rp-promo h2 span{color:var(--yellow)}
+.rp-bar a span{font-weight:700}
+.rp-week.ws{background:rgba(255,235,0,.06)}
+.rp-week .wsl{color:var(--yellow)}
+.rp-how{border-color:var(--line)}
+.rp-note{border-left-color:var(--yellow)}
+.pt-tabs button[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--yellow)}
+.pv-bar{background:var(--yellow);color:#000}
+:focus-visible{outline-color:var(--yellow)}
 </style>"""
 
 LANGS = ["cs", "en", "de", "pl"]
@@ -480,7 +534,7 @@ def page(lang):
 <link rel="preload" as="image" href="/img/hero.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;800&display=swap">
 {STYLE}
 {EXTRA_CSS}
 {raceprep.RP_CSS}
@@ -892,7 +946,7 @@ def city_page(slug):
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;800&display=swap">
 {STYLE}
 {EXTRA_CSS}
 <style>body{{margin:0}}[hidden]{{display:none!important}}.hero h1{{font-size:clamp(48px,9vw,120px)}}</style>
@@ -1121,7 +1175,7 @@ def article_page(slug):
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;800&display=swap">
 {STYLE}
 {EXTRA_CSS}
 <style>body{{margin:0}}[hidden]{{display:none!important}}.hero h1{{font-size:clamp(48px,9vw,120px)}}.art{{max-width:760px}}.art h2{{margin:44px 0 14px}}.art p,.art li{{font-size:18px;line-height:1.6}}.art ul{{padding-left:22px}}.art a{{color:inherit;text-decoration:underline}}</style>

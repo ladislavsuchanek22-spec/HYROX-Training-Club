@@ -1,18 +1,22 @@
 <style>
 /* Layout: noční tréninková hala Form Factory — černá s modrým nádechem, bílé čáry běžeckých drah jako dělítka, červená FF jako jediný akcent */
 :root{
-  --bg:#090B13;
-  --surface:#11152A;
-  --surface-2:#181D38;
-  --line:#262C4D;
-  --fg:#F2F4FA;
-  --muted:#9AA3C2;
-  --red:#A50F2D;
-  --red-hi:#E5304F;
-  --blue:#4A63FF;
-  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
-  --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  /* Vizuál formfactory.cz: černá, bílá, červená FF, žlutá HYROX, Roboto Condensed */
+  --bg:#000000;
+  --surface:#0F0F10;
+  --surface-2:#1C1C1E;
+  --line:rgba(255,255,255,.16);
+  --fg:#FFFFFF;
+  --muted:#B1BDC3;
+  --red:#A20F2B;
+  --red-hi:#C41D3E;
+  --blue:#FFEB00;
+  --yellow:#FFEB00;
+  --light:#EFF4F6;
+  --radius:8px;
+  --f-display:"Roboto Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Roboto Condensed","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"Roboto Condensed","Arial Narrow",Arial,sans-serif;
   --wrap:1180px;
   color-scheme:dark;
 }
@@ -44,7 +48,7 @@ section{padding-block:clamp(72px,10vw,128px)}
   border-block:2px solid rgba(242,244,250,.55);opacity:.35}
 
 /* NAV */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(9,11,19,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{width:40px;height:40px}
@@ -61,12 +65,12 @@ section{padding-block:clamp(72px,10vw,128px)}
 .hero{position:relative;padding-block:0;overflow:hidden;isolation:isolate}
 .hero-img{position:absolute;inset:0;z-index:-2}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.96) 0%,rgba(9,11,19,.78) 45%,rgba(9,11,19,.25) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 35%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.78) 45%,rgba(0,0,0,.25) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 35%)}
 .hero .wrap{padding-block:clamp(90px,14vw,170px) clamp(56px,8vw,96px);display:grid;gap:28px}
 .hero h1{font-size:clamp(58px,11vw,148px);font-weight:800;line-height:.86}
 .hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--fg)}
 .hero h1 em{font-style:normal;color:var(--red-hi)}
-.hero .lead{color:#C9CFE4;max-width:52ch}
+.hero .lead{color:#D9DEE1;max-width:52ch}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
 .cities{font:500 14px/1 var(--f-mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
 .cities b{color:var(--fg);font-weight:500}
@@ -196,10 +200,10 @@ section{padding-block:clamp(72px,10vw,128px)}
 /* CTA */
 .cta{position:relative;overflow:hidden;isolation:isolate;text-align:left}
 .cta::before{content:"";position:absolute;inset:0;z-index:-1;background:url("img/sled.webp") center 60%/cover}
-.cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.95),rgba(9,11,19,.7))}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.7))}
 .cta .wrap{display:grid;gap:24px}
 .cta h2{font-size:clamp(46px,8vw,104px)}
-.cta .lead{color:#C9CFE4}
+.cta .lead{color:#D9DEE1}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px}
 
 footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);font-size:14px}
