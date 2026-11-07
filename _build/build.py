@@ -94,7 +94,9 @@ h1,h2,h3{font-weight:700;letter-spacing:0}
 .stat strong{color:#fff}
 /* 12 Weeks promo a pruh v barvách FF */
 .rp-promo::after{background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.82) 50%,rgba(162,15,43,.7) 100%)}
-.rp-promo h2 span{color:var(--yellow)}
+.rp-promo h2 span,section.rp-promo h2 span{color:var(--yellow)}
+.nav ul a{white-space:nowrap}
+.prog h3{font-size:clamp(28px,2.3vw,34px)}
 .rp-bar a span{font-weight:700}
 .rp-week.ws{background:rgba(255,235,0,.06)}
 .rp-week .wsl{color:var(--yellow)}
