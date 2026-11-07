@@ -12,14 +12,14 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;800&display=swap">
 <style>
 :root{
-  --bg:#090B13;--surface:#11152A;--surface-2:#181D38;--line:#262C4D;
-  --fg:#F2F4FA;--muted:#9AA3C2;--red:#A50F2D;--red-hi:#E5304F;--blue:#4A63FF;
-  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
-  --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --bg:#000000;--surface:#0F0F10;--surface-2:#1C1C1E;--line:rgba(255,255,255,.16);
+  --fg:#FFFFFF;--muted:#B1BDC3;--red:#A20F2B;--red-hi:#C41D3E;--blue:#FFEB00;
+  --f-display:"Roboto Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Roboto Condensed","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"Roboto Condensed","Arial Narrow",Arial,sans-serif;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -30,7 +30,7 @@ a{color:inherit}
 h1,h2{font-family:var(--f-display);text-transform:uppercase;line-height:.95;margin:0;letter-spacing:.01em}
 p{margin:0}
 
-.nav{border-bottom:1px solid var(--line);background:rgba(9,11,19,.9)}
+.nav{border-bottom:1px solid var(--line);background:rgba(0,0,0,.92)}
 .nav .wrap{display:flex;align-items:center;gap:12px;padding-block:12px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{width:40px;height:40px}
@@ -50,7 +50,7 @@ form[hidden]{display:none}
 .card h2{font-size:28px;font-weight:700;margin-bottom:14px}
 label.f{display:block;font:600 14px/1.2 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
 label.f:first-of-type{margin-top:0}
-select,input[type=text],textarea{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);font:400 17px/1.4 var(--f-body);padding:13px 14px;border-radius:0;appearance:none}
+select,input[type=text],textarea{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);font:400 17px/1.4 var(--f-body);padding:13px 14px;border-radius:8px;appearance:none}
 select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
 select:disabled{opacity:.5}
 textarea{min-height:96px;resize:vertical}
@@ -73,8 +73,8 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .opt{color:var(--muted);font-size:14px;margin-top:8px}
 .err{display:none;color:var(--red-hi);font-size:15px;margin-top:10px}
 .err.on{display:block}
-.btn{display:flex;align-items:center;justify-content:center;width:100%;font:700 20px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;padding:18px;border:0;background:var(--red);color:#fff;cursor:pointer;transition:background .2s}
-.btn:hover{background:var(--red-hi)}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;font:700 20px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;padding:18px;border:0;border-radius:8px;background:#fff;color:#000;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--red-hi);color:#fff}
 .btn:disabled{opacity:.6;cursor:wait}
 .privacy{color:var(--muted);font-size:14px;text-align:center}
 .hp{position:absolute;left:-9999px}

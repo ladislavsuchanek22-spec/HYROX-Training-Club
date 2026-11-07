@@ -28,15 +28,15 @@ RP_CSS = """<style>
 /* 12 Weeks Race Prep */
 .rp-promo{position:relative;overflow:hidden;isolation:isolate;border-block:1px solid var(--line)}
 .rp-promo::before{content:"";position:absolute;inset:0;z-index:-2;background:url("/img/coaches.webp") center 30%/cover}
-.rp-promo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,11,19,.97) 0%,rgba(9,11,19,.86) 50%,rgba(165,15,45,.55) 100%)}
+.rp-promo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.97) 0%,rgba(0,0,0,.86) 50%,rgba(162,15,43,.55) 100%)}
 .rp-promo .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(44px,6vw,72px)}
 .rp-promo h2{font-size:clamp(40px,6vw,76px)}
 .rp-promo h2 span{color:var(--red-hi)}
-.rp-promo .lead{color:#C9CFE4;margin-top:14px}
+.rp-promo .lead{color:#D9DEE1;margin-top:14px}
 .rp-promo .hero-cta{margin-top:24px}
 .rp-tag{display:inline-block;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;background:var(--red);color:#fff;padding:7px 10px;margin-bottom:16px}
 .rp-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.rp-facts div{background:rgba(9,11,19,.82);padding:18px}
+.rp-facts div{background:rgba(0,0,0,.82);padding:18px}
 .rp-facts strong{display:block;font:800 44px/1 var(--f-display);font-variant-numeric:tabular-nums}
 .rp-facts span{color:var(--muted);font-size:14px;line-height:1.3}
 @media (max-width:860px){.rp-promo .wrap{grid-template-columns:1fr}}
@@ -79,7 +79,7 @@ RP_CSS = """<style>
 .rp-week .n{font:800 30px/1 var(--f-display);font-variant-numeric:tabular-nums}
 .rp-week b{font:700 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em}
 .rp-week span{color:var(--muted);font-size:16px}
-.rp-week.ws{background:rgba(74,99,255,.08)}
+.rp-week.ws{background:rgba(255,235,0,.08)}
 .rp-week .wsl{margin-left:8px;font:500 11px/1 var(--f-mono);letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
 @media (max-width:620px){.rp-week{grid-template-columns:44px 1fr}.rp-week span{grid-column:2}}
 
@@ -210,7 +210,7 @@ def head(lang, slug, title, desc, site, robots="index,follow,max-image-preview:l
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;800&display=swap">
 """
 
 
