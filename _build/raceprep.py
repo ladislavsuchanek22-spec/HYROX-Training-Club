@@ -11,7 +11,7 @@ PORTAL = "portal"
 LANGS = ["cs", "en", "de", "pl"]
 
 # Oficiální prodej programu na FF Academy. Až bude mít program vlastní stránku, stačí změnit tuhle adresu.
-BUY = "https://ucet.ff-academy.cz/calendar?view=Preview&amp;schiid=37801412&amp;utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=12-weeks-race-prep"
+BUY = "https://www.ff-academy.cz/kurz/priprav-se-na-hyrox-systematicky/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=12-weeks-race-prep"
 # Tréninková aplikace: Láďův profil na Strivee
 STRIVEE = "https://train.strivee.app/p/str2g-hyrox"
 
