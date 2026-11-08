@@ -480,35 +480,44 @@ h1,h2,h3{font-weight:700;letter-spacing:0}
 .pt-toast{font:500 14px/1.4 var(--f-body);color:var(--fg);background:var(--surface-2);border-left:3px solid var(--blue);padding:12px 14px}
 </style>
 <style>
-.ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.ws{border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.ws-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ws{border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0;border-radius:var(--radius);overflow:hidden}
 .ws-img{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface-2)}
 .ws-img img{width:100%;height:100%;object-fit:cover}
-.ws-date{position:absolute;left:0;bottom:0;background:var(--red);color:#fff;padding:10px 14px;display:grid;gap:2px}
-.ws-date b{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums}
-.ws-date span{font:500 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
-.ws-body{padding:24px;display:grid;gap:12px;flex:1;align-content:start}
-.ws-tag{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red-hi)}
-.ws h3{font-size:clamp(34px,3.6vw,46px)}
-.ws h3 small{display:block;margin-top:6px;font:600 15px/1.2 var(--f-body);letter-spacing:.12em;color:var(--muted)}
-.ws p{color:var(--muted);font-size:16px}
-.ws ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:15px}
+.ws-date{position:absolute;left:0;bottom:0;background:var(--red);color:#fff;padding:9px 13px;display:grid;gap:2px}
+.ws-date b{font:800 28px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.ws-date span{font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+.ws-kind{position:absolute;right:10px;top:10px;background:#fff;color:#000;padding:6px 10px;border-radius:999px;font:700 12px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase}
+.ws-kind.course{background:var(--yellow)}
+.ws-body{padding:20px;display:grid;gap:11px;flex:1;align-content:start}
+.ws-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ws-tags span{border:1px solid var(--line);border-radius:999px;padding:5px 9px;font:500 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ws-meta{display:flex;flex-wrap:wrap;gap:6px 16px;font:600 14px/1.3 var(--f-body);font-variant-numeric:tabular-nums}
+.ws-meta span{display:inline-flex;gap:6px;align-items:center}
+.ws-meta svg{width:15px;height:15px;flex:none;color:var(--yellow)}
+.ws h3{font-size:clamp(26px,2.3vw,32px)}
+.ws h3 small{display:block;margin-top:6px;font:600 14px/1.25 var(--f-body);letter-spacing:.06em;color:var(--muted)}
+.ws p{color:var(--muted);font-size:15px}
+.ws ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px}
 .ws li{display:flex;gap:10px;line-height:1.4}
-.ws li::before{content:"";flex:0 0 8px;height:8px;margin-top:6px;background:var(--red-hi)}
-.ws dl{margin:6px 0 0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;padding-top:14px;border-top:1px dashed var(--line);font-size:15px}
+.ws li::before{content:"";flex:0 0 7px;height:7px;margin-top:6px;background:var(--red-hi)}
+.ws dl{margin:4px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;padding-top:12px;border-top:1px dashed var(--line);font-size:14px}
 .ws dt{font:500 11px/1.6 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.ws dd{margin:0;font-variant-numeric:tabular-nums}
-.ws .ws-price{font:800 28px/1 var(--f-display)}
+.ws dd{margin:0}
+.ws .ws-price{font:800 26px/1 var(--f-display)}
 .ws-links{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.ws-links a{padding:15px 10px;text-align:center;text-decoration:none;font:700 15px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase}
-.ws-links a:first-child{background:var(--red);color:#fff}
-.ws-links a:first-child:hover{background:var(--red-hi)}
+.ws-links a{padding:14px 8px;text-align:center;text-decoration:none;font:700 14px/1.1 var(--f-display);letter-spacing:.06em;text-transform:uppercase}
+.ws .ws-links a:first-child{background:#fff;color:#000}
+.ws .ws-links a:first-child:hover{background:var(--red-hi);color:#fff}
 .ws-links a:last-child:hover{background:var(--surface-2)}
-@media (max-width:860px){.ws-grid{grid-template-columns:1fr}}
+.ws-all{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;color:var(--muted);font-size:15px}
+.ws-all a{color:var(--fg);font-weight:700}
+@media (max-width:1060px){.ws-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.ws-grid{grid-template-columns:1fr}}
 </style>
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <script>if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash))location.replace("/portal/"+location.hash)</script>
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX Level 1 – Základní workshop", "description": "Jednodenní praktický workshop pro trenéry a instruktory, kteří chtějí vést HYROX lekce se strukturou a energií. Žádná teorie bez kontextu: reálný trénink, technika, programming a nakonec si sám odvedeš část lekce.", "startDate": "2026-11-28T09:00:00+01:00", "endDate": "2026-11-28T17:00:00+01:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 20, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": {"@type": "Person", "name": "Ria Suchánek Hrušovská"}, "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/group.jpg"], "offers": {"@type": "Offer", "price": 4990, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "Mental Game – Hlava pod tlakem", "description": "Dvouhodinový workshop, který začíná 30minutovým HYROX workoutem. Nejde o čas ani výkon, ale o to, co se ti děje v hlavě, když už nemůžeš. Pak to rozebereme a přeneseme do práce i běžného života.", "startDate": "2026-11-29T10:00:00+01:00", "endDate": "2026-11-29T12:00:00+01:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 40, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": {"@type": "Person", "name": "Ria Suchánek Hrušovská"}, "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/ria-mic.jpg"], "offers": {"@type": "Offer", "price": 1299, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/instruktor/mental-game/"}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX Level 1 – Základní workshop", "description": "Jednodenní praktický workshop pro trenéry a instruktory, kteří chtějí vést HYROX lekce se strukturou a energií. Reálný trénink, technika, programming a nakonec si sám odvedeš část lekce.", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 20, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": [{"@type": "Person", "name": "Ria Suchánek Hrušovská"}], "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/group.jpg"], "offers": {"@type": "Offer", "price": 4990, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/", "startDate": "2026-11-28T09:00:00+01:00", "endDate": "2026-11-28T17:00:00+01:00"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "Mental Game – Hlava pod tlakem", "description": "Dvouhodinový workshop, který začíná 30minutovým HYROX workoutem. Nejde o čas, ale o to, co se ti děje v hlavě, když už nemůžeš. Pak to rozebereme a přeneseme do práce i života.", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 40, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": [{"@type": "Person", "name": "Ria Suchánek Hrušovská"}], "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/ria-mic.jpg"], "offers": {"@type": "Offer", "price": 1299, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/instruktor/mental-game/", "startDate": "2026-11-29T10:00:00+01:00", "endDate": "2026-11-29T12:00:00+01:00"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX Level 1 – Základní workshop", "description": "Jednodenní praktický workshop pro trenéry a instruktory, kteří chtějí vést HYROX lekce se strukturou a energií. Reálný trénink, technika, programming a nakonec si sám odvedeš část lekce.", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 20, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": [{"@type": "Person", "name": "Ria Suchánek Hrušovská"}], "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/group.jpg"], "offers": {"@type": "Offer", "price": 4990, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37799446", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-7/", "startDate": "2027-01-16T09:00:00+01:00", "endDate": "2027-01-16T17:00:00+01:00"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX 12 Weeks Race Prep – Připrav se na HYROX systematicky", "description": "Tříměsíční program pod vedením Rii a Ládi. Každé pondělí plán na celý týden, individuální pace zóny ze vstupního testu, vedené lekce ve Form Factory a 3 společné workshopy.", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 50, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": [{"@type": "Person", "name": "Ladislav Suchánek"}, {"@type": "Person", "name": "Ria Suchánek Hrušovská"}], "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/coaches.jpg"], "offers": {"@type": "Offer", "price": 8990, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37801412", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/kurz/priprav-se-na-hyrox-systematicky/", "startDate": "2027-01-17", "endDate": "2027-04-11"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX Technický workshop – Koučování všech 8 stanic", "description": "Naučíš se koučovat HYROX stanice tak, aby lidi na tvých lekcích makali technicky správně, i když už nemůžou. Každou stanici si vyzkoušíš na sobě a hned ji koučuješ na ostatních.", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 20, "location": {"@type": "Place", "name": "Form Factory Na Knížecí", "address": {"@type": "PostalAddress", "streetAddress": "Ostrovského 464/6", "postalCode": "150 00", "addressLocality": "Praha 5", "addressCountry": "CZ"}}, "performer": [{"@type": "Person", "name": "Ria Suchánek Hrušovská"}], "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/sled.jpg"], "offers": {"@type": "Offer", "price": 2990, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37799450", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-6/", "startDate": "2027-01-30T11:00:00+01:00", "endDate": "2027-01-30T15:00:00+01:00"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX Running Masterclass – Compromised Running pro závodníky", "description": "Co se děje s tělem po odchodu ze stanice, proč jsou nohy těžké a jak v únavě pořád běžet. Pacing, rozložení sil a regenerace pro závodníky všech úrovní.", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 30, "location": {"@type": "Place", "name": "Form Factory Vinohradská", "address": {"@type": "PostalAddress", "streetAddress": "Vinohradská 190", "postalCode": "130 00", "addressLocality": "Praha 3", "addressCountry": "CZ"}}, "performer": [{"@type": "Person", "name": "Robert Kleiner"}], "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/stations.jpg"], "offers": {"@type": "Offer", "price": 999, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37810200", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/hyrox/hyrox-running-masterclass-jak-zvladnout-compromised-running-a-podat-optimalni-bezecky-vykon-strategie-treninku-a-bezecke-pripravy-2/", "startDate": "2027-02-14T10:00:00+01:00", "endDate": "2027-02-14T12:00:00+01:00"}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "HYROX Running & Běžecká metodika – Od pocitu po laktát a watty", "description": "Jak připravit klienty na běh v HYROXu. Řízení tréninku od vnímané intenzity přes laktátovou diagnostiku po watty a běžeckou biomechaniku. Postupy, které použiješ hned.", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "cs", "maximumAttendeeCapacity": 30, "location": {"@type": "Place", "name": "Form Factory Vinohradská", "address": {"@type": "PostalAddress", "streetAddress": "Vinohradská 190", "postalCode": "130 00", "addressLocality": "Praha 3", "addressCountry": "CZ"}}, "performer": [{"@type": "Person", "name": "Robert Kleiner"}, {"@type": "Person", "name": "Ria Suchánek Hrušovská"}], "organizer": {"@type": "Organization", "name": "FF Academy", "url": "https://www.ff-academy.cz/"}, "image": ["https://hyroxtrainingclub.cz/img/test.jpg"], "offers": {"@type": "Offer", "price": 999, "priceCurrency": "CZK", "url": "https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37810201", "availability": "https://schema.org/InStock", "validFrom": "2026-10-27T00:00:00+01:00"}, "url": "https://www.ff-academy.cz/hyrox/hyrox-running-bezecka-metodika-trenink-bezecka-priprava-a-zavodni-strategie-od-subjektivniho-pocitu-po-laktat-a-watty-2/", "startDate": "2027-02-14T13:00:00+01:00", "endDate": "2027-02-14T15:00:00+01:00"}]</script>
 </head>
 <body>
 <div class="rp-bar"><a href="/en/12-weeks-race-prep/"><b>New</b> · HYROX 12 Weeks Race Prep with Ria and Láďa <span>Find out more →</span></a></div>
@@ -633,7 +642,7 @@ h1,h2,h3{font-weight:700;letter-spacing:0}
         <p class="lead">Structured HYROX race prep. Running, strength, stations and tactics in one plan, coached by Ria and Láďa. A new plan every Monday, 3 group workshops and a portal with downloadable guides.</p>
         <div class="hero-cta">
           <a class="btn btn-red" href="/en/12-weeks-race-prep/">I'm in →</a>
-          <a class="btn btn-ghost" href="https://www.ff-academy.cz/label/verejnost/add/hyrox/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=12-weeks-race-prep" target="_blank" rel="noopener">Buy at FF Academy · 8,999 CZK</a>
+          <a class="btn btn-ghost" href="https://ucet.ff-academy.cz/calendar?view=Preview&amp;schiid=37801412&amp;utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=12-weeks-race-prep" target="_blank" rel="noopener">Buy at FF Academy · 8,990 CZK</a>
         </div>
       </div>
       <div class="rp-facts"><div><strong>12</strong><span>weeks of prep</span></div><div><strong>4</strong><span>sessions a week</span></div><div><strong>3</strong><span>group workshops</span></div><div><strong>8</strong><span>stations in detail</span></div></div>
@@ -725,45 +734,117 @@ h1,h2,h3{font-weight:700;letter-spacing:0}
   <section class="workshops" id="workshopy">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">FF Academy workshops</p>
-        <h2>Workshops with Ria Suchánek Hrušovská.</h2>
-        <p class="lead">November workshops at Form Factory Na Knížecí, Prague, with the head coach of the HYROX Training Club. Tickets are sold through FF Academy.</p>
+        <p class="eyebrow">FF Academy courses & workshops</p>
+        <h2>HYROX education at Form Factory.</h2>
+        <p class="lead">Every HYROX course and workshop from FF Academy in one place. For coaches, instructors and racers. Tickets are sold through FF Academy.</p>
       </div>
       <div class="ws-grid"><article class="ws" id="ws-hyrox-level-1">
-          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/group.webp" alt="HYROX Level 1"><div class="ws-date"><b>28. 11.</b><span>Sat · 2026</span></div></div>
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/group.webp" alt="HYROX Level 1"><span class="ws-kind workshop">Workshop</span><div class="ws-date"><b>28. 11.</b><span>Sat · 2026</span></div></div>
           <div class="ws-body">
-            <span class="ws-tag">For coaches and instructors</span>
+            <div class="ws-tags"><span>Instructor</span><span>Personal trainer</span><span>Prague</span></div>
+            <div class="ws-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>28 Nov 2026</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>09:00–17:00 (8 h)</span></div>
             <h3>HYROX Level 1<small>Foundation workshop</small></h3>
-            <p>A one-day, hands-on workshop for coaches and instructors who want to run HYROX classes with structure and energy. No theory without context: real training, technique, programming, and at the end you coach part of the session yourself.</p>
-            <ul><li>HYROX class structure and programming basics</li><li>Station technique: sleds, wall balls, lunges, ergs</li><li>Coaching mixed-ability groups and scaling</li><li>Free HYROX Foundation course if you go on to coach at FF</li></ul>
+            <p>A one-day, hands-on workshop for coaches and instructors who want to run HYROX classes with structure and energy. Real training, technique, programming, and at the end you coach part of the session yourself.</p>
+            <ul><li>HYROX class structure and programming basics</li><li>Station technique and group coaching</li><li>Free HYROX Foundation course if you go on to coach at FF</li></ul>
             <dl>
-              <dt>Date</dt><dd>Sat 28 Nov 2026</dd>
-              <dt>Time</dt><dd>09:00–17:00</dd>
               <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
-              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc. <i style="font-style:normal;color:var(--muted)">In Czech, English possible on request.</i></dd>
-              <dt>Capacity</dt><dd>20 places</dd>
+              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc.</dd>
               <dt>Price</dt><dd class="ws-price">4,990 CZK</dd>
             </dl>
           </div>
-          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-level-1&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="hyrox-level-1" data-name="HYROX Level 1" data-price="4990">Buy online →</a><a href="https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-level-1&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="hyrox-level-1" data-name="HYROX Level 1">More on FF Academy</a></div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37753180&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-level-1&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="hyrox-level-1" data-name="HYROX Level 1" data-price="4990">Buy online →</a><a href="https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-5/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-level-1&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="hyrox-level-1" data-name="HYROX Level 1">Details on FF Academy</a></div>
         </article><article class="ws" id="ws-mental-game">
-          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/ria-mic.webp" alt="Mental Game"><div class="ws-date"><b>29. 11.</b><span>Sun · 2026</span></div></div>
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/ria-mic.webp" alt="Mental Game"><span class="ws-kind workshop">Workshop</span><div class="ws-date"><b>29. 11.</b><span>Sun · 2026</span></div></div>
           <div class="ws-body">
-            <span class="ws-tag">Open to everyone</span>
+            <div class="ws-tags"><span>Public</span><span>Prague</span></div>
+            <div class="ws-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>29 Nov 2026</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>10:00–12:00 (2 h)</span></div>
             <h3>Mental Game<small>Your head under pressure</small></h3>
-            <p>A two-hour workshop that starts with a 30-minute HYROX workout. It's not about your time or fitness, but about what goes on in your head when you want to stop. Then we unpack it and carry it over to work and everyday life.</p>
-            <ul><li>30-minute HYROX workout</li><li>Head under pressure: inner voice, focus, emotions</li><li>Mental resilience and working with discomfort</li><li>Your own mental game plan for sport and life</li></ul>
+            <p>A two-hour workshop that starts with a 30-minute HYROX workout. It's not about your time, but about what goes on in your head when you want to stop. Then we unpack it and carry it over to work and life.</p>
+            <ul><li>30-minute HYROX workout</li><li>Inner voice, focus and emotions under pressure</li><li>Your own mental game plan for sport and life</li></ul>
             <dl>
-              <dt>Date</dt><dd>Sun 29 Nov 2026</dd>
-              <dt>Time</dt><dd>10:00–12:00</dd>
               <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
-              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc. <i style="font-style:normal;color:var(--muted)">In Czech, English possible on request.</i></dd>
-              <dt>Capacity</dt><dd>40 places</dd>
+              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc.</dd>
               <dt>Price</dt><dd class="ws-price">1,299 CZK</dd>
             </dl>
           </div>
-          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=mental-game&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="mental-game" data-name="Mental Game" data-price="1299">Buy online →</a><a href="https://www.ff-academy.cz/instruktor/mental-game/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=mental-game&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="mental-game" data-name="Mental Game">More on FF Academy</a></div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=mental-game&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="mental-game" data-name="Mental Game" data-price="1299">Buy online →</a><a href="https://www.ff-academy.cz/instruktor/mental-game/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=mental-game&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="mental-game" data-name="Mental Game">Details on FF Academy</a></div>
+        </article><article class="ws" id="ws-hyrox-level-1-leden">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/group.webp" alt="HYROX Level 1"><span class="ws-kind workshop">Workshop</span><div class="ws-date"><b>16. 1.</b><span>Sat · 2027</span></div></div>
+          <div class="ws-body">
+            <div class="ws-tags"><span>Instructor</span><span>Personal trainer</span><span>Prague</span></div>
+            <div class="ws-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>16 Jan 2027</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>09:00–17:00 (8 h)</span></div>
+            <h3>HYROX Level 1<small>Foundation workshop</small></h3>
+            <p>A one-day, hands-on workshop for coaches and instructors who want to run HYROX classes with structure and energy. Real training, technique, programming, and at the end you coach part of the session yourself.</p>
+            <ul><li>HYROX class structure and programming basics</li><li>Station technique and group coaching</li><li>Free HYROX Foundation course if you go on to coach at FF</li></ul>
+            <dl>
+              <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
+              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc.</dd>
+              <dt>Price</dt><dd class="ws-price">4,990 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37799446&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-level-1-leden&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="hyrox-level-1-leden" data-name="HYROX Level 1" data-price="4990">Buy online →</a><a href="https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-7/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-level-1-leden&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="hyrox-level-1-leden" data-name="HYROX Level 1">Details on FF Academy</a></div>
+        </article><article class="ws" id="ws-12-weeks-race-prep">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/coaches.webp" alt="HYROX 12 Weeks Race Prep"><span class="ws-kind course">Course</span><div class="ws-date"><b>17. 1.</b><span>Sun · 2027</span></div></div>
+          <div class="ws-body">
+            <div class="ws-tags"><span>Public</span><span>Instructor</span><span>Personal trainer</span><span>Prague</span></div>
+            <div class="ws-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Starts 17 Jan 2027</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>self-paced (approx. 110 h)</span></div>
+            <h3>HYROX 12 Weeks Race Prep<small>On FF Academy as „Připrav se na HYROX systematicky“</small></h3>
+            <p>A three-month programme coached by Ria and Láďa. A plan for the whole week every Monday, individual pace zones from your entry test, coached classes at Form Factory and 3 group workshops.</p>
+            <ul><li>2 runs + 2 strength / HYROX sessions a week</li><li>Education library and PDF guides</li><li>Workshops: entry tests, mid-check, final tests</li></ul>
+            <dl>
+              <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
+              <dt>Led by</dt><dd>Ladislav Suchánek<br>Ria Suchánek Hrušovská, MSc.</dd>
+              <dt>Price</dt><dd class="ws-price">8,990 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37801412&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=12-weeks-race-prep&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="12-weeks-race-prep" data-name="HYROX 12 Weeks Race Prep" data-price="8990">Buy online →</a><a href="/en/12-weeks-race-prep/">About the programme</a></div>
+        </article><article class="ws" id="ws-hyrox-technicky">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/sled.webp" alt="HYROX Technický workshop"><span class="ws-kind workshop">Workshop</span><div class="ws-date"><b>30. 1.</b><span>Sat · 2027</span></div></div>
+          <div class="ws-body">
+            <div class="ws-tags"><span>Instructor</span><span>Personal trainer</span><span>Prague</span></div>
+            <div class="ws-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>30 Jan 2027</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>11:00–15:00 (4 h)</span></div>
+            <h3>HYROX Technický workshop<small>Coaching all 8 stations</small></h3>
+            <p>Learn to coach the HYROX stations so people in your classes move well even when they're cooked. You try every station yourself and coach it on the others straight away. In Czech.</p>
+            <ul><li>Technique, common faults and short cues for all 8 stations</li><li>2026/27 rules: no-reps and penalties</li><li>Handouts, drills and a certificate</li></ul>
+            <dl>
+              <dt>Venue</dt><dd>Form Factory Na Knížecí<br>Ostrovského 464/6, 150 00 Praha 5</dd>
+              <dt>Led by</dt><dd>Ria Suchánek Hrušovská, MSc.</dd>
+              <dt>Price</dt><dd class="ws-price">2,990 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37799450&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-technicky&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="hyrox-technicky" data-name="HYROX Technický workshop" data-price="2990">Buy online →</a><a href="https://www.ff-academy.cz/workshop/hyrox-level-1-zakladni-workshop-praha-6/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-technicky&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="hyrox-technicky" data-name="HYROX Technický workshop">Details on FF Academy</a></div>
+        </article><article class="ws" id="ws-hyrox-running-masterclass">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/stations.webp" alt="HYROX Running Masterclass"><span class="ws-kind workshop">Workshop</span><div class="ws-date"><b>14. 2.</b><span>Sun · 2027</span></div></div>
+          <div class="ws-body">
+            <div class="ws-tags"><span>Public</span><span>Prague</span></div>
+            <div class="ws-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>14 Feb 2027</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>10:00–12:00 (2 h)</span></div>
+            <h3>HYROX Running Masterclass<small>Compromised running for racers</small></h3>
+            <p>What happens to your body when you leave a station, why your legs feel heavy and how to keep running anyway. Pacing, effort distribution and recovery for racers of every level. In Czech.</p>
+            <ul><li>Running under fatigue and form after strength stations</li><li>Pacing, heart rate, breathing and RPE</li><li>Lactate, power meters and faster recovery</li></ul>
+            <dl>
+              <dt>Venue</dt><dd>Form Factory Vinohradská<br>Vinohradská 190, 130 00 Praha 3</dd>
+              <dt>Led by</dt><dd>Ing. Robert Kleiner, MBA</dd>
+              <dt>Price</dt><dd class="ws-price">999 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37810200&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-running-masterclass&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="hyrox-running-masterclass" data-name="HYROX Running Masterclass" data-price="999">Buy online →</a><a href="https://www.ff-academy.cz/hyrox/hyrox-running-masterclass-jak-zvladnout-compromised-running-a-podat-optimalni-bezecky-vykon-strategie-treninku-a-bezecke-pripravy-2/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-running-masterclass&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="hyrox-running-masterclass" data-name="HYROX Running Masterclass">Details on FF Academy</a></div>
+        </article><article class="ws" id="ws-hyrox-running-metodika">
+          <div class="ws-img"><img loading="lazy" decoding="async" src="/img/test.webp" alt="HYROX Running & Běžecká metodika"><span class="ws-kind workshop">Workshop</span><div class="ws-date"><b>14. 2.</b><span>Sun · 2027</span></div></div>
+          <div class="ws-body">
+            <div class="ws-tags"><span>Instructor</span><span>Personal trainer</span><span>Prague</span></div>
+            <div class="ws-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>14 Feb 2027</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>13:00–15:00 (2 h)</span></div>
+            <h3>HYROX Running & Běžecká metodika<small>From feel to lactate and watts</small></h3>
+            <p>How to prepare clients for the running in HYROX. Steering training from perceived effort through lactate testing to power and running biomechanics. Methods you can use right away. In Czech.</p>
+            <ul><li>Compromised running and station-to-run transitions</li><li>RPE, lactate meter and power (STRYD) for zones and pacing</li><li>Hybrid training plans by client level</li></ul>
+            <dl>
+              <dt>Venue</dt><dd>Form Factory Vinohradská<br>Vinohradská 190, 130 00 Praha 3</dd>
+              <dt>Led by</dt><dd>Ing. Robert Kleiner, MBA<br>Ria Suchánek Hrušovská, MSc.</dd>
+              <dt>Price</dt><dd class="ws-price">999 CZK</dd>
+            </dl>
+          </div>
+          <div class="ws-links"><a href="https://ucet.ff-academy.cz/calendar?view=Preview&schiid=37810201&utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-running-metodika&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_buy" data-item="hyrox-running-metodika" data-name="HYROX Running & Běžecká metodika" data-price="999">Buy online →</a><a href="https://www.ff-academy.cz/hyrox/hyrox-running-bezecka-metodika-trenink-bezecka-priprava-a-zavodni-strategie-od-subjektivniho-pocitu-po-laktat-a-watty-2/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-running-metodika&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="hyrox-running-metodika" data-name="HYROX Running & Běžecká metodika">Details on FF Academy</a></div>
         </article></div>
+      <div class="ws-all"><span>Courses are taught in Czech; English on request.</span><a href="https://www.ff-academy.cz/label/hyrox/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-label&amp;utm_content=en" target="_blank" rel="noopener" data-ga="workshop_info" data-item="all" data-name="FF Academy HYROX">All courses and workshops on FF Academy →</a></div>
     </div>
   </section>
 

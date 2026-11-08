@@ -50,7 +50,7 @@
     } else if (ga === 'workshop_info') {
       gtag('event', 'workshop_info_click', { workshop: a.getAttribute('data-item'), workshop_name: a.getAttribute('data-name'), page_lang: lang });
     } else if (/ff-academy\.cz/.test(h)) {
-      gtag('event', 'race_prep_buy_click', { value: 8999, currency: 'CZK', placement: placement, page_lang: lang });
+      gtag('event', 'race_prep_buy_click', { value: 8990, currency: 'CZK', placement: placement, page_lang: lang });
     }
     if (/^tel:/.test(h)) gtag('event', 'contact', { method: 'phone' });
     else if (/^mailto:/.test(h)) gtag('event', 'contact', { method: 'email' });
