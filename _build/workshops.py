@@ -43,7 +43,7 @@ EVENTS = [
         title="HYROX Level 1", t=_L1_T,
     ),
     dict(
-        id="mental-game", kind="workshop", aud=["public"],
+        id="mental-game", kind="workshop", aud=["instr", "pt", "public"],
         date="2026-11-29", start="10:00", end="12:00", hours=2,
         price=1299, capacity=40, img="/img/ria-mic.webp", loc=KNIZECI, lectors=[RIA],
         buy="https://ucet.ff-academy.cz/calendar?dayOnline&schiid=37778857&view=Preview",
