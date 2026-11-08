@@ -159,18 +159,18 @@ def bar(lang):
 
 
 def nav_li(lang):
-    return f'<li><a href="{path(lang, SLUG)}" class="rp-nav">12 Weeks</a></li>'
+    return f'<li><a href="{path(lang, SLUG)}" class="rp-nav">Připrav se na HYROX</a></li>'
 
 
 def promo(lang):
     s = RT[lang]
     facts = "".join(f"<div><strong>{n}</strong><span>{t}</span></div>" for n, t in s["facts"])
     return f"""
-  <section class="rp-promo" aria-label="12 Weeks Race Prep">
+  <section class="rp-promo" aria-label="Připrav se na HYROX systematicky">
     <div class="wrap">
       <div>
         <span class="rp-tag">{s["promo_tag"]}</span>
-        <h2>HYROX 12 Weeks<br><span>Race Prep.</span></h2>
+        <h2>Připrav se na HYROX<br><span>systematicky.</span></h2>
         <p class="lead">{s["promo_lead"]}</p>
         <div class="hero-cta">
           <a class="btn btn-red" href="{path(lang, SLUG)}">{s["promo_cta1"]}</a>
@@ -224,7 +224,7 @@ def nav(lang, t, slug):
       <span><b>HYROX Training Club</b><small>{t["brand_sub"]}</small></span>
     </a>
     <ul>
-      <li><a href="{path(lang, SLUG)}" class="rp-nav">12 Weeks</a></li>
+      <li><a href="{path(lang, SLUG)}" class="rp-nav">Připrav se na HYROX</a></li>
       <li><a href="{path(lang, SLUG)}#obsah">{s["n_inc"]}</a></li>
       <li><a href="{path(lang, SLUG)}#cena">{s["n_price"]}</a></li>
       <li><a href="{path(lang, PORTAL)}">{s["n_portal"]}</a></li>
@@ -276,9 +276,9 @@ def program_page(lang, T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
   <section class="hero">
     <div class="hero-img"><img src="/img/sled.webp" alt="{s["hero_alt"]}" style="object-position:center 55%"></div>
     <div class="wrap">
-      <p class="crumbs"><a href="{home(lang)}">HYROX Training Club</a> / 12 Weeks Race Prep</p>
+      <p class="crumbs"><a href="{home(lang)}">HYROX Training Club</a> / Připrav se na HYROX systematicky</p>
       <p class="eyebrow">{s["eyebrow"]}</p>
-      <h1>HYROX<span>12 Weeks</span><em>Race Prep.</em></h1>
+      <h1>Připrav se<span>na HYROX</span><em>systematicky.</em></h1>
       <p class="lead">{s["lead"]}</p>
       <div class="hero-cta">
         <a class="btn btn-red" href="{BUY}" target="_blank" rel="noopener">{s["cta_buy"]}</a>
@@ -349,7 +349,7 @@ def program_page(lang, T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
         <h2>{s["pr_h"]}</h2>
         <p class="lead">{s["pr_lead"]}</p>
         <div class="rp-card">
-          <span class="rp-tag" style="margin:0;width:max-content">12 Weeks Race Prep</span>
+          <span class="rp-tag" style="margin:0;width:max-content">Připrav se na HYROX systematicky</span>
           <div class="amt">{s["price"]}<small>{s["cur"]}</small></div>
           <p>{s["pr_desc"]}</p>
           <a class="btn btn-red" href="{BUY}" target="_blank" rel="noopener" style="justify-content:center">{s["cta_buy"]}</a>
@@ -488,9 +488,9 @@ def portal_page(lang, T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
 <main id="top">
   <section class="portal-hero">
     <div class="wrap" style="display:grid;gap:18px">
-      <p class="crumbs"><a href="{home(lang)}">HYROX Training Club</a> / <a href="{path(lang, SLUG)}">12 Weeks Race Prep</a> / {s["p_crumb"]}</p>
+      <p class="crumbs"><a href="{home(lang)}">HYROX Training Club</a> / <a href="{path(lang, SLUG)}">Připrav se na HYROX systematicky</a> / {s["p_crumb"]}</p>
       <p class="eyebrow">{s["p_eyebrow"]}</p>
-      <h1>12 Weeks<br>Race Prep.</h1>
+      <h1>Připrav se na HYROX<br>systematicky.</h1>
     </div>
   </section>
 

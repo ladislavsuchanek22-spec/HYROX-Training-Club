@@ -1,4 +1,4 @@
-"""Texty bloku HYROX 12 Weeks Race Prep ve všech jazycích (cs, en, de, pl).
+"""Texty bloku Připrav se na HYROX systematicky ve všech jazycích (cs, en, de, pl).
 
 Odkazy v textech: {cal} = rozvrh HYROX lekcí FF, {buy} = prodej na FF Academy, {portal} = portál v daném jazyce.
 """
@@ -6,14 +6,14 @@ Odkazy v textech: {cal} = rozvrh HYROX lekcí FF, {buy} = prodej na FF Academy, 
 T = {}
 
 T["cs"] = dict(
-    bar='<b>Novinka</b> · HYROX 12 Weeks Race Prep s Riou a Láďou', bar_cta='Zjistit víc →',
+    bar='<b>Novinka</b> · Připrav se na HYROX systematicky s Riou a Láďou', bar_cta='Zjistit víc →',
     locale="cs_CZ", price="8 990", cur="Kč",
     promo_tag="Nový program · Form Factory × STR2G",
     promo_lead="Strukturovaná příprava na závod. Běh, síla, stanoviště a taktika v jednom plánu, pod vedením Rii a Ládi. Plán každé pondělí, 3 společné workshopy a portál s materiály ke stažení.",
     promo_cta1="Chci do programu →", promo_cta2="Koupit na FF Academy · 8 990 Kč",
     facts=[("12", "týdnů přípravy"), ("4", "tréninky týdně"), ("3", "společné workshopy"), ("8", "stanovišť do detailu")],
     n_inc="Co je v programu", n_price="Cena", n_portal="Portál", n_buy="Koupit program",
-    title="HYROX 12 Weeks Race Prep | STR2G × Form Factory",
+    title="Připrav se na HYROX systematicky | STR2G × Form Factory",
     desc="12týdenní příprava na HYROX pod vedením Rii a Ládi. Plán každé pondělí, individuální pace zóny, 3 workshopy, PDF materiály a WhatsApp komunita. 8 990 Kč.",
     eyebrow="Form Factory × STR2G · 12týdenní příprava",
     lead="Strukturovaná příprava na HYROX. Běh, síla, stanoviště a taktika v jednom plánu. Pod vedením Rii a Ládi.",
@@ -58,7 +58,7 @@ T["cs"] = dict(
                                 ("12", "Finále", "Workshop 3, výstupní testy", True)])],
     pr_eyebrow="05 · Cena", pr_h="Jedna cena. Celá příprava.", pr_lead="Platíš jednou, za celý program. Žádné předplatné, žádné doplatky.",
     pr_desc="Kompletní 12týdenní příprava na HYROX.",
-    pr_sale='Program startuje 17. 1. 2027. Na FF Academy ho najdeš jako „Připrav se na HYROX systematicky“. Prodej probíhá oficiálně přes FF Academy, vzdělávací platformu Form Factory. Po nákupu ti přijde pozvánka do <a href="{portal}" style="color:var(--fg)">portálu účastníků</a>.',
+    pr_sale='Program startuje 17. 1. 2027. Prodej probíhá oficiálně přes FF Academy, vzdělávací platformu Form Factory. Po nákupu ti přijde pozvánka do <a href="{portal}" style="color:var(--fg)">portálu účastníků</a>.',
     pr_incl="V ceně",
     pr_list=["12 týdnů programmingu, plán každé pondělí", "Individuální pace zóny ze vstupního testu", "Edukační knihovna v aplikaci",
              "3 společné workshopy s trenéry", "PDF materiály v portálu účastníků", "WhatsApp komunita a podpora trenérů", "Mentální příprava"],
@@ -74,8 +74,8 @@ T["cs"] = dict(
     cta_lead="Kup program na FF Academy, přijmi pozvánku do portálu a v pondělí dostaneš první týden. Stronger together.",
     cta_b2="Portál účastníků",
     # portál
-    p_title="Portál účastníků | HYROX 12 Weeks Race Prep",
-    p_desc="Portál účastníků programu HYROX 12 Weeks Race Prep: PDF materiály ke stažení, komunita a workshopy.",
+    p_title="Portál účastníků | Připrav se na HYROX systematicky",
+    p_desc="Portál účastníků programu Připrav se na HYROX systematicky: PDF materiály ke stažení, komunita a workshopy.",
     p_bar="NÁHLED · Testovací verze portálu na náhledové adrese.", p_crumb="Portál", p_eyebrow="Portál účastníků", p_loading="Načítám portál…",
     p_tab_login="Přihlášení", p_tab_forgot="Zapomenuté heslo", p_email="E-mail", p_email_ph="jan@email.cz", p_pass="Heslo",
     p_login_btn="Přihlásit se →", p_forgot_btn="Poslat odkaz na nové heslo →",
@@ -98,14 +98,14 @@ T["cs"] = dict(
 )
 
 T["en"] = dict(
-    bar='<b>New</b> · HYROX 12 Weeks Race Prep with Ria and Láďa', bar_cta='Find out more →',
+    bar='<b>New</b> · Připrav se na HYROX systematicky with Ria and Láďa', bar_cta='Find out more →',
     locale="en_GB", price="8,990", cur="CZK",
     promo_tag="New programme · Form Factory × STR2G",
     promo_lead="Structured HYROX race prep. Running, strength, stations and tactics in one plan, coached by Ria and Láďa. A new plan every Monday, 3 group workshops and a portal with downloadable guides.",
     promo_cta1="I'm in →", promo_cta2="Buy at FF Academy · 8,990 CZK",
     facts=[("12", "weeks of prep"), ("4", "sessions a week"), ("3", "group workshops"), ("8", "stations in detail")],
     n_inc="What's included", n_price="Price", n_portal="Portal", n_buy="Buy the programme",
-    title="HYROX 12 Weeks Race Prep | STR2G × Form Factory",
+    title="Připrav se na HYROX systematicky | STR2G × Form Factory",
     desc="12-week HYROX race prep coached by Ria and Láďa. A new plan every Monday, individual pace zones, 3 workshops, PDF guides and a WhatsApp community. 8,990 CZK.",
     eyebrow="Form Factory × STR2G · 12-week prep",
     lead="Structured preparation for HYROX. Running, strength, stations and tactics in one plan. Coached by Ria and Láďa.",
@@ -150,7 +150,7 @@ T["en"] = dict(
                                 ("12", "Finale", "Workshop 3, final tests", True)])],
     pr_eyebrow="05 · Price", pr_h="One price. The whole prep.", pr_lead="You pay once for the whole programme. No subscription, no extras.",
     pr_desc="Complete 12-week HYROX preparation.",
-    pr_sale='The programme starts on 17 Jan 2027. On FF Academy it\'s listed as „Připrav se na HYROX systematicky“. Sales run officially through FF Academy, Form Factory\'s education platform. After you buy, you\'ll get an invite to the <a href="{portal}" style="color:var(--fg)">participant portal</a>.',
+    pr_sale='The programme starts on 17 Jan 2027. Sales run officially through FF Academy, Form Factory\'s education platform. After you buy, you\'ll get an invite to the <a href="{portal}" style="color:var(--fg)">participant portal</a>.',
     pr_incl="Included",
     pr_list=["12 weeks of programming, a plan every Monday", "Individual pace zones from your entry test", "Education library in the app",
              "3 group workshops with the coaches", "PDF guides in the participant portal", "WhatsApp community and coach support", "Mental preparation"],
@@ -165,8 +165,8 @@ T["en"] = dict(
     cta_eyebrow="Plan. Train. Perform.", cta_h="12 weeks.<br>A clear plan. Your time.",
     cta_lead="Buy the programme at FF Academy, accept your portal invite and get week one on Monday. Stronger together.",
     cta_b2="Participant portal",
-    p_title="Participant portal | HYROX 12 Weeks Race Prep",
-    p_desc="HYROX 12 Weeks Race Prep participant portal: downloadable PDF guides, community and workshops.",
+    p_title="Participant portal | Připrav se na HYROX systematicky",
+    p_desc="Připrav se na HYROX systematicky participant portal: downloadable PDF guides, community and workshops.",
     p_bar="PREVIEW · Test version of the portal on the preview address.", p_crumb="Portal", p_eyebrow="Participant portal", p_loading="Loading the portal…",
     p_tab_login="Log in", p_tab_forgot="Forgot password", p_email="Email", p_email_ph="you@email.com", p_pass="Password",
     p_login_btn="Log in →", p_forgot_btn="Send a reset link →",
@@ -189,14 +189,14 @@ T["en"] = dict(
 )
 
 T["de"] = dict(
-    bar='<b>Neu</b> · HYROX 12 Weeks Race Prep mit Ria und Láďa', bar_cta='Mehr erfahren →',
+    bar='<b>Neu</b> · Připrav se na HYROX systematicky mit Ria und Láďa', bar_cta='Mehr erfahren →',
     locale="de_DE", price="8.990", cur="CZK",
     promo_tag="Neues Programm · Form Factory × STR2G",
     promo_lead="Strukturierte Wettkampfvorbereitung für HYROX. Laufen, Kraft, Stationen und Taktik in einem Plan, gecoacht von Ria und Láďa. Jeden Montag ein neuer Plan, 3 gemeinsame Workshops und ein Portal mit Materialien zum Download.",
     promo_cta1="Ich bin dabei →", promo_cta2="Bei FF Academy kaufen · 8.990 CZK",
     facts=[("12", "Wochen Vorbereitung"), ("4", "Einheiten pro Woche"), ("3", "gemeinsame Workshops"), ("8", "Stationen im Detail")],
     n_inc="Inhalt", n_price="Preis", n_portal="Portal", n_buy="Programm kaufen",
-    title="HYROX 12 Weeks Race Prep | STR2G × Form Factory",
+    title="Připrav se na HYROX systematicky | STR2G × Form Factory",
     desc="12-wöchige HYROX-Wettkampfvorbereitung mit Ria und Láďa. Jeden Montag ein neuer Plan, individuelle Pace-Zonen, 3 Workshops, PDF-Guides und WhatsApp-Community. 8.990 CZK.",
     eyebrow="Form Factory × STR2G · 12-Wochen-Vorbereitung",
     lead="Strukturierte Vorbereitung auf HYROX. Laufen, Kraft, Stationen und Taktik in einem Plan. Gecoacht von Ria und Láďa.",
@@ -241,7 +241,7 @@ T["de"] = dict(
                                   ("12", "Finale", "Workshop 3, Abschlusstests", True)])],
     pr_eyebrow="05 · Preis", pr_h="Ein Preis. Die ganze Vorbereitung.", pr_lead="Du zahlst einmal für das ganze Programm. Kein Abo, keine Zusatzkosten.",
     pr_desc="Komplette 12-wöchige HYROX-Vorbereitung.",
-    pr_sale='Programmstart ist am 17.01.2027. Bei der FF Academy findest du es als „Připrav se na HYROX systematicky“. Der Verkauf läuft offiziell über die FF Academy, die Bildungsplattform von Form Factory. Nach dem Kauf bekommst du eine Einladung ins <a href="{portal}" style="color:var(--fg)">Teilnehmerportal</a>.',
+    pr_sale='Programmstart ist am 17.01.2027. Der Verkauf läuft offiziell über die FF Academy, die Bildungsplattform von Form Factory. Nach dem Kauf bekommst du eine Einladung ins <a href="{portal}" style="color:var(--fg)">Teilnehmerportal</a>.',
     pr_incl="Im Preis enthalten",
     pr_list=["12 Wochen Programming, jeden Montag ein Plan", "Individuelle Pace-Zonen aus dem Eingangstest", "Wissensbibliothek in der App",
              "3 gemeinsame Workshops mit den Coaches", "PDF-Guides im Teilnehmerportal", "WhatsApp-Community und Coach-Support", "Mentale Vorbereitung"],
@@ -256,8 +256,8 @@ T["de"] = dict(
     cta_eyebrow="Plan. Train. Perform.", cta_h="12 Wochen.<br>Klarer Plan. Deine Zeit.",
     cta_lead="Kauf das Programm bei der FF Academy, nimm die Einladung ins Portal an, und am Montag bekommst du die erste Woche. Stronger together.",
     cta_b2="Teilnehmerportal",
-    p_title="Teilnehmerportal | HYROX 12 Weeks Race Prep",
-    p_desc="Teilnehmerportal des HYROX 12 Weeks Race Prep: PDF-Guides zum Download, Community und Workshops.",
+    p_title="Teilnehmerportal | Připrav se na HYROX systematicky",
+    p_desc="Teilnehmerportal des Připrav se na HYROX systematicky: PDF-Guides zum Download, Community und Workshops.",
     p_bar="VORSCHAU · Testversion des Portals unter der Vorschau-Adresse.", p_crumb="Portal", p_eyebrow="Teilnehmerportal", p_loading="Portal wird geladen…",
     p_tab_login="Anmelden", p_tab_forgot="Passwort vergessen", p_email="E-Mail", p_email_ph="du@email.de", p_pass="Passwort",
     p_login_btn="Anmelden →", p_forgot_btn="Link zum Zurücksetzen senden →",
@@ -280,14 +280,14 @@ T["de"] = dict(
 )
 
 T["pl"] = dict(
-    bar='<b>Nowość</b> · HYROX 12 Weeks Race Prep z Rią i Láďą', bar_cta='Dowiedz się więcej →',
+    bar='<b>Nowość</b> · Připrav se na HYROX systematicky z Rią i Láďą', bar_cta='Dowiedz się więcej →',
     locale="pl_PL", price="8 990", cur="CZK",
     promo_tag="Nowy program · Form Factory × STR2G",
     promo_lead="Uporządkowane przygotowanie do zawodów HYROX. Bieg, siła, stacje i taktyka w jednym planie, pod okiem Rii i Láďi. Nowy plan w każdy poniedziałek, 3 wspólne warsztaty i portal z materiałami do pobrania.",
     promo_cta1="Wchodzę w to →", promo_cta2="Kup w FF Academy · 8 990 CZK",
     facts=[("12", "tygodni przygotowań"), ("4", "treningi w tygodniu"), ("3", "wspólne warsztaty"), ("8", "stacji w szczegółach")],
     n_inc="Co zawiera", n_price="Cena", n_portal="Portal", n_buy="Kup program",
-    title="HYROX 12 Weeks Race Prep | STR2G × Form Factory",
+    title="Připrav se na HYROX systematicky | STR2G × Form Factory",
     desc="12-tygodniowe przygotowanie do HYROX z Rią i Láďą. Nowy plan w każdy poniedziałek, indywidualne strefy tempa, 3 warsztaty, przewodniki PDF i społeczność na WhatsAppie. 8 990 CZK.",
     eyebrow="Form Factory × STR2G · 12-tygodniowe przygotowanie",
     lead="Uporządkowane przygotowanie do HYROX. Bieg, siła, stacje i taktyka w jednym planie. Pod okiem Rii i Láďi.",
@@ -332,7 +332,7 @@ T["pl"] = dict(
                                  ("12", "Finał", "Warsztat 3, testy końcowe", True)])],
     pr_eyebrow="05 · Cena", pr_h="Jedna cena. Całe przygotowanie.", pr_lead="Płacisz raz, za cały program. Bez abonamentu, bez dopłat.",
     pr_desc="Kompletne 12-tygodniowe przygotowanie do HYROX.",
-    pr_sale='Program startuje 17.01.2027. W FF Academy znajdziesz go jako „Připrav se na HYROX systematicky“. Sprzedaż odbywa się oficjalnie przez FF Academy, platformę edukacyjną Form Factory. Po zakupie dostaniesz zaproszenie do <a href="{portal}" style="color:var(--fg)">portalu uczestnika</a>.',
+    pr_sale='Program startuje 17.01.2027. Sprzedaż odbywa się oficjalnie przez FF Academy, platformę edukacyjną Form Factory. Po zakupie dostaniesz zaproszenie do <a href="{portal}" style="color:var(--fg)">portalu uczestnika</a>.',
     pr_incl="W cenie",
     pr_list=["12 tygodni programmingu, plan w każdy poniedziałek", "Indywidualne strefy tempa z testu wstępnego", "Biblioteka wiedzy w aplikacji",
              "3 wspólne warsztaty z trenerami", "Materiały PDF w portalu uczestnika", "Społeczność WhatsApp i wsparcie trenerów", "Przygotowanie mentalne"],
@@ -347,8 +347,8 @@ T["pl"] = dict(
     cta_eyebrow="Plan. Train. Perform.", cta_h="12 tygodni.<br>Jasny plan. Twój czas.",
     cta_lead="Kup program w FF Academy, przyjmij zaproszenie do portalu, a w poniedziałek dostaniesz pierwszy tydzień. Stronger together.",
     cta_b2="Portal uczestnika",
-    p_title="Portal uczestnika | HYROX 12 Weeks Race Prep",
-    p_desc="Portal uczestnika programu HYROX 12 Weeks Race Prep: przewodniki PDF do pobrania, społeczność i warsztaty.",
+    p_title="Portal uczestnika | Připrav se na HYROX systematicky",
+    p_desc="Portal uczestnika programu Připrav se na HYROX systematicky: przewodniki PDF do pobrania, społeczność i warsztaty.",
     p_bar="PODGLĄD · Wersja testowa portalu pod adresem podglądu.", p_crumb="Portal", p_eyebrow="Portal uczestnika", p_loading="Ładuję portal…",
     p_tab_login="Logowanie", p_tab_forgot="Nie pamiętam hasła", p_email="E-mail", p_email_ph="ty@email.pl", p_pass="Hasło",
     p_login_btn="Zaloguj się →", p_forgot_btn="Wyślij link do zmiany hasła →",
