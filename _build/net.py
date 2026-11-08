@@ -46,8 +46,13 @@ SITES = {
             "pl": "https://strongertogether.cz/en/", "de": "https://strongertogether.cz/en/"},
            {"cs": "Láďa a Ria – všechny naše projekty", "en": "Láďa &amp; Ria – all our projects",
             "pl": "Láďa i Ria – wszystkie nasze projekty", "de": "Láďa &amp; Ria – alle unsere Projekte"}),
+    "x10": ("STR2G TEN", "xenomczech.cz",
+            {"cs": "https://xenomczech.cz/", "en": "https://xenomczech.cz/en/",
+             "pl": "https://xenomczech.cz/en/", "de": "https://xenomczech.cz/en/"},
+            {"cs": "Příprava na XENOM · 10 disciplín", "en": "XENOM prep · 10 events",
+             "pl": "Przygotowanie do XENOM · 10 konkurencji", "de": "XENOM-Vorbereitung · 10 Disziplinen"}),
 }
-ORDER = ["hp", "s2", "htc", "ffg", "ls", "ria", "st"]
+ORDER = ["hp", "s2", "htc", "ffg", "ls", "ria", "st", "x10"]
 
 
 def url(key, lang):
