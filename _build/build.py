@@ -519,6 +519,9 @@ INVITE_CSS = """<style>
 
 
 def invite(lang, book):
+    # Video je česky, proto jen na české verzi
+    if lang != "cs":
+        return ""
     t = INVITE[lang]
     return f"""
   <section class="invite" id="pozvanka">
