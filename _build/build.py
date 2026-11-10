@@ -490,6 +490,60 @@ def jsonld(lang):
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
 
 
+INVITE = {
+  "cs": dict(eyebrow="Pozvánka na lekci", h="Přijď si to zkusit.",
+             p="HYROX lekce vedeme v Praze, Brně a Ostravě. Běh, síla, stanice a práce pod únavou, všechno podle plánu. Nemusíš být závodník. Stačí přijít.",
+             cta1="Vybrat lekci →", cta2="Najít klub", label="Video pozvánka na HYROX lekce"),
+  "en": dict(eyebrow="Your invite", h="Come and try it.",
+             p="We run HYROX classes in Prague, Brno and Ostrava. Running, strength, stations and work under fatigue, all to a plan. You don't need to be a racer. Just show up. Video in Czech.",
+             cta1="Book a class →", cta2="Find a club", label="Video invitation to HYROX classes"),
+  "de": dict(eyebrow="Einladung", h="Komm vorbei und probier's aus.",
+             p="Unsere HYROX-Kurse laufen in Prag, Brno und Ostrava. Laufen, Kraft, Stationen und Arbeit unter Ermüdung, alles nach Plan. Du musst kein Athlet sein. Komm einfach. Video auf Tschechisch.",
+             cta1="Kurs buchen →", cta2="Club finden", label="Video-Einladung zu den HYROX-Kursen"),
+  "pl": dict(eyebrow="Zaproszenie", h="Przyjdź i spróbuj.",
+             p="Zajęcia HYROX prowadzimy w Pradze, Brnie i Ostrawie. Bieg, siła, stacje i praca w zmęczeniu, wszystko według planu. Nie musisz być zawodnikiem. Wystarczy przyjść. Wideo po czesku.",
+             cta1="Wybierz zajęcia →", cta2="Znajdź klub", label="Wideo zaproszenie na zajęcia HYROX"),
+}
+
+INVITE_CSS = """<style>
+.invite .wrap{display:grid;grid-template-columns:1fr minmax(260px,360px);gap:56px;align-items:center}
+.invite h2{margin:10px 0 18px}
+.invite p.lead{max-width:520px}
+.invite .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.invite-cities{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.invite-cities span{border:1px solid var(--line);border-radius:999px;padding:6px 11px;font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.invite-video{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:9/16}
+.invite-video video{display:block;width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){.invite .wrap{grid-template-columns:1fr;gap:32px}.invite-video{max-width:360px;width:100%;justify-self:center}}
+</style>"""
+
+
+def invite(lang, book):
+    t = INVITE[lang]
+    return f"""
+  <section class="invite" id="pozvanka">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">{t["eyebrow"]}</p>
+        <h2>{t["h"]}</h2>
+        <p class="lead">{t["p"]}</p>
+        <div class="invite-cities"><span>Praha · Na Knížecí</span><span>Praha · Vinohradská</span><span>Brno · Campus</span><span>Ostrava · Hrabová</span></div>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="{book}" target="_blank" rel="noopener">{t["cta1"]}</a>
+          <a class="btn btn-ghost" href="#kluby">{t["cta2"]}</a>
+        </div>
+      </div>
+      <div class="invite-video">
+        <video controls playsinline preload="none" poster="/img/pozvanka.webp" width="720" height="1280" aria-label="{t["label"]}"
+          onplay="if(!this.dataset.p){{this.dataset.p=1;window.gtag&&gtag('event','invite_video_play',{{video_title:'Pozvanka HYROX lekce'}})}}">
+          <source src="/video/pozvanka.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+"""
+
+
 def page(lang):
     t = T[lang]
     book = FF_HYROX[lang] + "#timetables"
@@ -541,6 +595,7 @@ def page(lang):
 {EXTRA_CSS}
 {raceprep.RP_CSS}
 {workshops.CSS}
+{INVITE_CSS}
 <style>body{{margin:0}}[hidden]{{display:none!important}}</style>
 <script>if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash))location.replace("/portal/"+location.hash)</script>
 {workshops.jsonld()}
@@ -611,7 +666,7 @@ def page(lang):
       </figure>
     </div>
   </section>
-
+{invite(lang, book)}
   <div class="lanes" aria-hidden="true"></div>
 
   <section class="programs" id="programy">
