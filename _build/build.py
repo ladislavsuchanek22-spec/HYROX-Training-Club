@@ -7,6 +7,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import net
 import raceprep
 import workshops
+import finder
 
 STYLE = open(sys.argv[1]).read().replace('url("img/sled.webp")', 'url("/img/sled.webp")')
 OUT = sys.argv[2]
@@ -634,7 +635,7 @@ def page(lang):
       <p class="lead">{t["hero_lead"]}</p>
       <div class="hero-cta">
         <a class="btn btn-red" href="{book}" target="_blank" rel="noopener">{t["hero_cta1"]}</a>
-        <a class="btn btn-ghost" href="#kluby">{t["hero_cta2"]}</a>
+        <a class="btn btn-ghost" href="#najdi-lekci">{t["hero_cta2"]}</a>
       </div>
       <p class="cities">{t["cities"]}</p>
     </div>
@@ -772,6 +773,7 @@ def page(lang):
   </section>
 
   {workshops.section(lang)}
+  {finder.section(lang, t, CLUBS, FF_FIRST[lang], _tt_load())}
   <section class="clubs" id="kluby">
     <div class="wrap">
       <div class="sec-head">

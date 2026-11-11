@@ -561,7 +561,7 @@ h1,h2,h3{font-weight:700;letter-spacing:0}
       <p class="lead">Trénink podle oficiálního programu HYROX365. Běh, síla, stanice a práce pod únavou. Vedou tě trenéři, kteří závodí sami. Žádný náhodný workout, ale plán, který má směr.</p>
       <div class="hero-cta">
         <a class="btn btn-red" href="https://www.formfactory.cz/hyrox/#timetables" target="_blank" rel="noopener">Vybrat lekci →</a>
-        <a class="btn btn-ghost" href="#kluby">Najít klub</a>
+        <a class="btn btn-ghost" href="#najdi-lekci">Najít klub</a>
       </div>
       <p class="cities"><b>Praha</b> Na Knížecí · Vinohradská &nbsp;/&nbsp; <b>Brno</b> Campus &nbsp;/&nbsp; <b>Ostrava</b> Hrabová</p>
     </div>
@@ -879,6 +879,164 @@ h1,h2,h3{font-weight:700;letter-spacing:0}
       <div class="ws-all"><span></span><a href="https://www.ff-academy.cz/label/hyrox/?utm_source=hyroxtrainingclub.cz&amp;utm_medium=referral&amp;utm_campaign=hyrox-label&amp;utm_content=cs" target="_blank" rel="noopener" data-ga="workshop_info" data-item="all" data-name="FF Academy HYROX">Všechny kurzy a workshopy na FF Academy →</a></div>
     </div>
   </section>
+
+  <style>
+.finder .wrap>.fbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,4vw,48px)}
+.finder [hidden]{display:none!important}
+#finder{scroll-margin-top:96px}
+.f-intro{display:grid;grid-template-columns:1fr auto;gap:14px 40px;align-items:end}
+.f-intro h2{margin:0}
+.f-intro .lead{margin:0;max-width:620px}
+.f-intro .btn{grid-row:1/4;grid-column:2;cursor:pointer}
+@media (max-width:760px){.f-intro{grid-template-columns:1fr}.f-intro .btn{grid-row:auto;grid-column:auto;justify-self:start;margin-top:8px}}
+.f-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.f-link{background:none;border:0;padding:0;color:var(--muted);font:600 13px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.f-link:hover{color:var(--fg)}
+.f-count{font:600 13px/1 var(--f-body);letter-spacing:.14em;color:var(--red-hi)}
+.f-bar{height:3px;background:var(--line);margin-bottom:32px;border-radius:2px;overflow:hidden}
+.f-bar i{display:block;height:100%;width:0;background:var(--red-hi);transition:width .35s}
+.f-q h3{font:700 clamp(28px,4vw,44px)/1 var(--f-display);text-transform:uppercase;margin:0 0 24px}
+.f-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (max-width:640px){.f-opts{grid-template-columns:1fr}}
+.f-opts button{display:flex;align-items:center;gap:14px;text-align:left;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:var(--radius);font:500 17px/1.3 var(--f-body);padding:17px 18px;cursor:pointer;transition:border-color .15s,background .15s}
+.f-opts button:hover{border-color:var(--red-hi)}
+.f-opts button i{flex:0 0 20px;height:20px;border:1.5px solid var(--muted);border-radius:4px;display:grid;place-items:center}
+.f-opts button.on{border-color:var(--red-hi);background:#1a070c}
+.f-opts button.on i{background:var(--red-hi);border-color:var(--red-hi)}
+.f-opts button.on i::after{content:"";width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.f-opts small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.f-in{animation:fIn .35s ease}
+@keyframes fIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.f-res h3{font:700 clamp(32px,5vw,56px)/.95 var(--f-display);text-transform:uppercase;margin:10px 0 6px}
+.f-addr{color:var(--muted);margin:0}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+@media (max-width:860px){.f-grid{grid-template-columns:1fr}}
+.f-card{border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.f-card .eyebrow{margin-bottom:14px}
+.f-slots{display:grid;gap:8px}
+.f-slots a{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:12px 14px;font-weight:600}
+.f-slots a:hover{border-color:var(--red-hi)}
+.f-slots a span{color:var(--red-hi);font-size:14px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.f-none{color:var(--muted);margin:0 0 10px}
+.f-fmt b{display:block;font:700 34px/1 var(--f-display);text-transform:uppercase}
+.f-fmt .claim{margin:8px 0 10px;font-weight:600}
+.f-fmt p{margin:0;color:var(--muted)}
+.f-tips{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.f-tips a{display:flex;justify-content:space-between;gap:16px;align-items:center;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+.f-tips a:hover{border-color:var(--red-hi)}
+.f-tips b{display:block}
+.f-tips span{color:var(--muted);font-size:15px}
+.f-tips em{font-style:normal;color:var(--red-hi);font-weight:700}
+.f-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.f-again{margin-top:24px}
+</style>
+  <section class="finder" id="najdi-lekci">
+    <div class="wrap"><div class="fbox" id="finder">
+      <div class="f-intro">
+        <p class="eyebrow">Najdi svou první lekci</p>
+        <h2>6 otázek. Jeden plán, kde začít.</h2>
+        <p class="lead">Vybereme ti klub, nejbližší lekce v čase, který ti sedí, a na co se v tréninku zaměřit.</p>
+        <button type="button" class="btn btn-red f-start">Začít →</button>
+      </div>
+      <div class="f-top" hidden><button type="button" class="f-link f-back">← Zpět</button><span class="f-count"></span></div>
+      <div class="f-bar" hidden><i></i></div>
+      <div class="f-q" data-q="club" hidden><h3>Kde chceš trénovat?</h3><div class="f-opts"><button type="button" data-v="prague5"><i></i><span>Praha · Na Knížecí<small>Praha 5 · Nový Smíchov</small></span></button><button type="button" data-v="prague3"><i></i><span>Praha · Vinohradská<small>Praha 3 · Vinohrady</small></span></button><button type="button" data-v="brno"><i></i><span>Brno · Campus<small>Starý Lískovec</small></span></button><button type="button" data-v="ostrava"><i></i><span>Ostrava · Hrabová<small>Ostrava 20</small></span></button></div></div><div class="f-q" data-q="time" hidden><h3>Kdy ti to nejvíc sedí?</h3><div class="f-opts"><button type="button" data-v="am"><i></i><span>Ráno<small>do 9:00</small></span></button><button type="button" data-v="day"><i></i><span>Přes den<small>9:00–16:00</small></span></button><button type="button" data-v="pm"><i></i><span>Večer<small>od 16:00</small></span></button><button type="button" data-v="any"><i></i><span>Je mi to jedno</span></button></div></div><div class="f-q" data-q="exp" hidden><h3>Jakou máš zkušenost?</h3><div class="f-opts"><button type="button" data-v="zero"><i></i><span>Začínám od nuly</span></button><button type="button" data-v="fit"><i></i><span>Trénuju, ale HYROX ne</span></button><button type="button" data-v="htc"><i></i><span>HYROX lekce znám</span></button><button type="button" data-v="race"><i></i><span>Závodím</span></button></div></div><div class="f-q" data-q="gap" hidden><h3>Co ti chybí nejvíc?</h3><div class="f-opts"><button type="button" data-v="run"><i></i><span>Výdrž a běh</span></button><button type="button" data-v="str"><i></i><span>Síla</span></button><button type="button" data-v="tech"><i></i><span>Technika na stanicích</span></button><button type="button" data-v="pace"><i></i><span>Závodní tempo a hlava</span></button><button type="button" data-v="all"><i></i><span>Nevím, chci všechno</span></button></div></div><div class="f-q" data-q="goal" hidden><h3>Míříš na závod?</h3><div class="f-opts"><button type="button" data-v="soon"><i></i><span>Ano, do 12 týdnů</span></button><button type="button" data-v="later"><i></i><span>Ano, ale později</span></button><button type="button" data-v="no"><i></i><span>Zatím ne</span></button><button type="button" data-v="ffg"><i></i><span>Láká mě Form Factory Games<small>23. 1. 2027 · Vinohradská</small></span></button></div></div><div class="f-q" data-q="member" hidden><h3>Jsi členem Form Factory?</h3><div class="f-opts"><button type="button" data-v="yes"><i></i><span>Ano</span></button><button type="button" data-v="no"><i></i><span>Ne</span></button></div></div>
+      <div class="f-res" hidden aria-live="polite">
+        <p class="eyebrow">Tvůj klub</p>
+        <h3 class="f-club"></h3>
+        <p class="f-addr"></p>
+        <div class="f-grid">
+          <div class="f-card"><p class="eyebrow">Nejbližší lekce</p><p class="f-none" hidden>V tomhle čase teď lekci nemáme. Nejbližší termíny:</p><div class="f-slots"></div><p class="f-empty f-none" hidden>Rozvrh na tyhle dny ještě není venku. Mrkni do kalendáře klubu.</p></div>
+          <div class="f-card f-fmt"><p class="eyebrow">Na co se zaměřit</p><b></b><p class="claim"></p><p class="who"></p><p style="margin-top:12px">Formáty se v rozvrhu střídají, takže projdeš všemi. Tenhle tě ale posune nejvíc.</p></div>
+        </div>
+        <div class="f-tipsw"><p class="eyebrow" style="margin-top:28px">Než přijdeš</p><ul class="f-tips"></ul></div>
+        <div class="f-actions"><a class="btn btn-red f-book" target="_blank" rel="noopener">Rezervovat lekci →</a><a class="btn btn-ghost" href="mailto:info@hyrox-czech.cz">Mám dotaz</a></div>
+        <button type="button" class="f-link f-again">↺ Znovu</button>
+      </div>
+    </div></div>
+  </section>
+<script>
+(function(){
+  var D={"clubs": {"prague5": {"name": "Form Factory Na Knížecí", "addr": "Ostrovského 464/6, 150 00 Praha 5", "cal": "https://naknizeci.formfactory.cz/calendar"}, "prague3": {"name": "Form Factory Vinohradská", "addr": "Vinohradská 190, 130 00 Praha 3", "cal": "https://vinohradska.formfactory.cz/calendar"}, "brno": {"name": "Form Factory Campus", "addr": "Palachovo náměstí 726/2, 625 00 Brno", "cal": "https://campusbrno.formfactory.cz/calendar"}, "ostrava": {"name": "Form Factory Hrabová", "addr": "Krmelínská 646/22, 720 00 Ostrava 20", "cal": "https://hrabova.formfactory.cz/calendar"}}, "tt": {"prague5": [{"date": "2026-11-11", "start": "12:00", "end": "12:45", "name": "HYROX®️"}, {"date": "2026-11-11", "start": "19:00", "end": "20:00", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "06:45", "end": "07:45", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "10:00", "end": "11:00", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "19:00", "end": "20:00", "name": "HYROX®️"}, {"date": "2026-11-13", "start": "06:45", "end": "07:45", "name": "HYROX®️"}, {"date": "2026-11-13", "start": "18:00", "end": "19:00", "name": "HYROX®️"}, {"date": "2026-11-14", "start": "10:00", "end": "11:00", "name": "HYROX®️"}, {"date": "2026-11-15", "start": "18:30", "end": "19:30", "name": "HYROX®️"}, {"date": "2026-11-16", "start": "06:45", "end": "07:45", "name": "HYROX®️"}, {"date": "2026-11-16", "start": "18:00", "end": "19:00", "name": "HYROX®️"}, {"date": "2026-11-17", "start": "11:30", "end": "12:15", "name": "HYROX®️"}, {"date": "2026-11-17", "start": "16:00", "end": "17:00", "name": "HYROX®️"}, {"date": "2026-11-17", "start": "18:30", "end": "19:30", "name": "HYROX®️"}], "prague3": [{"date": "2026-11-11", "start": "19:00", "end": "20:00", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "07:00", "end": "08:00", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "12:00", "end": "13:00", "name": "HYROX®️"}, {"date": "2026-11-13", "start": "19:00", "end": "20:00", "name": "HYROX®️"}, {"date": "2026-11-14", "start": "09:30", "end": "10:30", "name": "HYROX®️"}, {"date": "2026-11-16", "start": "07:00", "end": "08:00", "name": "HYROX®️"}, {"date": "2026-11-16", "start": "11:00", "end": "12:00", "name": "HYROX®️"}, {"date": "2026-11-16", "start": "16:30", "end": "17:30", "name": "HYROX®️"}, {"date": "2026-11-17", "start": "11:30", "end": "12:30", "name": "HYROX®️"}, {"date": "2026-11-17", "start": "18:00", "end": "19:00", "name": "HYROX®️"}], "brno": [{"date": "2026-11-11", "start": "15:50", "end": "16:50", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "18:10", "end": "19:10", "name": "HYROX®️"}], "ostrava": [{"date": "2026-11-11", "start": "17:15", "end": "18:15", "name": "HYROX®️"}, {"date": "2026-11-11", "start": "18:30", "end": "19:30", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "06:30", "end": "07:30", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "15:55", "end": "16:55", "name": "HYROX®️"}, {"date": "2026-11-12", "start": "19:10", "end": "20:10", "name": "HYROX®️"}, {"date": "2026-11-13", "start": "10:00", "end": "11:00", "name": "HYROX®️"}, {"date": "2026-11-13", "start": "17:00", "end": "18:00", "name": "HYROX®️"}, {"date": "2026-11-13", "start": "18:15", "end": "19:15", "name": "HYROX®️"}, {"date": "2026-11-14", "start": "09:00", "end": "10:00", "name": "HYROX®️"}, {"date": "2026-11-15", "start": "08:30", "end": "09:30", "name": "HYROX®️"}, {"date": "2026-11-15", "start": "10:00", "end": "11:00", "name": "HYROX®️"}, {"date": "2026-11-15", "start": "17:00", "end": "18:00", "name": "HYROX®️"}, {"date": "2026-11-16", "start": "11:00", "end": "12:00", "name": "HYROX®️"}, {"date": "2026-11-16", "start": "15:55", "end": "16:55", "name": "HYROX®️"}, {"date": "2026-11-17", "start": "09:00", "end": "10:00", "name": "HYROX®️"}, {"date": "2026-11-17", "start": "17:00", "end": "18:00", "name": "HYROX®️"}, {"date": "2026-11-17", "start": "18:15", "end": "19:15", "name": "HYROX®️"}]}, "fmt": {"f": {"name": "Foundational", "claim": "Kruhový trénink, který má smysl.", "who": "pro začátečníky ideální, pro pokročilé pořád poctivá práce. Škáluje se na každou úroveň."}, "e": {"name": "Engine", "claim": "Větší motor. Delší výkon.", "who": "pro silné lidi, kterým chybí výdrž, běh nebo jistota na SkiErgu a veslu."}, "p": {"name": "Power", "claim": "Síla, která drží i v 7. kilometru.", "who": "pro běžce a vytrvalce, kterým na saních, výpadech a farmers carry dochází síla."}, "c": {"name": "Complete", "claim": "HYROX v tréninkové podobě.", "who": "pro každého, kdo má datum závodu v kalendáři a chce vědět, co ho čeká."}}, "tips": {"t_first": ["Jak vypadá první HYROX lekce", "Co tě čeká a jak se připravit."], "t_member": ["Ještě nejsi členem?", "První vstup do Form Factory."], "t_rp": ["12 Weeks Race Prep", "Do závodu méně než 12 týdnů? Připrav se systematicky."], "t_sim": ["HYROX simulace", "Zjisti, kde jsi a co trénovat."], "t_ffg": ["Form Factory Games", "23. 1. 2027 · individuální závod ve Form Factory Vinohradská."]}, "links": {"t_first": "/prvni-hyrox-lekce/", "t_member": "https://www.formfactory.cz/prvni-vstup/", "t_rp": "/12-weeks-race-prep/", "t_sim": "/hyrox-simulace/", "t_ffg": "https://formfactorygames.cz/"}, "days": ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"], "today": "Dnes", "tomorrow": "Zítra", "book": "Rezervovat"};
+  var F=document.getElementById('finder'); if(!F) return;
+  var $=function(s,r){return (r||F).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||F).querySelectorAll(s))};
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ev=function(n,p){try{if(window.gtag)gtag('event',n,p||{})}catch(e){}};
+  var Q=$$('.f-q'), a={}, step=-1;
+  function show(el){el.hidden=false;el.classList.remove('f-in');void el.offsetWidth;el.classList.add('f-in')}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function render(){
+    $$('.f-q,.f-res').forEach(function(e){e.hidden=true});
+    $('.f-intro').hidden=step>-1;
+    var inQ=step>-1&&step<Q.length;
+    $('.f-top').hidden=$('.f-bar').hidden=!inQ;
+    if(step<0) return;
+    if(!inQ) return result();
+    var q=Q[step];
+    $('.f-back').style.visibility=step?'visible':'hidden';
+    $('.f-count').textContent=('0'+(step+1)).slice(-2)+' / '+('0'+Q.length).slice(-2);
+    $('.f-bar i').style.width=((step+1)/Q.length*100)+'%';
+    $$('button',q).forEach(function(b){b.classList.toggle('on',a[q.dataset.q]===b.dataset.v)});
+    show(q);
+  }
+  function slots(club){
+    var now=new Date(), pad=function(n){return ('0'+n).slice(-2)};
+    var today=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate()), hm=pad(now.getHours())+':'+pad(now.getMinutes());
+    var all=(D.tt[club]||[]).filter(function(r){return r.date>today||(r.date===today&&r.start>hm)});
+    var fit=all.filter(function(r){return a.time==='am'?r.start<'09:00':a.time==='day'?(r.start>='09:00'&&r.start<'16:00'):a.time==='pm'?r.start>='16:00':true});
+    return {list:(fit.length?fit:all).slice(0,3),fb:!fit.length&&all.length>0};
+  }
+  function label(ds){
+    var d=new Date(ds+'T12:00:00'), n=new Date(); n.setHours(12,0,0,0);
+    var diff=Math.round((d-n)/864e5);
+    if(diff===0) return D.today; if(diff===1) return D.tomorrow;
+    return D.days[(d.getDay()+6)%7]+' '+d.getDate()+'. '+(d.getMonth()+1)+'.';
+  }
+  function result(){
+    var c=D.clubs[a.club], r=$('.f-res');
+    $('.f-club').textContent=c.name; $('.f-addr').textContent=c.addr;
+    var so=slots(a.club), s=so.list, box=$('.f-slots'); box.innerHTML='';
+    s.forEach(function(x){
+      var p=x.date.split('-'), el=document.createElement('a');
+      el.href=c.cal+'?day='+p[2]+'.'+p[1]+'.'+p[0]+'&view=DayByHour'; el.target='_blank'; el.rel='noopener';
+      el.innerHTML=esc(label(x.date))+' · '+esc(x.start)+'–'+esc(x.end)+'<span>'+esc(D.book)+' →</span>';
+      el.onclick=function(){ev('quiz_book_click',{quiz:'htc_finder',club:a.club})};
+      box.appendChild(el);
+    });
+    $('.f-none:not(.f-empty)').hidden=!so.fb; $('.f-empty').hidden=s.length>0;
+    var k={run:'e',str:'p',tech:'f',pace:'c'}[a.gap]||((a.goal==='soon'||a.exp==='race')?'c':(a.exp==='zero'?'f':'c'));
+    var fm=D.fmt[k], fb=$('.f-fmt');
+    fb.querySelector('b').textContent=fm.name; fb.querySelector('.claim').textContent=fm.claim; fb.querySelector('.who').textContent=fm.who;
+    var tips=[];
+    if(a.exp==='zero'||a.exp==='fit') tips.push('t_first');
+    if(a.member==='no') tips.push('t_member');
+    if(a.goal==='soon') tips.push('t_rp');
+    if(a.goal==='later'||a.exp==='race') tips.push('t_sim');
+    if(a.goal==='ffg') tips.push('t_ffg');
+    var ul=$('.f-tips'); ul.innerHTML='';
+    tips.filter(function(t){return D.tips[t]}).forEach(function(t){
+      var li=document.createElement('li'), ext=/^https?:/.test(D.links[t]);
+      li.innerHTML='<a href="'+esc(D.links[t])+'"'+(ext?' target="_blank" rel="noopener"':'')+'><div><b>'+esc(D.tips[t][0])+'</b><span>'+esc(D.tips[t][1])+'</span></div><em>→</em></a>';
+      ul.appendChild(li);
+    });
+    $('.f-tipsw').hidden=!ul.children.length;
+    $('.f-book').href=c.cal;
+    $('.f-book').onclick=function(){ev('quiz_book_click',{quiz:'htc_finder',club:a.club})};
+    show(r);
+    F.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    ev('quiz_result',{quiz:'htc_finder',club:a.club,format:fm.name});
+  }
+  $('.f-start').onclick=function(){step=0;ev('quiz_start',{quiz:'htc_finder'});render();F.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})};
+  $('.f-back').onclick=function(){step--;render()};
+  $('.f-again').onclick=function(){a={};step=0;render()};
+  Q.forEach(function(q){$$('button',q).forEach(function(b){b.onclick=function(){
+    a[q.dataset.q]=b.dataset.v;
+    $$('button',q).forEach(function(x){x.classList.toggle('on',x===b)});
+    ev('quiz_answer',{quiz:'htc_finder',question:q.dataset.q,answer:b.dataset.v});
+    setTimeout(function(){step++;render()},200);
+  }})});
+})();
+</script>
 
   <section class="clubs" id="kluby">
     <div class="wrap">
