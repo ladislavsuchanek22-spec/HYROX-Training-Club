@@ -267,7 +267,13 @@ def program_page(lang, T, STYLE, EXTRA_CSS, SITE, net, FF_HYROX):
         weeks += "".join(f'<div class="rp-week{" ws" if ws else ""}"><span class="n">{n}</span><b>{f}{wsl if ws else ""}</b><span>{d}</span></div>' for n, f, d, ws in rows)
     price = "".join(f"<li>{x}</li>" for x in s["pr_list"])
     pdfs = "".join(f"<li>{p}</li>" for p in s["pdfs"])
-    return head(lang, SLUG, s["title"], s["desc"], SITE) + STYLE + EXTRA_CSS + RP_CSS + """
+    ld = json.dumps({"@context": "https://schema.org", "@graph": [{
+        "@type": "Product", "@id": SITE + path(lang, SLUG) + "#product",
+        "name": "12 Weeks HYROX Race Prep", "description": s["desc"], "inLanguage": lang,
+        "image": SITE + "/img/coaches.jpg", "url": SITE + path(lang, SLUG),
+        "brand": [{"@type": "Brand", "name": "STR2G"}, {"@type": "Brand", "name": "Form Factory"}],
+        "offers": {"@type": "Offer", "price": "8990", "priceCurrency": "CZK", "availability": "https://schema.org/InStock", "url": SITE + path(lang, SLUG)}}]}, ensure_ascii=False)
+    return head(lang, SLUG, s["title"], s["desc"], SITE) + f'<script type="application/ld+json">{ld}</script>\n' + STYLE + EXTRA_CSS + RP_CSS + """
 <style>body{margin:0}[hidden]{display:none!important}.hero h1{font-size:clamp(52px,10vw,132px)}</style>
 </head>
 <body>
