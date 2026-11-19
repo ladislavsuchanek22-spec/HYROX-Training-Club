@@ -615,6 +615,7 @@ def page(lang):
     <ul>
       {raceprep.nav_li(lang)}
       <li><a href="#programy">{t["nav_prog"]}</a></li>
+      <li><a href="/hyrox-for-competitors/">Competitors</a></li>
       <li><a href="#zavod">{t["nav_race"]}</a></li>
       <li><a href="#treneri">{t["nav_coach"]}</a></li>
       <li><a href="#kluby">{t["nav_clubs"]}</a></li>
@@ -1025,6 +1026,7 @@ def city_page(slug):
       <li><a href="/brno/">Brno</a></li>
       <li><a href="/ostrava/">Ostrava</a></li>
       <li><a href="/#programy">{t["nav_prog"]}</a></li>
+      <li><a href="/hyrox-for-competitors/">Competitors</a></li>
     </ul>
     <div class="nav-right">
       <a class="btn btn-red" href="{cal}" target="_blank" rel="noopener">{t["nav_book"]}</a>
@@ -1254,6 +1256,7 @@ def article_page(slug):
       <li><a href="/brno/">Brno</a></li>
       <li><a href="/ostrava/">Ostrava</a></li>
       <li><a href="/#programy">{t["nav_prog"]}</a></li>
+      <li><a href="/hyrox-for-competitors/">Competitors</a></li>
     </ul>
     <div class="nav-right">
       <a class="btn btn-red" href="{cal}" target="_blank" rel="noopener">{t["nav_book"]}</a>
