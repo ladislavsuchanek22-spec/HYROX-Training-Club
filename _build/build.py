@@ -119,8 +119,8 @@ T = {}
 
 T["cs"] = dict(
   h1_sub="Skupinové HYROX tréninky v Praze, Brně a Ostravě",
-  title="HYROX Training Club Praha, Brno, Ostrava | Form Factory",
-  meta_desc="Oficiální HYROX Training Club ve Form Factory. HYROX trénink v Praze, Brně a Ostravě podle programu HYROX365. Skupinové lekce s HYROX trenéry, pro začátečníky i závodníky.",
+  title="HYROX trénink Praha, Brno, Ostrava | Oficiální HYROX Training Club",
+  meta_desc="Oficiální HYROX Training Club ve Form Factory: skupinové HYROX lekce v Praze, Brně a Ostravě podle HYROX365. Pro začátečníky i závodníky, rezervace online.",
   og_locale="cs_CZ",
   og_desc="Trénink podle oficiálního programu HYROX365. Praha, Brno, Ostrava.",
   brand_sub="Form Factory · Praha · Brno · Ostrava",
@@ -854,8 +854,8 @@ CITY_LINK = {
 CITIES = {
   "praha": dict(
     clubs=["prague5", "prague3"], name="Praha", loc="v Praze",
-    title="HYROX Praha: tréninky a rozvrh lekcí · Smíchov, Vinohrady",
-    desc="HYROX v Praze: skupinové tréninky ve Form Factory Na Knížecí (Praha 5) a Vinohradská (Praha 3) podle programu HYROX365. Aktuální rozvrh lekcí a rezervace online.",
+    title="HYROX Praha: oficiální HYROX Training Club, rozvrh lekcí",
+    desc="HYROX lekce v Praze ve Form Factory Na Knížecí (Praha 5) a Vinohradská (Praha 3). Oficiální program HYROX365, pro začátečníky i závodníky. Rozvrh a rezervace online.",
     h1="HYROX trénink Praha", sub="Na Knížecí · Vinohradská",
     lead="V Praze trénujeme ve dvou klubech Form Factory: Na Knížecí na Smíchově a na Vinohradské. Lekce jedou podle oficiálního programu HYROX365. Běh, síla, stanice a práce pod únavou. Přijď jako začátečník i jako závodník.",
     img="/img/group.webp",
@@ -863,8 +863,8 @@ CITIES = {
   ),
   "brno": dict(
     clubs=["brno"], name="Brno", loc="v Brně",
-    title="HYROX Brno: tréninky a rozvrh lekcí · Form Factory Campus",
-    desc="HYROX v Brně: skupinové tréninky ve Form Factory Campus podle programu HYROX365, pro začátečníky i závodníky. Aktuální rozvrh lekcí a rezervace online.",
+    title="HYROX Brno: oficiální HYROX Training Club, rozvrh lekcí",
+    desc="HYROX lekce v Brně ve Form Factory Campus (Starý Lískovec). Oficiální program HYROX365, pro začátečníky i závodníky. Rozvrh a rezervace online.",
     h1="HYROX trénink Brno", sub="Form Factory Campus",
     lead="V Brně trénujeme ve Form Factory Campus ve Starém Lískovci. Stejný program HYROX365 jako v Praze a Ostravě: běh, síla, stanice a práce pod únavou. Lekci si rezervuješ online.",
     img="/img/sled.webp",
@@ -872,8 +872,8 @@ CITIES = {
   ),
   "ostrava": dict(
     clubs=["ostrava"], name="Ostrava", loc="v Ostravě",
-    title="HYROX Ostrava: tréninky a rozvrh lekcí · Form Factory Hrabová",
-    desc="HYROX v Ostravě: skupinové tréninky ve Form Factory Hrabová podle programu HYROX365, pro začátečníky i závodníky. Aktuální rozvrh lekcí a rezervace online.",
+    title="HYROX Ostrava: oficiální HYROX Training Club, rozvrh lekcí",
+    desc="HYROX lekce v Ostravě ve Form Factory Hrabová. Oficiální program HYROX365, pro začátečníky i závodníky. Rozvrh a rezervace online.",
     h1="HYROX trénink Ostrava", sub="Form Factory Hrabová",
     lead="V Ostravě trénujeme ve Form Factory Hrabová. Stejný program HYROX365 jako v Praze a Brně: běh, síla, stanice a práce pod únavou. Lekci si rezervuješ online.",
     img="/img/group-v.webp",
