@@ -577,6 +577,7 @@ def page(lang):
 <meta name="description" content="{t["meta_desc"]}">
 <meta name="google-site-verification" content="Kzs4h_GLxSKewaL5_z4ibvPSfkfjBjpCLB9cq3RR-Ts" />
 <meta name="seznam-wmt" content="1v4CpFoC6D7RCK2pzgM4TaMFJeHAj9nm" />
+<meta name="seznam-wmt" content="SxzCmSMEuRN8idRxPdHa22lwd2xJQ07g" />
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HYROX Training Club">
